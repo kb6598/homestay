@@ -18,7 +18,88 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class HomeController {
 	// in desktop
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
-	//in laptop
+	//in desktop
+	/**
+	 * Simply selects the home view to render by returning its name.
+	 */
+	/**
+	 * Simply selects the home view to render by returning its name.
+	 */
+	/**
+	 * Simply selects the home view to render by returning its name.
+	 */
+	/**
+	 * Simply selects the home view to render by returning its name.
+	 */
+	/**
+	 * Simply selects the home view to render by returning its name.
+	 */
+	/**
+	 * Simply selects the home view to render by returning its name.
+	 */
+	/**
+	 * Simply selects the home view to render by returning its name.
+	 */
+	/**
+	 * Simply selects the home view to render by returning its name.
+	 */
+	/**
+	 * Simply selects the home view to render by returning its name.
+	 */
+	/**
+	 * Simply selects the home view to render by returning its name.
+	 */
+	/**
+	 * Simply selects the home view to render by returning its name.
+	 */
+	/**
+	 * Simply selects the home view to render by returning its name.
+	 */
+	/**
+	 * Simply selects the home view to render by returning its name.
+	 */
+	/**
+	 * Simply selects the home view to render by returning its name.
+	 */
+	/**
+	 * Simply selects the home view to render by returning its name.
+	 */
+	/**
+	 * Simply selects the home view to render by returning its name.
+	 */
+	/**
+	 * Simply selects the home view to render by returning its name.
+	 */
+	/**
+	 * Simply selects the home view to render by returning its name.
+	 */
+	/**
+	 * Simply selects the home view to render by returning its name.
+	 */
+	/**
+	 * Simply selects the home view to render by returning its name.
+	 */
+	/**
+	 * Simply selects the home view to render by returning its name.
+	 */
+	/**
+	 * Simply selects the home view to render by returning its name.
+	 */
+	/**
+	 * Simply selects the home view to render by returning its name.
+	 */
+	/**
+	 * Simply selects the home view to render by returning its name.
+	 */
+	/**
+	 * Simply selects the home view to render by returning its name.
+	 */
+	/**
+	 * Simply selects the home view to render by returning its name.
+	 */
+	/**
+	 * Simply selects the home view to render by returning its name.
+	 */
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
@@ -61,8 +142,12 @@ public class HomeController {
 		model.addAttribute("serverTime4", formattedDate );
 		model.addAttribute("serverTime5", formattedDate );
 		model.addAttribute("serverTime6", formattedDate );
+
 		
 		return "home";
+	}
+	public void method2() {
+		System.out.println("in Desktop");
 	}
 	
 	public void methodLaotop() {
