@@ -137,13 +137,11 @@ public class HomeController {
 		String formattedDate = dateFormat.format(date);
 		
 		model.addAttribute("serverTime", formattedDate );
-		model.addAttribute("serverTime2", formattedDate );
-		model.addAttribute("serverTime3", formattedDate );
-		model.addAttribute("serverTime4", formattedDate );
-		model.addAttribute("serverTime5", formattedDate );
-		model.addAttribute("serverTime6", formattedDate );
+
 		
 		return "home";
 	}
-	
+	public void method2() {
+		System.out.println("in Desktop");
+	}
 }
