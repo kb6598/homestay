@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 @Controller
 public class HomeController {
-	
+	// in desktop
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	//in laptop
 	/**
