@@ -39,6 +39,9 @@ hs_err_pid*\
 /**/.project
 /**/.settings
 /**/.springBeans
+/**/bin
+/**/target
+/**/.setting
 
 ### IntelliJ IDEA ###
 /**/.idea
