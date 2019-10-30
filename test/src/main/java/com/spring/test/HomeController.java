@@ -65,4 +65,10 @@ public class HomeController {
 		return "home";
 	}
 	
+	public void methodLaotop() {
+		
+		System.out.println("laptop");
+		return ;
+	}
+	
 }
