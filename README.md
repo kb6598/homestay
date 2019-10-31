@@ -1,2 +1,5 @@
 # test
-gitignore 아직 생성 안함
+DB Server : itbuddy.iptime.org
+port : 8222
+id : capstone
+pw : capstone1234
