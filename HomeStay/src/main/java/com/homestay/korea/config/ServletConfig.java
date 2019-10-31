@@ -13,6 +13,7 @@ import org.springframework.web.servlet.view.JstlView;
 
 @EnableWebMvc
 @ComponentScan(basePackages = { "com.homestay.korea.controller" })
+@ComponentScan(basePackages = { "com.homestay.korea" })
 public class ServletConfig implements WebMvcConfigurer {
 	
 	@Override
