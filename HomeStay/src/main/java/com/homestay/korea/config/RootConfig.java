@@ -12,9 +12,9 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
-@ComponentScan(basePackages = { "com.fleamarket.service" })
-@ComponentScan(basePackages = "com.fleamarket.task")
-@MapperScan(basePackages = { "com.fleamarket.mapper" })
+@ComponentScan(basePackages = { "com.homestay.korea.service" })
+@ComponentScan(basePackages = "com.homestay.korea.util")
+@MapperScan(basePackages = { "com.homestay.korea.DAO" })
 
 @EnableScheduling
 @EnableTransactionManagement
