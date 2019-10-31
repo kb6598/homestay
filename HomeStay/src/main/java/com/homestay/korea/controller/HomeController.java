@@ -1,4 +1,4 @@
-package com.homestay.korea;
+package com.homestay.korea.controller;
 
 import java.text.DateFormat;
 import java.util.Date;
