@@ -1,4 +1,4 @@
-package com.spring.test.DAO;
+package com.homestay.korea;
 
 import java.text.DateFormat;
 import java.util.Date;
@@ -15,9 +15,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * Handles requests for the application home page.
  */
 @Controller
-public class HomeController8 {
+public class HomeController {
 	
-	private static final Logger logger = LoggerFactory.getLogger(HomeController8.class);
+	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
 	/**
 	 * Simply selects the home view to render by returning its name.
