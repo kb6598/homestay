@@ -1,6 +1,5 @@
-package com.homestay.korea.common;
+package com.homestay.korea.controller;
 
-<<<<<<< HEAD
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -12,18 +11,18 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-/**
- * Handles requests for the application home page.
- */
+import com.homestay.korea.HomeController;
+
 @Controller
-public class DummyCommon {
+
+public class MainController {
 	
-	private static final Logger logger = LoggerFactory.getLogger(DummyCommon.class);
+	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
-	@RequestMapping(value = "/", method = RequestMethod.GET)
+	@RequestMapping(value = "/topview", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
 		logger.info("Welcome home! The client locale is {}.", locale);
 		
@@ -34,12 +33,8 @@ public class DummyCommon {
 		
 		model.addAttribute("serverTime", formattedDate );
 		
-		return "home";
+		return "homestay/mainPage/topView";
 	}
-=======
-
-public class DummyCommon {
-
->>>>>>> 0f53da553badb573aedccbf0d15e300a74aa2d93
+	
 	
 }
