@@ -26,14 +26,6 @@ public class LoginFormController {
 		
 	}
 	
-	/*
-	 * to do list
-	 * 1.id,pw입력했는지 확인 (o)
-	 * 2.id존재하는지 확인하고 (o)
-	 * 3.pw맞았는지 확인하고 (o)
-	 * 4.session 등록해주고
-	 * 5.메인페이지로 go
-	 */
 	@PostMapping("/login")
 	public String memberLogin(@RequestParam("id") String id, @RequestParam("pw") String pw, HttpSession session) {
 		

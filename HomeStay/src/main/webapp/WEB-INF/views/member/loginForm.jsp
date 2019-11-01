@@ -98,7 +98,6 @@ input[type="password"] {
 			e.preventDefault();
 			
 			var operation = $(this).data("oper");
-			console.log('operaion: ' + operation);
 			if(operation === 'join') {
 				form.attr("action","/member/join").attr("method", "GET");
 				form.empty();
