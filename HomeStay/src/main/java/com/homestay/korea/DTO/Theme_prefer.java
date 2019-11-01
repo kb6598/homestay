@@ -45,6 +45,8 @@ public class Theme_prefer {
 		this.leports = leports;
 	}
 	public Double getDining() {
+		
+		
 		return dining;
 	}
 	public void setDining(Double dining) {
