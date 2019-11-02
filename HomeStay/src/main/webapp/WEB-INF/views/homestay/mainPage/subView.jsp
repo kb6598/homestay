@@ -25,7 +25,7 @@
      
             <div class="row subview-center">
                 <div class="col-lg">
-                    <div id="subView_${theme}" class="carousel slide carousel-fade" data-ride="carousel">
+                    <div id="subView_${theme}" class="carousel slide" data-ride="carousel">
                         <ol class="carousel-indicators">
                             <li data-target="#subView" data-slide-to="0" class="active"></li>
                             <li data-target="#subView" data-slide-to="1"></li>

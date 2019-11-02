@@ -19,8 +19,7 @@
 			curLoc= request.getParameter("location").toString();
 		}else{
 			curLoc = "전체";
-		}
-		 
+		}		 
 
 		for(String loc : locs){
 			if(loc.equals(curLoc)){
