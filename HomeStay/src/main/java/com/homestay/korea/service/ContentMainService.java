@@ -1,5 +1,5 @@
 package com.homestay.korea.service;
 
-public class ContentMain {
+public class ContentMainService {
 
 }

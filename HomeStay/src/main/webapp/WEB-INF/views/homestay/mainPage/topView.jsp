@@ -18,18 +18,15 @@
 					<div class="carousel-inner">
 						<div class="carousel-item active" data-interval="5000">
 							<img class="topview-img"
-								src="https://cdn.pixabay.com/photo/2018/06/16/07/48/nature-3478370_960_720.jpg"
-								>
+								src="${image_1}">
 						</div>
 						<div class="carousel-item" data-interval="5000">
 							<img class="topview-img"
-								src="https://upload.wikimedia.org/wikipedia/commons/a/ab/%EA%B4%91%EC%A3%BC%EB%8C%80_%EB%B4%84%ED%92%8D%EA%B2%BD.jpg"
-								>
+								src="${image_2}">
 						</div>
 						<div class="carousel-item" data-interval="5000">
 							<img class="topview-img"
-								src="https://i0.hippopx.com/photos/174/613/190/mountain-landscape-mountains-landscape-steinweg-preview.jpg"
-								>
+								src="${image_3}">
 						</div>
 					</div>
 					<a class="carousel-control-prev" href="#topView" role="button"

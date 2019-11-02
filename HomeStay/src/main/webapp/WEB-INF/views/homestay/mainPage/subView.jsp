@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 
 <jsp:include page="/common/bootstrap"></jsp:include>
@@ -10,13 +11,13 @@
         <div class="container">
             <div class="row subview-header">
                 <div class="col-lg">
-                    <h5>제목</h5>
+                    <h5>${theme_kor}</h5>
                 </div>
                 <div class="col-lg">
                     <div class="btn-wrapper" >
-                    <a class="btn-secondary" href="#subView" data-slide="prev">◁</a>
+                    <a class="btn-secondary" href="#subView_${theme}" data-slide="prev">◁</a>
                     num/num
-                    <a class="btn-secondary" href="#subView" data-slide="next">▷</a>
+                    <a class="btn-secondary" href="#subView_${theme}" data-slide="next">▷</a>
                     </div>
                 </div>
             </div>
@@ -24,7 +25,7 @@
      
             <div class="row subview-center">
                 <div class="col-lg">
-                    <div id="subView" class="carousel slide carousel-fade" data-ride="carousel">
+                    <div id="subView_${theme}" class="carousel slide carousel-fade" data-ride="carousel">
                         <ol class="carousel-indicators">
                             <li data-target="#subView" data-slide-to="0" class="active"></li>
                             <li data-target="#subView" data-slide-to="1"></li>
