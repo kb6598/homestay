@@ -15,7 +15,6 @@
 <style>
 .carousel-item {
 	overflow: hidden;
-	height: 300px;
 }
 
 img {
