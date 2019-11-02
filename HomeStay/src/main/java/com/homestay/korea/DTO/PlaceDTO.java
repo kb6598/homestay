@@ -1,11 +1,11 @@
 package com.homestay.korea.DTO;
 //when filed's value is null that means filed's value was not set
-public class Place {
+public class PlaceDTO {
 	private String contentid;
 	private String createdtime;
 	private String modifiedtime;
 	private String theme;
-	private int count;
+	private long count;
 	public String getContentid() {
 		return contentid;
 	}
@@ -30,11 +30,16 @@ public class Place {
 	public void setTheme(String theme) {
 		this.theme = theme;
 	}
-	public int getCount() {
+	public long getCount() {
 		return count;
 	}
 	public void setCount(int count) {
 		this.count = count;
+	}
+	@Override
+	public String toString() {
+		return "PlaceDTO [contentid=" + contentid + ", createdtime=" + createdtime + ", modifiedtime=" + modifiedtime
+				+ ", theme=" + theme + ", count=" + count + "]";
 	}
 
 

@@ -1,6 +1,6 @@
 package com.homestay.korea.DTO;
 //when filed's value is null that means filed's value was not set
-public class Theme_prefer {
+public class Theme_preferDTO {
 	String id;
 	Double tour_attr;
 	Double cult_facil;
@@ -44,15 +44,19 @@ public class Theme_prefer {
 	public void setLeports(Double leports) {
 		this.leports = leports;
 	}
-	public Double getDining() {
-		
+	public Double getDining() {	
 		
 		return dining;
 	}
+
 	public void setDining(Double dining) {
 		this.dining = dining;
 	}
-	
+	@Override
+	public String toString() {
+		return "Theme_preferDTO [id=" + id + ", tour_attr=" + tour_attr + ", cult_facil=" + cult_facil + ", event="
+				+ event + ", shopping=" + shopping + ", leports=" + leports + ", dining=" + dining + "]";
+	}
 
 
 }
