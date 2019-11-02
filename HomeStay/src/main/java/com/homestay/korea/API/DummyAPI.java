@@ -1,7 +1,7 @@
 package com.homestay.korea.API;
 
 
-public class DummyApi {
+public class DummyAPI {
 
 	
 }
