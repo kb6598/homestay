@@ -22,6 +22,12 @@ public class MainController {
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
+	@RequestMapping(value = "/mainpage/top", method = RequestMethod.GET)
+	public String top(Locale locale, Model model) {
+
+		
+		return "homestay/mainPage/top";
+	}
 	@RequestMapping(value = "/mainpage/topview", method = RequestMethod.GET)
 	public String topview(Locale locale, Model model) {
 
