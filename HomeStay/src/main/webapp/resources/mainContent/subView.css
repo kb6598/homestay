@@ -1,1 +1,24 @@
 @charset "UTF-8";
+
+    	
+        .btn-wrapper{
+            float: right;
+        }
+        .subview {
+            width: 100%;
+            margin: 15px 0px;
+        }
+        .subview-header{
+        margin: 10px 0px;
+        }
+
+        .carousel-item {
+            overflow: hidden;
+
+        }
+
+        .card-img-top {
+            width: 100%;
+            height: 250px;
+            object-fit: cover
+        }

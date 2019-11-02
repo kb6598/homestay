@@ -1,29 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-<title>HomeStay</title>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
-<style>
-.carousel-item {
-	overflow: hidden;
-}
+<jsp:include page="/common/bootstrap"></jsp:include>
+<link rel="stylesheet" href="/resources/mainContent/topView.css">
 
-img {
-	width: 100%;
-	height: 300px;
-	object-fit: cover
-}
-</style>
-</head>
 <body>
 	<div class="container">
 		<div class="row">
@@ -37,17 +17,17 @@ img {
 					</ol>
 					<div class="carousel-inner">
 						<div class="carousel-item active" data-interval="5000">
-							<img
+							<img class="topview-img"
 								src="https://cdn.pixabay.com/photo/2018/06/16/07/48/nature-3478370_960_720.jpg"
 								>
 						</div>
 						<div class="carousel-item" data-interval="5000">
-							<img
+							<img class="topview-img"
 								src="https://upload.wikimedia.org/wikipedia/commons/a/ab/%EA%B4%91%EC%A3%BC%EB%8C%80_%EB%B4%84%ED%92%8D%EA%B2%BD.jpg"
 								>
 						</div>
 						<div class="carousel-item" data-interval="5000">
-							<img
+							<img class="topview-img"
 								src="https://i0.hippopx.com/photos/174/613/190/mountain-landscape-mountains-landscape-steinweg-preview.jpg"
 								>
 						</div>
@@ -63,5 +43,3 @@ img {
 			</div>
 		</div>
 	</div>
-</body>
-</html>

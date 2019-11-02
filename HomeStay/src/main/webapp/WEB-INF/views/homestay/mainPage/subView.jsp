@@ -1,43 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
-<!DOCTYPE html>
-<html>
 
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <title>HomeStay</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <style>
+<jsp:include page="/common/bootstrap"></jsp:include>
+<link rel="stylesheet" href="/resources/mainContent/subView.css">
 
-    	
-        .btn-wrapper{
-            float: right;
-        }
-        .subview {
-            width: 100%;
-            margin: 15px 0px;
-        }
-        .subview-header{
-        margin: 10px 0px;
-        }
-
-        .carousel-item {
-            overflow: hidden;
-
-        }
-
-        img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover
-        }
-    </style>
-</head>
-
-<body>
    <div class="container container-subview">
     <div class="row subview">
         <div class="container">
@@ -184,6 +151,3 @@
        
     </div>
     </div>
-</body>
-
-</html>

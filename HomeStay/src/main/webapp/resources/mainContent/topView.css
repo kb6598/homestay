@@ -1,1 +1,10 @@
 @charset "UTF-8";
+.carousel-item {
+	overflow: hidden;
+}
+
+.topview-img {
+	width: 100%;
+	height: 350px;
+	object-fit: cover
+}

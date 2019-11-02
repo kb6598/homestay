@@ -4,14 +4,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-<title>HomeStay</title>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
+<title>HomeStay</title>
+<jsp:include page="/common/bootstrap"></jsp:include>
 </head>
 <body>
-
+<div class="row">
+<div class="col-lg"><jsp:include page="/mainpage/top" flush="true"/></div>
+</div>
 <div class="row">
 <div class="col-lg"><jsp:include page="/mainpage/topview" flush="true"/></div>
 </div>
