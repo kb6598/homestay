@@ -11,11 +11,29 @@
 </head>
 <body>
 
+<div class="row">
+<div class="col-lg"><jsp:include page="/mainpage/topview" flush="true"/></div>
+</div>
+<div class="row">
+<div class="col-lg"><jsp:include page="/mainpage/menu" flush="true"/></div>
+</div><div class="row">
+<div class="col-lg"><jsp:include page="/mainpage/mainview" flush="true"/></div>
+</div><div class="row">
+<div class="col-lg"><jsp:include page="/mainpage/subview" flush="true"/></div>
+</div><div class="row">
+<div class="col-lg"><jsp:include page="/mainpage/subview" flush="true"/></div>
+</div><div class="row">
+<div class="col-lg"><jsp:include page="/mainpage/subview" flush="true"/></div>
+</div><div class="row">
+<div class="col-lg"><jsp:include page="/mainpage/subview" flush="true"/></div>
+</div><div class="row">
+<div class="col-lg"><jsp:include page="/mainpage/subview" flush="true"/></div>
+</div>
 
-<jsp:include page="/mainpage/topView.jsp" flush="true"/>
-<jsp:include page="/mainpage/menu.jsp" flush="true"/>
-<jsp:include page="/mainpage/mainView.jsp" flush="true"/>
-<jsp:include page="/mainpage/subView.jsp" flush="true"/>
+
+
+
+
 
 </body>
 </html>
