@@ -36,20 +36,20 @@ img {
 						<li data-target="#topView" data-slide-to="2"></li>
 					</ol>
 					<div class="carousel-inner">
-						<div class="carousel-item active" data-interval="10000">
+						<div class="carousel-item active" data-interval="5000">
 							<img
 								src="https://cdn.pixabay.com/photo/2018/06/16/07/48/nature-3478370_960_720.jpg"
-								alt="Responsive image">
+								>
 						</div>
-						<div class="carousel-item" data-interval="10000">
+						<div class="carousel-item" data-interval="5000">
 							<img
 								src="https://upload.wikimedia.org/wikipedia/commons/a/ab/%EA%B4%91%EC%A3%BC%EB%8C%80_%EB%B4%84%ED%92%8D%EA%B2%BD.jpg"
-								alt="Responsive image">
+								>
 						</div>
-						<div class="carousel-item" data-interval="10000">
+						<div class="carousel-item" data-interval="5000">
 							<img
 								src="https://i0.hippopx.com/photos/174/613/190/mountain-landscape-mountains-landscape-steinweg-preview.jpg"
-								alt="Responsive image">
+								>
 						</div>
 					</div>
 					<a class="carousel-control-prev" href="#topView" role="button"
@@ -63,10 +63,5 @@ img {
 			</div>
 		</div>
 	</div>
-	<script type="text/javascript">
-
-
-
-	</script>
 </body>
 </html>
