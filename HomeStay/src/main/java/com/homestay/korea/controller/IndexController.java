@@ -15,7 +15,7 @@ import com.homestay.korea.HomeController;
 
 @Controller
 
-public class MainController {
+public class IndexController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	

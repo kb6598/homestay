@@ -1,5 +1,8 @@
 package com.homestay.korea.service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,6 +22,14 @@ public class PlaceReadServiceImpl implements IPlaceReadService {
 		// TODO Auto-generated method stub
 		PlaceDTO palce = palceDAO.readWithContentid(contentid);
 		return palce;
+	}
+
+	@Override
+	public ArrayList<PlaceDTO> getPlaceByThemeWithLimitDesc(String theme, int limit) {
+		// TODO Auto-generated method stub
+		ArrayList<PlaceDTO> resultList = palceDAO.readWithThemeLimitDesc(theme, limit);
+				
+		return resultList;
 	}
 
 

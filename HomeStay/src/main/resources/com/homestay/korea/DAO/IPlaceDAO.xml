@@ -3,9 +3,16 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.homestay.korea.DAO.IPlaceDAO">
+
+
+
+
+
 	
 	<select id="readWithContentid" resultType="com.homestay.korea.DTO.PlaceDTO">
 		select * from place where contentid=#{contentid}
 	</select>
+	
+
 	
 </mapper>

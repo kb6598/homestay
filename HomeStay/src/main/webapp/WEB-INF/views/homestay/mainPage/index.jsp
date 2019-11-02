@@ -11,5 +11,11 @@
 </head>
 <body>
 
+
+<jsp:include page="/mainpage/topView.jsp" flush="true"/>
+<jsp:include page="/mainpage/menu.jsp" flush="true"/>
+<jsp:include page="/mainpage/mainView.jsp" flush="true"/>
+<jsp:include page="/mainpage/subView.jsp" flush="true"/>
+
 </body>
 </html>
