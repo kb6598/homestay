@@ -17,12 +17,12 @@
             font-family: 'Noto Sans KR', sans-serif;
         }
 
-        .container {
+        .mainview-container {
             width: auto;
             height: 540px;
         }
 
-        .row {
+        .mainview{
             height: 100%;
             display: flex;
             flex-direction: row;
@@ -104,8 +104,8 @@
 	
 	<body>
 	
-    	<div class="container">
-        	<div class="row">
+    	<div class="container mainview-container">
+        	<div class="row mainview">
             	<div class="col">
 	                <div id="mainViewArea1" class="carousel slide" data-ride="carousel">
 	                    <div class="carousel-inner left">

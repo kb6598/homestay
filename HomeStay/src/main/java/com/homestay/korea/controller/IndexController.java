@@ -14,11 +14,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.homestay.korea.HomeController;
 
 @Controller
-
-public class MainController {
+public class IndexController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
-	
+
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
@@ -57,7 +56,7 @@ public class MainController {
 	public String index(Locale locale, Model model) {
 
 		
-		return "homestay/index";
+		return "homestay/mainPage/index";
 	}
 	
 	
