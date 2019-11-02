@@ -2,14 +2,14 @@
 	pageEncoding="UTF-8"%>
 
 <jsp:include page="/common/bootstrap"></jsp:include>
-<link rel="stylesheet" href="/resources/mainContent/mainView.css">
+<link rel="stylesheet" href="/resources/mainContent/menu.css">
 
 
 <div class="container">
 	<div class="row">
 		<div class="col-sm-12">
 			<div class="regionCategory">
-				<div class="regionItem">
+				<div class="regionItem selected">
 					<a href="#">전체</a>
 				</div>
 				<div class="regionItem">

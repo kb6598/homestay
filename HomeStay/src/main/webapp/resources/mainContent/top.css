@@ -1,32 +1,21 @@
 @charset "UTF-8";
-.col-sm-12
-{
-	text-align :center;
-	color: black;
-    text-decoration: none;
-}
 
-ul
-{
-	list-style: none;
-}
-
-ul li
-{
-	float: left;
-}
-
-a
-{
-	color : #000;
-	padding-left: 30px;
-	padding-right: 30px;
-	text-decoration: none;
-}
-
-a:hover, a:focus
-{
-	color : #FC0;
-	text-decoration: underline;
-
-}
+    /* 임시 로고 */
+    .top-header{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin: 20px 0;
+    }
+    
+    .col-sm-9 a {
+    	color: #000;
+        text-decoration: none;
+    }
+    
+    logo {
+        color: #000;
+        font-size: 17px;
+        font-weight: 700;
+        font-family: 'Noto Sans KR', sans-serif;
+    }

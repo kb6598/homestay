@@ -1,11 +1,5 @@
 @charset "UTF-8";
 
-.col-sm-12 {
-	text-align: center;
-	color: black;
-	text-decoration: none;
-}
-
 .regionCategory {
 	display: flex;
 	flex-direction: row;
@@ -21,16 +15,23 @@
 	cursor: pointer;
 	margin: 10px 10px 0;
 	transition-duration: .3s;
+	text-align: center;
+	text-decoration: none;
 }
 
-.regionItem a {
+.regionItem > a {
 	color: #000;
 	text-decoration: none;
 	font-size: 17px;
 	font-family: 'Noto Sans KR', sans-serif;
 }
 
-.regionItem:hover {
+.regionItem:hover{
+	margin-bottom: -5px;
+	border-bottom: 5px solid dimgray;
+}
+
+.regionItem.selected {
 	margin-bottom: -5px;
 	border-bottom: 5px solid #000;
 }
