@@ -1,10 +1,41 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <title>HomeStay</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <style>
+        .btn-wrapper{
+            float: right;
+        }
+        .subviw {
+            width: 100%;
+        }
+
+        .carousel-item {
+            overflow: hidden;
+
+        }
+
+        img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover
+        }
+    </style>
+</head>
+
+<body>
    <div class="container">
-    <div class="row subview">
+    <div class="row subviw">
         <div class="container">
-            <div class="row subview-header">
+            <div class="row subviw-header">
                 <div class="col-lg">
                     <h5>제목</h5>
                 </div>
@@ -18,7 +49,7 @@
             </div>
         </div>
      
-            <div class="row subview-center">
+            <div class="row subviw-center">
                 <div class="col-lg">
                     <div id="subView" class="carousel slide carousel-fade" data-ride="carousel">
                         <ol class="carousel-indicators">
@@ -147,3 +178,6 @@
        
     </div>
     </div>
+</body>
+
+</html>

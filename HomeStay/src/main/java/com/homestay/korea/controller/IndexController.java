@@ -57,7 +57,7 @@ public class IndexController {
 	public String index(Locale locale, Model model) {
 
 		
-		return "homestay/mainPage/index";
+		return "homestay/index";
 	}
 	
 	
