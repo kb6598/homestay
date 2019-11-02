@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
 
@@ -10,6 +11,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <style>
+        .btn-wrapper{
+            float: right;
+        }
         .subviw {
             width: 100%;
         }
@@ -33,12 +37,18 @@
         <div class="container">
             <div class="row subviw-header">
                 <div class="col-lg">
+                    <h5>제목</h5>
+                </div>
+                <div class="col-lg">
+                    <div class="btn-wrapper" >
                     <a class="btn-secondary" href="#subView" data-slide="prev">◁</a>
+                    num/num
                     <a class="btn-secondary" href="#subView" data-slide="next">▷</a>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="container">
+     
             <div class="row subviw-center">
                 <div class="col-lg">
                     <div id="subView" class="carousel slide carousel-fade" data-ride="carousel">
@@ -165,7 +175,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+       
     </div>
     </div>
 </body>
