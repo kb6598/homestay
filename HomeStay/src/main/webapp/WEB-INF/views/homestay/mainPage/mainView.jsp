@@ -15,21 +15,21 @@
                         	<div class="carousel-item active">
 	                            <img src="/resources/mainContent/testImage01.jpg" class="d-block w-100" alt="...">
                             	<div class="carousel-text">
-	                                <div class="category">문화시설</div>
+	                                <div class="category">${theme_kor1}</div>
                                 	<div class="place">롯데월드</div>
                             	</div>
                         	</div>
                         	<div class="carousel-item">
 	                            <img src="/resources/mainContent/testImage02.jpg" class="d-block w-100" alt="...">
    	                         	<div class="carousel-text">
-                                	<div class="category">카테고리</div>
+                                	<div class="category">${theme_kor1}</div>
 	                                <div class="place">장소명</div>
                             	</div>
                         	</div>
                         	<div class="carousel-item">
 	                            <img src="/resources/mainContent/testImage03.jpg" class="d-block w-100" alt="...">
                             	<div class="carousel-text">
-	                                <div class="category">카테고리2</div>
+	                                <div class="category">${theme_kor1}</div>
                                 	<div class="place">장소명2</div>
                             	</div>
                         	</div>
@@ -54,21 +54,21 @@
 	                        <div class="carousel-item active">
                             	<img src="/resources/mainContent/testImage01.jpg" class="d-block w-100" alt="...">
                             	<div class="carousel-text">
-	                                <div class="category">문화시설</div>
+	                                <div class="category">${theme_kor2}</div>
                                 	<div class="place">롯데월드</div>
                             	</div>
                         	</div>
                         	<div class="carousel-item">
 	                            <img src="/resources/mainContent/testImage02.jpg" class="d-block w-100" alt="...">
                             	<div class="carousel-text">
-	                                <div class="category">카테고리</div>
+	                                <div class="category">${theme_kor2}</div>
                                 	<div class="place">장소명</div>
                             	</div>
                         	</div>
                         	<div class="carousel-item">
 	                            <img src="/resources/mainContent/testImage03.jpg" class="d-block w-100" alt="...">
                             	<div class="carousel-text">
-	                                <div class="category">카테고리2</div>
+	                                <div class="category">${theme_kor2}</div>
                                 	<div class="place">장소명2</div>
                             	</div>
                         	</div>
@@ -91,21 +91,21 @@
                         	<div class="carousel-item active">
 	                            <img src="/resources/mainContent/testImage01.jpg" class="d-block w-100" alt="...">
                             	<div class="carousel-text">
-	                                <div class="category">문화시설</div>
+	                                <div class="category">${theme_kor3}</div>
                                 	<div class="place">롯데월드</div>
                             	</div>
                         	</div>
                         	<div class="carousel-item">
 	                            <img src="/resources/mainContent/testImage02.jpg" class="d-block w-100" alt="...">
                             	<div class="carousel-text">
-	                                <div class="category">카테고리</div>
+	                                <div class="category">${theme_kor3}</div>
                                 	<div class="place">장소명</div>
                             	</div>
                         	</div>
                         	<div class="carousel-item">
 	                            <img src="/resources/mainContent/testImage03.jpg" class="d-block w-100" alt="...">
                             	<div class="carousel-text">
-	                                <div class="category">카테고리2</div>
+	                                <div class="category">${theme_kor3}</div>
                                 	<div class="place">장소명2</div>
                             	</div>
                         	</div>

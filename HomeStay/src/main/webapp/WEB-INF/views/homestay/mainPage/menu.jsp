@@ -3,47 +3,39 @@
 
 <jsp:include page="/common/bootstrap"></jsp:include>
 <link rel="stylesheet" href="/resources/mainContent/menu.css">
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 
 <div class="container">
+
 	<div class="row">
-		<div class="col-sm-12">
-			<div class="regionCategory">
-				<div class="regionItem selected">
-					<a href="#">전체</a>
-				</div>
-				<div class="regionItem">
-					<a href="#">서울</a>
-				</div>
-				<div class="regionItem">
-					<a href="#">경기</a>
-				</div>
-				<div class="regionItem">
-					<a href="#">인천</a>
-				</div>
-				<div class="regionItem">
-					<a href="#">강원</a>
-				</div>
-				<div class="regionItem">
-					<a href="#">충청</a>
-				</div>
-				<div class="regionItem">
-					<a href="#">대구</a>
-				</div>
-				<div class="regionItem">
-					<a href="#">부산</a>
-				</div>
-				<div class="regionItem">
-					<a href="#">울산</a>
-				</div>
-				<div class="regionItem">
-					<a href="#">광주</a>
-				</div>
-				<div class="regionItem">
-					<a href="#">제주</a>
-				</div>
-			</div>
+
+		<div class="regionCategory">
+		<%
+			String locs[] ={"전체","서울","경기","인천","강원","충청","대구","부산","울산","광주","제주"};
+		String curLoc;
+		if(request.getParameter("location") != null){
+			curLoc= request.getParameter("location").toString();
+		}else{
+			curLoc = "전체";
+		}
+		 
+
+		for(String loc : locs){
+			if(loc.equals(curLoc)){
+				%><%= "<div class='col-sm regionItem selected'>" %><%
+			}else{
+				%><%= "<div class='col-sm regionItem'>" %><%
+			}
+			%><%= "<a href='/main?location="+loc+"'>"+loc+"</a></div>" %><%
+		}
+		
+		%>
+					
 		</div>
 	</div>
 </div>
+
+
 
