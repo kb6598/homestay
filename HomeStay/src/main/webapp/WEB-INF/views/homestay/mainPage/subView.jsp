@@ -11,11 +11,17 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <style>
+
+    	
         .btn-wrapper{
             float: right;
         }
-        .subviw {
+        .subview {
             width: 100%;
+            margin: 15px 0px;
+        }
+        .subview-header{
+        margin: 10px 0px;
         }
 
         .carousel-item {
@@ -32,10 +38,10 @@
 </head>
 
 <body>
-   <div class="container">
-    <div class="row subviw">
+   <div class="container container-subview">
+    <div class="row subview">
         <div class="container">
-            <div class="row subviw-header">
+            <div class="row subview-header">
                 <div class="col-lg">
                     <h5>제목</h5>
                 </div>
@@ -49,7 +55,7 @@
             </div>
         </div>
      
-            <div class="row subviw-center">
+            <div class="row subview-center">
                 <div class="col-lg">
                     <div id="subView" class="carousel slide carousel-fade" data-ride="carousel">
                         <ol class="carousel-indicators">
