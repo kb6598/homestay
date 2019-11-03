@@ -1,8 +1,10 @@
 package com.homestay.korea.service;
 
+import javax.annotation.Resource;
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
+import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,15 +13,26 @@ import com.homestay.korea.DTO.MemberDTO;
 
 
 @Service
-public class JoinMemberServiceImpl implements IJoinMemberService {
+public class JoinMemberServiceImpl implements IJoinMemberService{
 
-	@Inject
-	private IMemberDAO memberDAO;
+	@Autowired
+	private IMemberDAO dao;
+	private SqlSessionTemplate joinSqlSession;
 	
-	@Override
-	public void insertMember(MemberDTO memberdto) {
-		memberDAO.insertMember(memberdto);
+	public int insertMember(MemberDTO dto) {
+		// TODO Auto-generated method stub
+		int resultCnt = 0;
+		dao = joinSqlSession.getMapper(IMemberDAO.class);
+		try {
+			resultCnt = dao.memberInsert(dto);
+		}catch (Exception e) {
+			// TODO: handle exception
+		}
+		return resultCnt;
+		
 	}
+	
+	
 	
 	
 

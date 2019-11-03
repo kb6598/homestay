@@ -190,7 +190,7 @@ html, body {
         <div class="input-field col s12">
           <!-- <i class="mdi-action-lock-outline prefix"></i> -->
 
-          <input id="password" name="password" type="password" />
+          <input id="password" name="pw" type="password" />
           <label for="password">비밀번호</label>
         </div>
       </div>
