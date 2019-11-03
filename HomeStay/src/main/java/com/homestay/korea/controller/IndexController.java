@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,10 +20,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.homestay.korea.HomeController;
 import com.homestay.korea.DTO.MemberDTO;
+import com.homestay.korea.DTO.TourImageDTO;
+import com.homestay.korea.service.IPlaceReadService;
 
 @Controller
 public class IndexController {
-	
+@Autowired
+private IPlaceReadService iPlaceReadService;
+
+
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 
 	/**
@@ -43,16 +49,8 @@ public class IndexController {
 	}
 	@RequestMapping(value = "/mainpage/menu", method=RequestMethod.GET)
 	public String menu(HttpServletRequest httpServletRequest, Model model) {
-		try {
+
 			String location = httpServletRequest.getParameter("location").toString();
-			String theme1 = httpServletRequest.getParameter("theme1").toString();
-			String theme2 = httpServletRequest.getParameter("theme2").toString();
-			String theme3 = httpServletRequest.getParameter("theme3").toString();
-		}catch (Exception e) {
-			// TODO: handle exception
-		}
-		
-		
 
 		//model.addAllAttributes(httpServletRequest.getParameterMap());
 		model.addAttribute("location",location);
@@ -60,6 +58,7 @@ public class IndexController {
 	}
 	@RequestMapping(value = "/mainpage/mainview")
 	public String mainview(HttpServletRequest httpServletRequest, Model model) {
+		
 		String theme1 = httpServletRequest.getParameter("theme1").toString();
 		String theme_kor1 = httpServletRequest.getParameter("theme_kor1").toString();
 		String theme2 = httpServletRequest.getParameter("theme2").toString();
@@ -74,6 +73,17 @@ public class IndexController {
 		model.addAttribute("theme_kor1", theme_kor1);
 		model.addAttribute("theme_kor2", theme_kor2);
 		model.addAttribute("theme_kor3", theme_kor3);
+		
+		//---------TourImage 가져오기
+		
+		
+		
+		
+		model.addAttribute("theme1_image", theme1);
+		model.addAttribute("theme2_image", theme2);
+		model.addAttribute("theme3_image", theme3);
+		
+		
 		model.addAttribute("location", location);
 //		
 		
