@@ -13,6 +13,8 @@
 		select * from place where contentid=#{contentid}
 	</select>
 	
-
+	<select id="readWithThemeLocationLimitDesc" parameterType="map" resultType="com.homestay.korea.DTO.PlaceDTO">
+		SELECT * FROM place where theme=#{theme} AND location=#{location} limit #{limit}
+	</select>
 	
 </mapper>

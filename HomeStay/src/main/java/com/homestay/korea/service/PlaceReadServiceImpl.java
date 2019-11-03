@@ -25,12 +25,14 @@ public class PlaceReadServiceImpl implements IPlaceReadService {
 	}
 
 	@Override
-	public ArrayList<PlaceDTO> getPlaceByThemeWithLimitDesc(String theme, int limit) {
+	public List<PlaceDTO> getPlaceThemeLocationLimitDesc(String theme, String location, int limit) {
 		// TODO Auto-generated method stub
-		ArrayList<PlaceDTO> resultList = palceDAO.readWithThemeLimitDesc(theme, limit);
-				
+		
+		List<PlaceDTO> resultList = palceDAO.readWithThemeLocationLimitDesc(theme, location, limit);
 		return resultList;
 	}
+
+
 
 
 	

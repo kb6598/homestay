@@ -1,5 +1,7 @@
 package com.homestay.korea.service;
 
+import java.util.List;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -21,10 +23,17 @@ public class PlaceReadServiceTests {
 	private IPlaceReadService palceService;
 	
 	//test 마무리
+//	@Test
+//	public void testReadService() {
+//		PlaceDTO place = palceService.getPlace("1");
+//	logger.info(place.toString());
+//	}
+	
 	@Test
-	public void testReadService() {
-		PlaceDTO palce = palceService.getPlace("1");
-		logger.info(palce.toString());
+	public void testReadService2() {
+		List<PlaceDTO> place = palceService.getPlaceThemeLocationLimitDesc("문화시설", "경기", 5);
+		for(PlaceDTO pl : place)
+		logger.info(pl.toString());
 	}
 	
 }
