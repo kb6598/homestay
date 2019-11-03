@@ -85,7 +85,13 @@ public class IndexController {
 //		울산
 //		광주
 //		제주
-		String location = httpServletRequest.getParameter("location").toString();
+		String location ="";
+		if(httpServletRequest.getParameter("location") != null) {
+			location = httpServletRequest.getParameter("location").toString();
+		}else {
+			location = URLEncoder.encode("전체", "UTF-8");
+		}
+
 
 		model.addAttribute("theme1", "theme1");
 		model.addAttribute("theme2", "theme2");
