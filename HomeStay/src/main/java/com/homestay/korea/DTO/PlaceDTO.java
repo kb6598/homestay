@@ -5,6 +5,7 @@ public class PlaceDTO {
 	private String createdtime;
 	private String modifiedtime;
 	private String theme;
+	private String location;
 	private long count;
 	public String getContentid() {
 		return contentid;
@@ -36,10 +37,20 @@ public class PlaceDTO {
 	public void setCount(int count) {
 		this.count = count;
 	}
+	public void setCount(long count) {
+		this.count = count;
+	}	
+	public String getLocation() {
+		return location;
+	}
+	public void setLocation(String location) {
+		this.location = location;
+	}
+
 	@Override
 	public String toString() {
 		return "PlaceDTO [contentid=" + contentid + ", createdtime=" + createdtime + ", modifiedtime=" + modifiedtime
-				+ ", theme=" + theme + ", count=" + count + "]";
+				+ ", theme=" + theme + ", location=" + location + ", count=" + count + "]";
 	}
 
 
