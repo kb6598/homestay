@@ -24,8 +24,10 @@ public class TourImageReadServiceImpl implements ITourImageReadService {
 		return null;
 	}
 
+
 	@Override
-	public List<TourImageDTO> getTourImageByThemeLocationOrderByCount(String theme, String location, int limit) {
+	public List<TourImageDTO> getTourImageByThemeLocation(java.lang.String theme, java.lang.String location,
+			int limit) {
 		// TODO Auto-generated method stub
 		return null;
 	}

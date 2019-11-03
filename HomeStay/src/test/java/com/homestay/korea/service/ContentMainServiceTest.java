@@ -1,4 +1,4 @@
-package com.homestay.korea.dao;
+package com.homestay.korea.service;
 
 import java.util.List;
 
@@ -10,34 +10,31 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.homestay.korea.DAO.IPlaceDAO;
-import com.homestay.korea.DAO.ITourImageDAO;
-import com.homestay.korea.DTO.PlaceDTO;
 import com.homestay.korea.DTO.TourImageDTO;
 import com.homestay.korea.config.RootConfig;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes= {RootConfig.class})
-public class TourImageDAOTests2 {
-	
+public class ContentMainServiceTest {
+		
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 	
 	@Autowired
-	private ITourImageDAO tourImageDAO;
+	private IContentMainService contentMainService;
 	
 	//test 마무리
 	@Test
-	public void testReadimage() {
-		TourImageDTO image = tourImageDAO.readWithContentid("1");
+	public void testReadService() {
+		List<TourImageDTO> tourImageList = contentMainService.getTourImageByThemeLocationOrderByPlcaeCountLimit("문화시설", "경기", 9);
 		
-	
-			logger.info(image.toString());
-
+		for(TourImageDTO tourImage : tourImageList) {
+			logger.info(tourImage.toString());
+		}
+		
+		
 	}
 	
 }
-
-
 
 
 

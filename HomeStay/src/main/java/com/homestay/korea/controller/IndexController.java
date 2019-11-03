@@ -5,6 +5,7 @@ import java.net.URLEncoder;
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
@@ -21,13 +22,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.homestay.korea.HomeController;
 import com.homestay.korea.DTO.MemberDTO;
 import com.homestay.korea.DTO.TourImageDTO;
-import com.homestay.korea.service.IPlaceReadService;
+import com.homestay.korea.service.IContentMainService;
+
 
 @Controller
 public class IndexController {
+	
 @Autowired
-private IPlaceReadService iPlaceReadService;
+private IContentMainService contentMainService;
 
+	
 
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 
@@ -76,12 +80,14 @@ private IPlaceReadService iPlaceReadService;
 		
 		//---------TourImage 가져오기
 		
+		List<TourImageDTO> tourImageDTO_1 = contentMainService.getTourImageByThemeLocationOrderByPlcaeCountLimit(theme1, location, 9);
+		List<TourImageDTO> tourImageDTO_2 = contentMainService.getTourImageByThemeLocationOrderByPlcaeCountLimit(theme2, location, 9); 
+		List<TourImageDTO> tourImageDTO_3 = contentMainService.getTourImageByThemeLocationOrderByPlcaeCountLimit(theme3, location, 9); 
 		
 		
-		
-		model.addAttribute("theme1_image", theme1);
-		model.addAttribute("theme2_image", theme2);
-		model.addAttribute("theme3_image", theme3);
+		model.addAttribute("TourImageInfo1", tourImageDTO_1);
+		model.addAttribute("TourImageInfo2", tourImageDTO_2);
+		model.addAttribute("TourImageInfo3", tourImageDTO_3);
 		
 		
 		model.addAttribute("location", location);
