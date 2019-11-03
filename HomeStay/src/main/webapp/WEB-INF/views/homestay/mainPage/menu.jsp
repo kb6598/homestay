@@ -1,3 +1,4 @@
+<%@page import="java.net.URLEncoder"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
@@ -27,7 +28,7 @@
 			}else{
 				%><%= "<div class='col-sm regionItem'>" %><%
 			}
-			%><%= "<a href='/main?location="+loc+"'>"+loc+"</a></div>" %><%
+			%><%= "<a href='/main?location="+URLEncoder.encode(loc, "UTF-8").toString()+"'>"+loc+"</a></div>" %><%
 		}
 		
 		%>
