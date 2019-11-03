@@ -9,6 +9,6 @@ public interface IPlaceReadService {
 	
 	public PlaceDTO getPlace(String contentid);
 	
-	public List<PlaceDTO> getPlaceThemeLocationLimitDesc(String theme, String location, int limit);
+	public List<PlaceDTO> getPlaceThemeLocationOrderByCount(String theme, String location, int limit);
 	
 }

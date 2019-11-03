@@ -8,6 +8,7 @@ import java.util.HashMap;
 import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.homestay.korea.HomeController;
+import com.homestay.korea.DTO.MemberDTO;
 
 @Controller
 public class IndexController {
@@ -41,7 +43,17 @@ public class IndexController {
 	}
 	@RequestMapping(value = "/mainpage/menu", method=RequestMethod.GET)
 	public String menu(HttpServletRequest httpServletRequest, Model model) {
-		String location = httpServletRequest.getParameter("location").toString();
+		try {
+			String location = httpServletRequest.getParameter("location").toString();
+			String theme1 = httpServletRequest.getParameter("theme1").toString();
+			String theme2 = httpServletRequest.getParameter("theme2").toString();
+			String theme3 = httpServletRequest.getParameter("theme3").toString();
+		}catch (Exception e) {
+			// TODO: handle exception
+		}
+		
+		
+
 		//model.addAllAttributes(httpServletRequest.getParameterMap());
 		model.addAttribute("location",location);
 		return "homestay/mainPage/menu";
@@ -72,7 +84,7 @@ public class IndexController {
 
 
 	@RequestMapping(value = "/main")
-	public String index(HttpServletRequest httpServletRequest, Model model) throws UnsupportedEncodingException {
+	public String index(HttpServletRequest httpServletRequest, Model model, HttpSession session) throws UnsupportedEncodingException {
 
 //		전체
 //		서울
@@ -84,14 +96,22 @@ public class IndexController {
 //		부산
 //		울산
 //		광주
-//		제주
+		//		제주
+		
+		
+		if(session.getAttribute("memberInfo") != null) {
+			MemberDTO member = (MemberDTO) session.getAttribute("memberInfo");
+		}
+		//----------- get 으로 location값이 없으면 전체로 설정
 		String location ="";
 		if(httpServletRequest.getParameter("location") != null) {
 			location = httpServletRequest.getParameter("location").toString();
 		}else {
 			location = URLEncoder.encode("전체", "UTF-8");
 		}
-
+		//--------------
+		
+		
 
 		model.addAttribute("theme1", "theme1");
 		model.addAttribute("theme2", "theme2");
@@ -109,6 +129,9 @@ public class IndexController {
 		model.addAttribute("location", location);
 		
 		//model.addAllAttributes(httpServletRequest.getParameterMap());
+		
+		
+		
 		
 		
 		return "homestay/mainPage/index";

@@ -11,6 +11,6 @@ public interface IPlaceDAO {
 	
 	public PlaceDTO readWithContentid(String contentid);
 	//
-	public ArrayList<PlaceDTO> readWithThemeLocationLimitDesc(@Param("theme") String theme, @Param("location") String location, @Param("limit") int limit);
+	public ArrayList<PlaceDTO> readWithThemeLocationOrderByCount(@Param("theme") String theme, @Param("location") String location, @Param("limit") int limit);
 	
 }

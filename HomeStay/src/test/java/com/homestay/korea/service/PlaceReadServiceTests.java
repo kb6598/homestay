@@ -31,7 +31,7 @@ public class PlaceReadServiceTests {
 	
 	@Test
 	public void testReadService2() {
-		List<PlaceDTO> place = palceService.getPlaceThemeLocationLimitDesc("문화시설", "경기", 5);
+		List<PlaceDTO> place = palceService.getPlaceThemeLocationOrderByCount("문화시설", "경기", 5);
 		for(PlaceDTO pl : place)
 		logger.info(pl.toString());
 	}

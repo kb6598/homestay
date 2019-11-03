@@ -13,7 +13,7 @@
 		select * from tour_image where contentid=#{contentid}
 	</select>
 	
-	<select id="readWithThemeLocationLimitDesc" parameterType="map" resultType="com.homestay.korea.DTO.TourImageDTO">
+	<select id="readWithThemeLocationLimit" parameterType="map" resultType="com.homestay.korea.DTO.TourImageDTO">
 		SELECT * FROM tour_image where theme=#{theme} AND location=#{location} limit #{limit}
 	</select>
 	

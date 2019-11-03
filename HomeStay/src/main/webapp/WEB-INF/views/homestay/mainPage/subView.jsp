@@ -11,7 +11,7 @@
         <div class="container">
             <div class="row subview-header">
                 <div class="col-lg">
-                    <h5>${theme_kor}</h5>${location}
+                    <h5>${theme_kor}</h5>
                 </div>
                 <div class="col-lg">
                     <div class="btn-wrapper" >

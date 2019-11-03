@@ -10,7 +10,7 @@ import com.homestay.korea.DTO.TourImageDTO;
 public interface ITourImageDAO {
 	
 	public TourImageDTO readWithContentid(String contentid);
-	//
-	public ArrayList<TourImageDTO> readWithThemeLocationLimitDesc(@Param("theme") String theme, @Param("location") String location, @Param("limit") int limit);
+	//조건 theme, location, 갯수 limit
+	public ArrayList<TourImageDTO> readWithThemeLocationLimit(@Param("theme") String theme, @Param("location") String location, @Param("limit") int limit);
 	
 }
