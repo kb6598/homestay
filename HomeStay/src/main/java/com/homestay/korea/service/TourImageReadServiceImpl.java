@@ -8,28 +8,26 @@ import org.springframework.stereotype.Service;
 
 
 import com.homestay.korea.DAO.IPlaceDAO;
-
+import com.homestay.korea.DAO.ITourImageDAO;
 import com.homestay.korea.DTO.PlaceDTO;
+import com.homestay.korea.DTO.TourImageDTO;
 
 @Service
-public class PlaceReadServiceImpl implements IPlaceReadService {
+public class TourImageReadServiceImpl implements ITourImageReadService {
 	
 	@Autowired
-	private IPlaceDAO palceDAO;
+	private ITourImageDAO tourImageDAO;
 
 	@Override
-	public PlaceDTO getPlace(String contentid) {
+	public TourImageDTO getTourIamge(String contentid) {
 		// TODO Auto-generated method stub
-		PlaceDTO palce = palceDAO.readWithContentid(contentid);
-		return palce;
+		return null;
 	}
 
 	@Override
-	public List<PlaceDTO> getPlaceByThemeLocationOrderByCount(String theme, String location, int limit) {
+	public List<TourImageDTO> getTourImageByThemeLocationOrderByCount(String theme, String location, int limit) {
 		// TODO Auto-generated method stub
-		
-		List<PlaceDTO> resultList = palceDAO.readWithThemeLocationOrderByCount(theme, location, limit);
-		return resultList;
+		return null;
 	}
 
 
