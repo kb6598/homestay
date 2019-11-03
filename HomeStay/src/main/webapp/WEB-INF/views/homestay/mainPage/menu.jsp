@@ -8,11 +8,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 
-<div class="container">
+<div class="container" style="width:100%;">
 
-	<div class="row">
+	<div class="row regionCategory">
 
-		<div class="regionCategory">
+
 		<%
 			String locs[] ={"전체","서울","경기","인천","강원","충청","대구","부산","울산","광주","제주"};
 		String curLoc;
@@ -33,7 +33,7 @@
 		
 		%>
 					
-		</div>
+
 	</div>
 </div>
 

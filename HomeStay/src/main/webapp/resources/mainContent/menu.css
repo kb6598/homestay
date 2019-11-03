@@ -1,23 +1,25 @@
 @charset "UTF-8";
 
 .regionCategory {
-	width:100%;
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
-	align-items: center;
-	border-bottom: .5px solid #000;
+	//width:100%;
+	//display: flex;
+	//flex-direction: row;
+	//justify-content: center;
+	//align-items: center;
+
 }
 
 .regionItem {
-	width: 100px;
+	//max-width: 100px;
+	min-width: 80px;
 	height: 40px;
 	color: #000;
 	cursor: pointer;
-	margin: 10px 10px 0;
+	margin: 10px 0px;
 	transition-duration: .3s;
 	text-align: center;
 	text-decoration: none;
+	border-bottom: .5px solid #000;
 }
 
 .regionItem > a {
