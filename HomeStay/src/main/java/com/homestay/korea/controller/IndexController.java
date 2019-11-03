@@ -1,5 +1,7 @@
 package com.homestay.korea.controller;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.HashMap;
@@ -70,7 +72,7 @@ public class IndexController {
 
 
 	@RequestMapping(value = "/main")
-	public String index(HttpServletRequest httpServletRequest, Model model) {
+	public String index(HttpServletRequest httpServletRequest, Model model) throws UnsupportedEncodingException {
 
 //		전체
 //		서울
@@ -91,14 +93,14 @@ public class IndexController {
 		model.addAttribute("theme4", "theme4");
 		model.addAttribute("theme5", "theme5");
 		model.addAttribute("theme6", "theme6");
-		model.addAttribute("theme_kor1", "문화시설");
-		model.addAttribute("theme_kor2", "축제공연행사");
-		model.addAttribute("theme_kor3", "관광지");
-		model.addAttribute("theme_kor4", "레포츠");
-		model.addAttribute("theme_kor5", "음식");
-		model.addAttribute("theme_kor6", "쇼핑");
+		//URLEncoder.encode("문화시설", "UTF-8")) -> 한글을 utf-8 url 값으로 변환
+		model.addAttribute("theme_kor1", URLEncoder.encode("문화시설", "UTF-8"));
+		model.addAttribute("theme_kor2", URLEncoder.encode("축제공연행사", "UTF-8"));
+		model.addAttribute("theme_kor3", URLEncoder.encode("관광지", "UTF-8"));
+		model.addAttribute("theme_kor4", URLEncoder.encode("레포츠", "UTF-8"));
+		model.addAttribute("theme_kor5", URLEncoder.encode("음식", "UTF-8"));
+		model.addAttribute("theme_kor6", URLEncoder.encode("쇼핑", "UTF-8"));
 		model.addAttribute("location", location);
-		
 		
 		//model.addAllAttributes(httpServletRequest.getParameterMap());
 		
