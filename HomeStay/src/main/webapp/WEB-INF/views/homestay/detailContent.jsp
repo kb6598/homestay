@@ -428,6 +428,22 @@
 			$('#pagination-wrap ul li').removeClass('active');
 			$('#pagination-wrap ul li:eq(' + pos + ')').addClass('active');
 		}
+		
+		//주변관광지
+		$(document).ready(function(){
+			$.ajax({
+		        type : "GET",
+		        url : "/location",
+		        data: {contentId:"126508"},
+		        dataType: "text",
+		        error : function(data,xhr,status,error){
+		            alert(xhr+", "+status+", "+error);
+		        },
+		        success : function(data){
+		        	alert(data);
+		        }   
+		    });
+		});
 	</script>
 
 </body>
