@@ -1,0 +1,95 @@
+diff --git a/HomeStay/src/main/java/com/homestay/korea/DTO/ThemePreferDTO.java b/HomeStay/src/main/java/com/homestay/korea/DTO/ThemePreferDTO.java
+new file mode 100644
+index 0000000..4cd7b3f
+--- /dev/null
++++ b/HomeStay/src/main/java/com/homestay/korea/DTO/ThemePreferDTO.java
+@@ -0,0 +1,62 @@
++package com.homestay.korea.DTO;
++//when filed's value is null that means filed's value was not set
++public class ThemePreferDTO {
++	String id;
++	Double tour_attr;
++	Double cult_facil;
++	Double event;
++	Double shopping;
++	Double leports;
++	Double dining;
++	public String getId() {
++		return id;
++	}
++	public void setId(String id) {
++		this.id = id;
++	}
++	public Double getTour_attr() {
++		return tour_attr;
++	}
++	public void setTour_attr(Double tour_attr) {
++		this.tour_attr = tour_attr;
++	}
++	public Double getCult_facil() {
++		return cult_facil;
++	}
++	public void setCult_facil(Double cult_facil) {
++		this.cult_facil = cult_facil;
++	}
++	public Double getEvent() {
++		return event;
++	}
++	public void setEvent(Double event) {
++		this.event = event;
++	}
++	public Double getShopping() {
++		return shopping;
++	}
++	public void setShopping(Double shopping) {
++		this.shopping = shopping;
++	}
++	public Double getLeports() {
++		return leports;
++	}
++	public void setLeports(Double leports) {
++		this.leports = leports;
++	}
++	public Double getDining() {	
++		
++		return dining;
++	}
++
++	public void setDining(Double dining) {
++		this.dining = dining;
++	}
++	@Override
++	public String toString() {
++		return "Theme_preferDTO [id=" + id + ", tour_attr=" + tour_attr + ", cult_facil=" + cult_facil + ", event="
++				+ event + ", shopping=" + shopping + ", leports=" + leports + ", dining=" + dining + "]";
++	}
++
++
++}
+diff --git a/HomeStay/src/main/java/com/homestay/korea/controller/IndexController.java b/HomeStay/src/main/java/com/homestay/korea/controller/IndexController.java
+index eaed5a5..a517d60 100644
+--- a/HomeStay/src/main/java/com/homestay/korea/controller/IndexController.java
++++ b/HomeStay/src/main/java/com/homestay/korea/controller/IndexController.java
+@@ -67,21 +67,7 @@ public class IndexController {
+ 		
+ 		return "homestay/mainPage/mainView";
+ 	}
+-	@RequestMapping(value = "/mainpage/subview")
+-	public String subview(HttpServletRequest httpServletRequest, Model model) {
+-		
+-		String theme = httpServletRequest.getParameter("theme").toString();
+-		String theme_kor = httpServletRequest.getParameter("theme_kor").toString();
+-		String location = httpServletRequest.getParameter("location").toString();
+-		
+-		model.addAttribute("theme_kor",theme_kor);
+-		model.addAttribute("theme",theme);
+-		model.addAttribute("location",location);
+-		
+-		//model.addAllAttributes(httpServletRequest.getParameterMap());
+-		
+-		return "homestay/mainPage/subView";
+-	}
++
+ 
+ 	@RequestMapping(value = "/main")
+ 	public String index(HttpServletRequest httpServletRequest, Model model) {

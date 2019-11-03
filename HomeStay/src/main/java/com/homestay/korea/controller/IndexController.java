@@ -67,21 +67,7 @@ public class IndexController {
 		
 		return "homestay/mainPage/mainView";
 	}
-	@RequestMapping(value = "/mainpage/subview")
-	public String subview(HttpServletRequest httpServletRequest, Model model) {
-		
-		String theme = httpServletRequest.getParameter("theme").toString();
-		String theme_kor = httpServletRequest.getParameter("theme_kor").toString();
-		String location = httpServletRequest.getParameter("location").toString();
-		
-		model.addAttribute("theme_kor",theme_kor);
-		model.addAttribute("theme",theme);
-		model.addAttribute("location",location);
-		
-		//model.addAllAttributes(httpServletRequest.getParameterMap());
-		
-		return "homestay/mainPage/subView";
-	}
+
 
 	@RequestMapping(value = "/main")
 	public String index(HttpServletRequest httpServletRequest, Model model) {

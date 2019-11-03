@@ -1,6 +1,6 @@
 package com.homestay.korea.DTO;
 //when filed's value is null that means filed's value was not set
-public class Theme_preferDTO {
+public class ThemePreferDTO {
 	String id;
 	Double tour_attr;
 	Double cult_facil;
