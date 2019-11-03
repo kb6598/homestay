@@ -9,8 +9,8 @@ import com.homestay.korea.DTO.MemberDTO;
 
 
 public interface IJoinMemberService {
-	//╟║ют
-	int insertMember(MemberDTO dto) throws SQLException;
-
-
+	//О©╫О©╫О©╫О©╫
+//	int insertMember(MemberDTO dto) throws SQLException;
+	
+	boolean insertMember(MemberDTO dto) throws SQLException;
 }

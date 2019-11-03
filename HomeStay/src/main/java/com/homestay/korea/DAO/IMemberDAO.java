@@ -7,5 +7,5 @@ import com.homestay.korea.DTO.MemberDTO;
 public interface IMemberDAO {
 	
 	public MemberDTO readWithId(String id);
-	int memberInsert(MemberDTO dto) throws SQLException;
+	public void memberInsert(MemberDTO dto);
 }

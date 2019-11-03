@@ -41,5 +41,7 @@ public class JoinGuestController {
 		return "/main";
 		
 	}
+	
+	
 
 }

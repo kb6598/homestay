@@ -24,10 +24,26 @@ public class MemberDAOTests {
 	//test 마무리
 //	@Test
 //	public void testReadMember() {
-//		MemberDTO member = memberDAO.readWithId("skvudrms54");
+//		MemberDTO member = memberDAO.readWithId("seunghyun11");
 //		logger.info(member.toString());
 //	}
 	
+	//test 마무리
+//	@Test
+//	public void testInsertMember() {
+//		MemberDTO member = new MemberDTO();
+//		member.setAge("11");
+//		member.setCompanion("친구");
+//		member.setGender("m");
+//		member.setId("nowonhoㅄ");
+//		member.setName("노원호");
+//		member.setNation(410);
+//		member.setPhone("010-1234-1234");
+//		member.setPw("1234");
+//		member.setRegional("경기");
+//		
+//		memberDAO.memberInsert(member);
+//	}
 }
 
 
