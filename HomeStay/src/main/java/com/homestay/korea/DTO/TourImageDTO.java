@@ -1,30 +1,30 @@
 package com.homestay.korea.DTO;
 
 public class TourImageDTO {
-	int imageNo;
-	String imageUrl;
-	String contentId;
-	public int getImageNo() {
-		return imageNo;
+	int imageno;
+	String imageurl;
+	String contentid;
+	public int getImageno() {
+		return imageno;
 	}
-	public void setImageNo(int imageNo) {
-		this.imageNo = imageNo;
+	public void setImageno(int imageno) {
+		this.imageno = imageno;
 	}
-	public String getImageUrl() {
-		return imageUrl;
+	public String getImageurl() {
+		return imageurl;
 	}
-	public void setImageUrl(String imageUrl) {
-		this.imageUrl = imageUrl;
+	public void setImageurl(String imageurl) {
+		this.imageurl = imageurl;
 	}
-	public String getContentId2() {
-		return contentId;
+	public String getContentid() {
+		return contentid;
 	}
-	public void setContentId2(String contentId) {
-		this.contentId = contentId;
+	public void setContentid(String contentid) {
+		this.contentid = contentid;
 	}
 	@Override
 	public String toString() {
-		return "TourImageDTO [imageNo=" + imageNo + ", imageUrl=" + imageUrl + ", contentId2=" + contentId2 + "]";
+		return "TourImageDTO [imageno=" + imageno + ", imageurl=" + imageurl + ", contentid=" + contentid + "]";
 	}
 
 	
