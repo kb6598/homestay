@@ -87,3 +87,6 @@
         .carousel-inner.right>.carousel-item>.carousel-text {
             bottom: 10px;
         }
+        img{
+        object-fit: cover
+        }

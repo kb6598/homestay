@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.homestay.korea.DTO.MemberDTO;
 import com.homestay.korea.DTO.ThemePreferDTO;
+import com.homestay.korea.DTO.TourImageDTO;
+import com.homestay.korea.service.IContentMainService;
 import com.homestay.korea.service.IThemePreferReadService;
 import com.homestay.korea.util.RelationAnalyze;
 
@@ -22,6 +24,9 @@ public class InfoController {
 	
 	@Autowired
 	IThemePreferReadService themePreferReadService;
+	
+	@Autowired
+	private IContentMainService contentMainService;
 	
 	@RequestMapping(value = "/mainpage/subview")
 	public String subview(HttpServletRequest httpServletRequest, Model model) {
@@ -33,6 +38,13 @@ public class InfoController {
 		model.addAttribute("theme_kor",theme_kor);
 		model.addAttribute("theme",theme);
 		model.addAttribute("location",location);
+		
+		// 이미지 바인딩
+		List<TourImageDTO> TourImageList = contentMainService.getTourImageByThemeLocationOrderByPlcaeCountLimit(theme, location, 9); 
+		
+		
+		model.addAttribute("TourImageList", TourImageList);
+		
 		
 //		HttpSession httpSession = httpServletRequest.getSession();
 //		MemberDTO member = (MemberDTO)httpSession.getAttribute("memberInfo");

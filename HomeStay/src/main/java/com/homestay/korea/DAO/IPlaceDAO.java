@@ -13,4 +13,5 @@ public interface IPlaceDAO {
 	//
 	public ArrayList<PlaceDTO> readWithThemeLocationOrderByCount(@Param("theme") String theme, @Param("location") String location, @Param("limit") int limit);
 	
+	public ArrayList<PlaceDTO> readWithThemeOrderByCount(@Param("theme") String theme, @Param("limit") int limit);
 }

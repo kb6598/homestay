@@ -17,4 +17,8 @@
 		SELECT * FROM place where theme=#{theme} AND location=#{location} order by Count desc limit #{limit}
 	</select>
 	
+		<select id="readWithThemeOrderByCount" parameterType="map" resultType="com.homestay.korea.DTO.PlaceDTO">
+		SELECT * FROM place where theme=#{theme} order by Count desc limit #{limit}
+	</select>
+	
 </mapper>

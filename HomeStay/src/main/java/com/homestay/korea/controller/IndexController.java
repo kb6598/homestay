@@ -60,7 +60,7 @@ private IContentMainService contentMainService;
 		model.addAttribute("location",location);
 		return "homestay/mainPage/menu";
 	}
-	@RequestMapping(value = "/mainpage/mainview")
+	@RequestMapping(value = "/mainpage/mainview", method= {RequestMethod.POST,RequestMethod.GET})
 	public String mainview(HttpServletRequest httpServletRequest, Model model) {
 		
 		String theme1 = httpServletRequest.getParameter("theme1").toString();
@@ -80,14 +80,14 @@ private IContentMainService contentMainService;
 		
 		//---------TourImage 가져오기
 		
-		List<TourImageDTO> tourImageDTO_1 = contentMainService.getTourImageByThemeLocationOrderByPlcaeCountLimit(theme1, location, 9);
-		List<TourImageDTO> tourImageDTO_2 = contentMainService.getTourImageByThemeLocationOrderByPlcaeCountLimit(theme2, location, 9); 
-		List<TourImageDTO> tourImageDTO_3 = contentMainService.getTourImageByThemeLocationOrderByPlcaeCountLimit(theme3, location, 9); 
+		List<TourImageDTO> TourImageList1 = contentMainService.getTourImageByThemeLocationOrderByPlcaeCountLimit(theme1, location, 9);
+		List<TourImageDTO> TourImageList2 = contentMainService.getTourImageByThemeLocationOrderByPlcaeCountLimit(theme2, location, 9); 
+		List<TourImageDTO> TourImageList3 = contentMainService.getTourImageByThemeLocationOrderByPlcaeCountLimit(theme3, location, 9); 
 		
 		
-		model.addAttribute("TourImageInfo1", tourImageDTO_1);
-		model.addAttribute("TourImageInfo2", tourImageDTO_2);
-		model.addAttribute("TourImageInfo3", tourImageDTO_3);
+		model.addAttribute("TourImageList1", TourImageList1);
+		model.addAttribute("TourImageList2", TourImageList2);
+		model.addAttribute("TourImageList3", TourImageList3);
 		
 		
 		model.addAttribute("location", location);
@@ -126,15 +126,15 @@ private IContentMainService contentMainService;
 			location = URLEncoder.encode("전체", "UTF-8");
 		}
 		//--------------
-		
+
 		
 
-		model.addAttribute("theme1", "theme1");
-		model.addAttribute("theme2", "theme2");
-		model.addAttribute("theme3", "theme3");
-		model.addAttribute("theme4", "theme4");
-		model.addAttribute("theme5", "theme5");
-		model.addAttribute("theme6", "theme6");
+		model.addAttribute("theme1", "문화시설");
+		model.addAttribute("theme2", "축제공연행사");
+		model.addAttribute("theme3", "관광지");
+		model.addAttribute("theme4", "레포츠");
+		model.addAttribute("theme5", "음식");
+		model.addAttribute("theme6", "쇼핑");
 		//URLEncoder.encode("문화시설", "UTF-8")) -> 한글을 utf-8 url 값으로 변환
 		model.addAttribute("theme_kor1", URLEncoder.encode("문화시설", "UTF-8"));
 		model.addAttribute("theme_kor2", URLEncoder.encode("축제공연행사", "UTF-8"));

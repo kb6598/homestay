@@ -28,7 +28,13 @@ public class ContentMainService implements IContentMainService{
 		
 		List<TourImageDTO> resultList = new ArrayList<TourImageDTO>();
 		TourImageDTO tmpDTO;
-		List<PlaceDTO> placeList = placeDao.readWithThemeLocationOrderByCount(theme, location, limit);
+		List<PlaceDTO> placeList;
+		if(location.equals("전체")) {
+			placeList = placeDao.readWithThemeOrderByCount(theme, limit);
+		}else {
+			placeList = placeDao.readWithThemeLocationOrderByCount(theme, location, limit);
+		}
+		
 		for(PlaceDTO place : placeList) {
 			tmpDTO = new TourImageDTO();			
 			tmpDTO = tourImageDAO.readWithContentid(place.getContentid().toString());
