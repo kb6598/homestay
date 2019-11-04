@@ -1,5 +1,6 @@
 package com.homestay.korea.controller;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -11,9 +12,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.homestay.korea.DTO.PlaceDetailDataDTO;
 import com.homestay.korea.DTO.ThemePreferDTO;
+<<<<<<< HEAD
 import com.homestay.korea.DTO.TourImageDTO;
 import com.homestay.korea.service.IContentMainService;
 import com.homestay.korea.service.IPlaceDetailDataReadService;
+=======
+>>>>>>> dce1ad45229bace5168fc1f0e488d0eb95f77e1b
 import com.homestay.korea.service.IThemePreferReadService;
 import com.homestay.korea.service.ITourImageReadService;
 import com.homestay.korea.util.RelationAnalyze;
@@ -24,8 +28,6 @@ public class InfoController {
 	@Autowired
 	IThemePreferReadService themePreferReadService;
 	
-	@Autowired
-	private IContentMainService contentMainService;
 	
 	@Autowired
 	private IPlaceDetailDataReadService placeDetailDataReadService;
@@ -75,10 +77,13 @@ public class InfoController {
 		
 		
 		model.addAttribute("TourImageList", TourImageList);
+=======
+	@RequestMapping(value="/detailContent")
+	public String detailContent(HttpServletRequest httpServletRequest) throws SQLException {
+>>>>>>> dce1ad45229bace5168fc1f0e488d0eb95f77e1b
 		
-		
-//		HttpSession httpSession = httpServletRequest.getSession();
-//		MemberDTO member = (MemberDTO)httpSession.getAttribute("memberInfo");
+		//HttpSession httpSession = httpServletRequest.getSession();
+		//MemberDTO member = (MemberDTO)httpSession.getAttribute("memberInfo");
 		ThemePreferDTO themePreferDTO =  themePreferReadService.getThemePrefer("billp");
 		RelationAnalyze relationAnalyze = new RelationAnalyze(themePreferDTO);
 
@@ -87,8 +92,12 @@ public class InfoController {
 		for(int i=0; i<idArr.length;i++) {
 			System.out.println(idArr[i]);
 		}
-		//model.addAllAttributes(httpServletRequest.getParameterMap());
 		
-		return "homestay/mainPage/subView";
+		return "/detailContent";
+		
 	}
 }
+
+
+
+
