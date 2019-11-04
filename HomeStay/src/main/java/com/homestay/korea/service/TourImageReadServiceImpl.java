@@ -31,10 +31,9 @@ public class TourImageReadServiceImpl implements ITourImageReadService {
 
 	//메인화면에서 관광지 클릭 시, 상세페이지로 넘어가며 보여질 관광지 사진
 	@Override
-	public List<TourImageDTO> readWithPlaceDetailDateImage(String contentid) {
+	public List<TourImageDTO> readWithPlaceDetailDateImage(TourImageDTO vo) throws Exception {
 		
-		List<TourImageDTO> readWithPlaceDetailDateImage = tourImageDAO.readWithPlaceDetailDateImage(contentid);
-		return readWithPlaceDetailDateImage;
+		return tourImageDAO.readWithPlaceDetailDateImage(vo);
 	}
 }
 

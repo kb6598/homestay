@@ -242,7 +242,7 @@
 			<div style="float: left; height: 400px; margin-left: 3%">
 				<div style="margin-left:; height: 400px; margin-top: 20%;">
 					<font style="font-size: 20px; color: black;"> 
-						<c:forEach items="${readWithplaceDetailData}" var="placeDetailData">
+						<c:forEach items="${readWithPlaceDetailDate}" var="placeDetailData">
 							${placeDetailData.content}
 						</c:forEach>
 					</font>

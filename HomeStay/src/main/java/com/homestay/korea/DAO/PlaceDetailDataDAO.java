@@ -7,17 +7,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.homestay.korea.DTO.PlaceDetailDataDTO;
 
-public class PlaceDetailDateDAO implements IPlaceDetailDateDAO {
+public class PlaceDetailDataDAO implements IPlaceDetailDataDAO {
 
 	@Autowired
-	private SqlSession sqlSession;
+	SqlSession sqlSession;
 	
-	private static final String Namespace = "com.homestay.korea.DAO.IPlaceDetailDateDAO";
+	public static final String Namespace = "com.homestay.korea.DAO.IPlaceDetailDataDAO";
 	
 	//메인화면에서 관광지 클릭 시, 상세페이지로 넘어가며 보여질 관광지 정보
 	@Override
-	public List<PlaceDetailDataDTO> readWithPlaceDetailDate(PlaceDetailDataDTO vo) {
+	public List<PlaceDetailDataDTO> readWithPlaceDetailDate(PlaceDetailDataDTO vo) throws Exception {
 		
-		return sqlSession.selectList(Namespace+".readWithPlaceDetailDate", vo);
+		return null;
 	}
 }

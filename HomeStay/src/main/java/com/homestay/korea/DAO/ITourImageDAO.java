@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import com.homestay.korea.DTO.TourImageDTO;
 
@@ -14,5 +16,5 @@ public interface ITourImageDAO {
 	public ArrayList<TourImageDTO> readWithThemeLimit(@Param("theme") String theme, @Param("limit") int limit);
 	
 	//메인화면에서 관광지 클릭 시, 상세페이지로 넘어가며 보여질 관광지 사진
-	public List<TourImageDTO> readWithPlaceDetailDateImage(String contentid);
+	public List<TourImageDTO> readWithPlaceDetailDateImage(TourImageDTO vo) throws Exception;
 }
