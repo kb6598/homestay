@@ -59,9 +59,16 @@ private IThemePreferReadService themePreferReadService;
 	// TOP View 사진 3개만 보여주는 페이지
 	@RequestMapping(value = "/mainpage/topview")
 	public String topview(HttpServletRequest httpServletRequest, Model model) {
-		model.addAttribute("image_1","https://cdn.pixabay.com/photo/2018/06/16/07/48/nature-3478370_960_720.jpg");
-		model.addAttribute("image_2","https://upload.wikimedia.org/wikipedia/commons/a/ab/%EA%B4%91%EC%A3%BC%EB%8C%80_%EB%B4%84%ED%92%8D%EA%B2%BD.jpg");
-		model.addAttribute("image_3","https://i0.hippopx.com/photos/174/613/190/mountain-landscape-mountains-landscape-steinweg-preview.jpg");
+		//이미지 바인딩
+		String[] images = new String[] {
+				"/resources/mainContent/1.jpg",
+				"/resources/mainContent/2.jpg",
+				"/resources/mainContent/3.jpg",
+				"/resources/mainContent/4.jpg"				
+		};
+		
+		model.addAttribute("images",images);
+
 		return "homestay/mainPage/topView";
 	}
 	
