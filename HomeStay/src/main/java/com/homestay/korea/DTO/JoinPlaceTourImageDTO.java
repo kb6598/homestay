@@ -1,6 +1,6 @@
 package com.homestay.korea.DTO;
 
-public class JoinPlaceTourImage {
+public class JoinPlaceTourImageDTO {
 	
 	private String contentid;
 	private String createdtime;

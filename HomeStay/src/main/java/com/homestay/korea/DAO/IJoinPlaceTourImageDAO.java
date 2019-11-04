@@ -5,22 +5,23 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
-import com.homestay.korea.DTO.JoinPlaceTourImage;
+import com.homestay.korea.DTO.JoinPlaceTourImageDTO;
 import com.homestay.korea.DTO.TourImageDTO;
 
 public interface IJoinPlaceTourImageDAO {
 	//
-	public JoinPlaceTourImage readWithContentid(String contentid);
+	public JoinPlaceTourImageDTO readWithContentid(String contentid);
 	
-	//조건 theme, 갯수 limit
-//	SELECT place.contentid as contentid, createdtime, modifiedtime, theme, count, location, imageurl, imageno 
+	//이미지가 여러개일경우 하나만 가져옴
+//	SELECT place.contentid as contentid, createdtime, modifiedtime, theme, count, location, max(imageurl), imageno 
 //	FROM place, tour_image 
 //	WHERE place.contentid = tour_image.contentid 
 //        AND place.theme = #{theme}
 //        AND place.location = #{location}
-//        Order BY #{par}
-//        limit #{start}, #{end}
-	public ArrayList<JoinPlaceTourImage> readWithThemeLocationStartEndOrderByParm(@Param("theme") String theme, 
+//	Group By place.contentid
+//    Order BY #{parm}
+//    LIMIT #{start},#{end}
+	public ArrayList<JoinPlaceTourImageDTO> readWithThemeLocationStartEndOrderByParm(@Param("theme") String theme, 
 																			@Param("location") String location,
 																			@Param("start") int start,
 																			@Param("end") int end, 

@@ -11,7 +11,7 @@
 		<div class="col">
 			<div id="mainViewArea1" class="carousel slide" data-ride="carousel">
 				<div class="carousel-inner left">
-					<c:forEach items="${TourImageList1}" var="tourImage"
+					<c:forEach items="${joinPlaceTourImageDTO1}" var="item"
 						varStatus="idx">
 						<c:choose>
 							<c:when test="${idx.index == 0}">
@@ -21,7 +21,7 @@
 								<div class="carousel-item">
 							</c:otherwise>
 						</c:choose>
-						<img src="${tourImage.imageurl}" class="d-block w-100" alt="...">
+						<img src="${item.imageurl}" class="d-block w-100" alt="...">
 						<div class="carousel-text">
 							<div class="category">${theme_kor1}</div>
 							<div class="place">롯데월드</div>
@@ -45,7 +45,7 @@
 	<div class="col right">
 		<div id="mainViewArea2" class="carousel slide" data-ride="carousel">
 			<div class="carousel-inner right">
-				<c:forEach items="${TourImageList2}" var="tourImage" varStatus="idx">
+				<c:forEach items="${joinPlaceTourImageDTO2}" var="item" varStatus="idx">
 					<c:choose>
 						<c:when test="${idx.index == 0}">
 							<div class="carousel-item active">
@@ -54,7 +54,7 @@
 							<div class="carousel-item">
 						</c:otherwise>
 					</c:choose>
-					<img src="${tourImage.imageurl}" class="d-block w-100" alt="...">
+					<img src="${item.imageurl}" class="d-block w-100" alt="...">
 					<div class="carousel-text">
 						<div class="category">${theme_kor2}</div>
 						<div class="place">롯데월드</div>
@@ -77,7 +77,7 @@
 		<div class="carousel-inner right">
 
 
-			<c:forEach items="${TourImageList3}" var="tourImage" varStatus="idx">
+			<c:forEach items="${joinPlaceTourImageDTO3}" var="item" varStatus="idx">
 				<c:choose>
 					<c:when test="${idx.index == 0}">
 						<div class="carousel-item active">
@@ -86,7 +86,7 @@
 						<div class="carousel-item">
 					</c:otherwise>
 				</c:choose>
-				<img src="${tourImage.imageurl}" class="d-block w-100" alt="...">
+				<img href="?contentid=${item.contentid}" src="${item.imageurl}" class="d-block w-100" alt="...">
 				<div class="carousel-text">
 					<div class="category">${theme_kor3}</div>
 					<div class="place">롯데월드</div>

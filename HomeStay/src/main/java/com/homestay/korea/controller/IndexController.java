@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.homestay.korea.HomeController;
+import com.homestay.korea.DTO.JoinPlaceTourImageDTO;
 import com.homestay.korea.DTO.MemberDTO;
 import com.homestay.korea.DTO.TourImageDTO;
 import com.homestay.korea.service.IContentMainService;
@@ -80,14 +81,14 @@ private IContentMainService contentMainService;
 		
 		//---------TourImage 가져오기
 		
-		List<TourImageDTO> TourImageList1 = contentMainService.getTourImageByThemeLocationOrderByPlcaeCountLimit(theme1, location, 9);
-		List<TourImageDTO> TourImageList2 = contentMainService.getTourImageByThemeLocationOrderByPlcaeCountLimit(theme2, location, 9); 
-		List<TourImageDTO> TourImageList3 = contentMainService.getTourImageByThemeLocationOrderByPlcaeCountLimit(theme3, location, 9); 
+		List<JoinPlaceTourImageDTO> joinPlaceTourImageDTO1 = contentMainService.getJoinPlaceTourImageDTOForIndex(theme1, location);
+		List<JoinPlaceTourImageDTO> joinPlaceTourImageDTO2 = contentMainService.getJoinPlaceTourImageDTOForIndex(theme2, location);
+		List<JoinPlaceTourImageDTO> joinPlaceTourImageDTO3 = contentMainService.getJoinPlaceTourImageDTOForIndex(theme3, location);
 		
 		
-		model.addAttribute("TourImageList1", TourImageList1);
-		model.addAttribute("TourImageList2", TourImageList2);
-		model.addAttribute("TourImageList3", TourImageList3);
+		model.addAttribute("joinPlaceTourImageDTO1", joinPlaceTourImageDTO1);
+		model.addAttribute("joinPlaceTourImageDTO2", joinPlaceTourImageDTO2);
+		model.addAttribute("joinPlaceTourImageDTO3", joinPlaceTourImageDTO3);
 		
 		
 		model.addAttribute("location", location);
@@ -101,10 +102,11 @@ private IContentMainService contentMainService;
 	@RequestMapping(value = "/mainpage/subview")
 	public String subview(HttpServletRequest httpServletRequest, Model model) {
 		
+		//index 로부터 파라미터를 넘겨받음 (GET)
 		String theme = httpServletRequest.getParameter("theme").toString();
 		String theme_kor = httpServletRequest.getParameter("theme_kor").toString();
 		String location = httpServletRequest.getParameter("location").toString();
-		
+		//subview에 파라미터를 넘겨줌
 		model.addAttribute("theme_kor",theme_kor);
 		model.addAttribute("theme",theme);
 		model.addAttribute("location",location);
@@ -113,10 +115,10 @@ private IContentMainService contentMainService;
 		//model.addAllAttributes(httpServletRequest.getParameterMap());
 
 		// 이미지 바인딩
-		List<TourImageDTO> TourImageList = contentMainService.getTourImageByThemeLocationOrderByPlcaeCountLimit(theme, location, 9); 
+		List<JoinPlaceTourImageDTO> joinPlaceTourImageDTO = contentMainService.getJoinPlaceTourImageDTOForIndex(theme, location);
 		
 		
-		model.addAttribute("TourImageList", TourImageList);
+		model.addAttribute("joinPlaceTourImageDTO", joinPlaceTourImageDTO);
 		
 		return "homestay/mainPage/subView";
 	}
@@ -124,17 +126,7 @@ private IContentMainService contentMainService;
 	@RequestMapping(value = "/main")
 	public String index(HttpServletRequest httpServletRequest, Model model, HttpSession session) throws UnsupportedEncodingException {
 
-//		전체
-//		서울
-//		경기
-//		인천
-//		강원
-//		충청
-//		대구
-//		부산
-//		울산
-//		광주
-		//		제주
+
 		
 		
 		if(session.getAttribute("memberInfo") != null) {

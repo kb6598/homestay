@@ -4,19 +4,20 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.homestay.korea.DAO.IJoinPlaceTourImageDAO">
 	
-	<select id="readWithContentid" resultType="com.homestay.korea.DTO.JoinPlaceTourImage">
+	<select id="readWithContentid" resultType="com.homestay.korea.DTO.JoinPlaceTourImageDTO">
 		select * from tour_image where contentid=#{contentid}
 	</select>
 	
-
-	<select id="readWithThemeLocationStartEndOrderByParm" parameterType="map" resultType="com.homestay.korea.DTO.JoinPlaceTourImage">
-		SELECT place.contentid as contentid, createdtime, modifiedtime, theme, count, location, imageurl, imageno 
+ <!-- 이미지가 여러개일경우 1개만 가져옴 -->
+	<select id="readWithThemeLocationStartEndOrderByParm" parameterType="map" resultType="com.homestay.korea.DTO.JoinPlaceTourImageDTO">
+		SELECT place.contentid as contentid, createdtime, modifiedtime, theme, count, location, max(imageurl), imageno 
 		FROM place, tour_image 
 		WHERE place.contentid = tour_image.contentid 
-            AND place.theme = "문화시설"
-            AND place.location = "경기"
-        Order BY count
-        LIMIT 0, 10
+            AND place.theme = #{theme}
+            AND place.location = #{location}
+		Group By place.contentid
+        Order BY #{parm}
+        LIMIT #{start},#{end}
 	</select>
 	
 

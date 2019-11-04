@@ -13,7 +13,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import com.homestay.korea.DAO.IJoinPlaceTourImageDAO;
 import com.homestay.korea.DAO.IPlaceDAO;
 import com.homestay.korea.DAO.ITourImageDAO;
-import com.homestay.korea.DTO.JoinPlaceTourImage;
+import com.homestay.korea.DTO.JoinPlaceTourImageDTO;
 import com.homestay.korea.DTO.PlaceDTO;
 import com.homestay.korea.DTO.TourImageDTO;
 import com.homestay.korea.config.RootConfig;
@@ -30,10 +30,10 @@ public class JoinPlaceTourImageDAOTests {
 	//test 마무리
 	@Test
 	public void testReadimage() {
-		List<JoinPlaceTourImage> itmes = joinPlaceTourImageDAO.readWithThemeLocationStartEndOrderByParm("문화시설", "경기", 0, 10, "count");
+		List<JoinPlaceTourImageDTO> itmes = joinPlaceTourImageDAO.readWithThemeLocationStartEndOrderByParm("문화시설", "경기", 0, 10, "count");
 		
 	
-			for (JoinPlaceTourImage item : itmes) {
+			for (JoinPlaceTourImageDTO item : itmes) {
 				logger.info(item.toString());
 			}
 			

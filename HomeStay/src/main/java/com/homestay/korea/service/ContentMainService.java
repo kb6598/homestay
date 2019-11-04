@@ -7,40 +7,27 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.homestay.korea.DAO.IPlaceDAO;
+import com.homestay.korea.DAO.IJoinPlaceTourImageDAO;
 
-import com.homestay.korea.DAO.ITourImageDAO;
-import com.homestay.korea.DTO.PlaceDTO;
-import com.homestay.korea.DTO.TourImageDTO;
+import com.homestay.korea.DTO.JoinPlaceTourImageDTO;
+
+
 @Service
 public class ContentMainService implements IContentMainService{
 
 
 	@Autowired
-	private ITourImageDAO tourImageDAO;
-	
-	@Autowired
-	private IPlaceDAO placeDao;
+	private IJoinPlaceTourImageDAO joinPlaceTourImageDAO;
+
 
 	@Override
-	public List<TourImageDTO> getTourImageByThemeLocationOrderByPlcaeCountLimit(String theme, String location, int limit) {
+	public List<JoinPlaceTourImageDTO> getJoinPlaceTourImageDTOForIndex(String theme, String location) {
 		// TODO Auto-generated method stub
 		
-		List<TourImageDTO> resultList = new ArrayList<TourImageDTO>();
-		TourImageDTO tmpDTO;
-		List<PlaceDTO> placeList;
-		if(location.equals("전체")) {
-			placeList = placeDao.readWithThemeOrderByCount(theme, limit);
-		}else {
-			placeList = placeDao.readWithThemeLocationOrderByCount(theme, location, limit);
-		}
-		
-		for(PlaceDTO place : placeList) {
-			tmpDTO = new TourImageDTO();			
-			tmpDTO = tourImageDAO.readWithContentid(place.getContentid().toString());
-			resultList.add(tmpDTO);
-		}		
-		
+		List<JoinPlaceTourImageDTO> resultList = new ArrayList<JoinPlaceTourImageDTO>();
+
+		resultList = joinPlaceTourImageDAO.readWithThemeLocationStartEndOrderByParm(theme, location, 0, 9, "count");
+
 		return resultList;
 	}
 	
