@@ -21,9 +21,9 @@
 								<div class="carousel-item">
 							</c:otherwise>
 						</c:choose>
-						<img src="${item.imageurl}" class="d-block w-100" alt="...">
+						<a href="/detailContent?contentid=${item.contentid}"><img  src="${item.imageurl}" class="d-block w-100" alt="..."></a>
 						<div class="carousel-text">
-							<div class="category">${theme_kor1}</div>
+							<div class="category">${item.theme}</div>
 							<div class="place">롯데월드</div>
 						</div>
 				</div>
@@ -54,9 +54,9 @@
 							<div class="carousel-item">
 						</c:otherwise>
 					</c:choose>
-					<img src="${item.imageurl}" class="d-block w-100" alt="...">
+					<a href="/detailContent?contentid=${item.contentid}"></a><img src="${item.imageurl}" class="d-block w-100" alt="..."></a>
 					<div class="carousel-text">
-						<div class="category">${theme_kor2}</div>
+						<div class="category">${item.theme}</div>
 						<div class="place">롯데월드</div>
 					</div>
 			</div>
@@ -86,9 +86,9 @@
 						<div class="carousel-item">
 					</c:otherwise>
 				</c:choose>
-				<img href="?contentid=${item.contentid}" src="${item.imageurl}" class="d-block w-100" alt="...">
+				<a href="/detailContent?contentid=${item.contentid}"><img src="${item.imageurl}" class="d-block w-100" alt="..."></a>
 				<div class="carousel-text">
-					<div class="category">${theme_kor3}</div>
+					<div class="category">${item.theme}</div>
 					<div class="place">롯데월드</div>
 				</div>
 		</div>

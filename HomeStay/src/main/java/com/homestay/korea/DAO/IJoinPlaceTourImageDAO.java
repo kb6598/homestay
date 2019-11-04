@@ -13,19 +13,17 @@ public interface IJoinPlaceTourImageDAO {
 	public JoinPlaceTourImageDTO readWithContentid(String contentid);
 	
 	//이미지가 여러개일경우 하나만 가져옴
-//	SELECT place.contentid as contentid, createdtime, modifiedtime, theme, count, location, max(imageurl), imageno 
-//	FROM place, tour_image 
-//	WHERE place.contentid = tour_image.contentid 
-//        AND place.theme = #{theme}
-//        AND place.location = #{location}
-//	Group By place.contentid
-//    Order BY #{parm}
-//    LIMIT #{start},#{end}
+
 	public ArrayList<JoinPlaceTourImageDTO> readWithThemeLocationStartEndOrderByParm(@Param("theme") String theme, 
 																			@Param("location") String location,
 																			@Param("start") int start,
 																			@Param("end") int end, 
 																			@Param("parm") String parm);
+	
+	public ArrayList<JoinPlaceTourImageDTO> readWithThemeStartEndOrderByParm(@Param("theme") String theme, 
+			@Param("start") int start,
+			@Param("end") int end, 
+			@Param("parm") String parm);
 	
 
 }

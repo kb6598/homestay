@@ -10,8 +10,9 @@
 	
  <!-- 이미지가 여러개일경우 1개만 가져옴 -->
 	<select id="readWithThemeLocationStartEndOrderByParm" parameterType="map" resultType="com.homestay.korea.DTO.JoinPlaceTourImageDTO">
-		SELECT place.contentid as contentid, createdtime, modifiedtime, theme, count, location, max(imageurl), imageno 
-		FROM place, tour_image 
+		SELECT place.contentid as contentid, createdtime, modifiedtime, theme, count, location, imageurl, MAX(imageno) 
+		FROM place
+		INNER JOIN tour_image ON place.contentid = tour_image.contentid 
 		WHERE place.contentid = tour_image.contentid 
             AND place.theme = #{theme}
             AND place.location = #{location}
@@ -19,6 +20,19 @@
         Order BY #{parm}
         LIMIT #{start},#{end}
 	</select>
+
+	 <!-- 이미지가 여러개일경우 1개만 가져옴 -->
+	<select id="readWithThemeStartEndOrderByParm" parameterType="map" resultType="com.homestay.korea.DTO.JoinPlaceTourImageDTO">
+		SELECT place.contentid as contentid, createdtime, modifiedtime, theme, count, location, imageurl, MAX(imageno) 
+		FROM place
+		INNER JOIN tour_image ON place.contentid = tour_image.contentid 
+		WHERE place.contentid = tour_image.contentid 
+            AND place.theme = #{theme}
+		Group By place.contentid
+        Order BY #{parm}
+        LIMIT #{start},#{end}
+	</select>
+
 	
 
 	

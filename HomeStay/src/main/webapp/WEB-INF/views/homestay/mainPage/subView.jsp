@@ -40,9 +40,9 @@
                                     <div class="col-sm">
                                         <div class="container">
                                             <div class="card" >
-                                                <img src="${TourImageList[0].imageurl}" class="card-img-top" alt="...">
+                                                <a href="/detailContent?contentid=${joinPlaceTourImageDTO[0].contentid }"><img src="${joinPlaceTourImageDTO[0].imageurl}" class="card-img-top" alt="..."></a>
                                                 <div class="card-body">
-                                                    <h5 class="card-title">Card title</h5>
+                                                    <h5 class="card-title"><a href="/detailContent?contentid=${joinPlaceTourImageDTO[0].contentid }">Card title</a></h5>
                                                 </div>
                                             </div>
                                         </div>
@@ -50,9 +50,9 @@
                                     <div class="col-sm">
                                         <div class="container">
                                             <div class="card" >
-                                                <img src="${TourImageList[1].imageurl}" class="card-img-top" alt="...">
+                                                <a href="/detailContent?contentid=${joinPlaceTourImageDTO[0].contentid }"><img src="${joinPlaceTourImageDTO[1].imageurl}" class="card-img-top" alt="..."></a>
                                                 <div class="card-body">
-                                                    <h5 class="card-title">Card title</h5>
+                                                    <h5 class="card-title"><a href="/detailContent?contentid=${joinPlaceTourImageDTO[0].contentid }">Card title</a></h5>
                                                 </div>
                                             </div>
                                         </div>
@@ -60,9 +60,9 @@
                                     <div class="col-sm">
                                         <div class="container">
                                             <div class="card" >
-                                                <img src="${TourImageList[2].imageurl}" class="card-img-top" alt="...">
+                                                <a href="/detailContent?contentid=${joinPlaceTourImageDTO[0].contentid }"><img src="${joinPlaceTourImageDTO[2].imageurl}" class="card-img-top" alt="..."></a>
                                                 <div class="card-body">
-                                                    <h5 class="card-title">Card title</h5>
+                                                    <h5 class="card-title"><a href="/detailContent?contentid=${joinPlaceTourImageDTO[0].contentid }">Card title</a></h5>
                                                 </div>
                                             </div>
                                         </div>
@@ -75,9 +75,10 @@
                                 <div class="row">
                                     <div class="col-sm">
                                         <div class="container">
-                                            <div class="card"><img src="${TourImageList[3].imageurl}" class="card-img-top" alt="">
+                                            <div class="card">
+                                            <a href="/detailContent?contentid=${joinPlaceTourImageDTO[0].contentid }"><img src="${joinPlaceTourImageDTO[3].imageurl}" class="card-img-top" alt=""></a>
                                                 <div class="card-body">
-                                                    <h5 class="card-title">Card title</h5>
+                                                    <h5 class="card-title"><a href="/detailContent?contentid=${joinPlaceTourImageDTO[0].contentid }">Card title</a></h5>
                                                 </div>
                                             </div>
 
@@ -86,9 +87,9 @@
                                     <div class="col-sm">
                                         <div class="container">
                                             <div class="card" >
-                                                <img src="${TourImageList[4].imageurl}" class="card-img-top" alt="...">
+                                                <a href="/detailContent?contentid=${joinPlaceTourImageDTO[0].contentid }"><img src="${joinPlaceTourImageDTO[4].imageurl}" class="card-img-top" alt="..."></a>
                                                 <div class="card-body">
-                                                    <h5 class="card-title">Card title</h5>
+                                                    <h5 class="card-title"><a href="/detailContent?contentid=${joinPlaceTourImageDTO[0].contentid }">Card title</a></h5>
                                                 </div>
                                             </div>
 
@@ -97,9 +98,9 @@
                                     <div class="col-sm">
                                         <div class="container">
                                             <div class="card" >
-                                                <img src="${TourImageList[5].imageurl}" class="card-img-top" alt="...">
+                                                <a href="/detailContent?contentid=${joinPlaceTourImageDTO[0].contentid }"><img src="${joinPlaceTourImageDTO[5].imageurl}" class="card-img-top" alt="..."></a>
                                                 <div class="card-body">
-                                                    <h5 class="card-title">Card title</h5>
+                                                    <h5 class="card-title"><a href="/detailContent?contentid=${joinPlaceTourImageDTO[0].contentid }">Card title</a></h5>
                                                 </div>
                                             </div>
                                         </div>
@@ -113,9 +114,9 @@
                                     <div class="col-sm">
                                         <div class="container">
                                             <div class="card" >
-                                                <img src="${TourImageList[6].imageurl}" class="card-img-top" alt="...">
+                                                <a href="/detailContent?contentid=${joinPlaceTourImageDTO[0].contentid }"><img src="${joinPlaceTourImageDTO[6].imageurl}" class="card-img-top" alt="..."></a>
                                                 <div class="card-body">
-                                                    <h5 class="card-title">Card title</h5>
+                                                    <h5 class="card-title"><a href="/detailContent?contentid=${joinPlaceTourImageDTO[0].contentid }">Card title</a></h5>
                                                 </div>
                                             </div>
 
@@ -124,9 +125,9 @@
                                     <div class="col-sm">
                                         <div class="container">
                                             <div class="card" >
-                                                <img src="${TourImageList[7].imageurl}" class="card-img-top" alt="...">
+                                                <a href="/detailContent?contentid=${joinPlaceTourImageDTO[0].contentid }"><img src="${joinPlaceTourImageDTO[7].imageurl}" class="card-img-top" alt="..."></a>
                                                 <div class="card-body">
-                                                    <h5 class="card-title">Card title</h5>
+                                                    <h5 class="card-title"><a href="/detailContent?contentid=${joinPlaceTourImageDTO[0].contentid }">Card title</a></h5>
                                                 </div>
                                             </div>
 
@@ -135,9 +136,9 @@
                                     <div class="col-sm">
                                         <div class="container">
                                             <div class="card" >
-                                                <img src="${TourImageList[8].imageurl}" class="card-img-top" alt="...">
+                                                <a href="/detailContent?contentid=${joinPlaceTourImageDTO[0].contentid }"><img src="${joinPlaceTourImageDTO[8].imageurl}" class="card-img-top" alt="..."></a>
                                                 <div class="card-body">
-                                                    <h5 class="card-title">Card title</h5>
+                                                    <h5 class="card-title"><a href="/detailContent?contentid=${joinPlaceTourImageDTO[0].contentid }">Card title</a></h5>
                                                 </div>
                                             </div>
 

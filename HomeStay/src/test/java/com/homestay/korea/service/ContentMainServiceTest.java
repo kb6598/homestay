@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.homestay.korea.DTO.JoinPlaceTourImageDTO;
 import com.homestay.korea.DTO.TourImageDTO;
 import com.homestay.korea.config.RootConfig;
 
@@ -25,10 +26,10 @@ public class ContentMainServiceTest {
 	//test 마무리
 	@Test
 	public void testReadService() {
-		List<TourImageDTO> tourImageList = contentMainService.getTourImageByThemeLocationOrderByPlcaeCountLimit("문화시설", "경기", 9);
+		List<JoinPlaceTourImageDTO> items = contentMainService.getJoinPlaceTourImageDTOForIndex("문화시설", "경기");
 		
-		for(TourImageDTO tourImage : tourImageList) {
-			logger.info(tourImage.toString());
+		for(JoinPlaceTourImageDTO item : items) {
+			logger.info(item.toString());
 		}
 		
 		

@@ -7,5 +7,5 @@ import com.homestay.korea.DTO.TourImageDTO;;
 
 public interface IContentMainService {
 	
-	public List<JoinPlaceTourImageDTO> getJoinPlaceTourImageDTOForIndex(String theme, String location);
+	public List<JoinPlaceTourImageDTO> getJoinPlaceTourImageDTOForIndex(String theme, String location, int start, int end);
 }

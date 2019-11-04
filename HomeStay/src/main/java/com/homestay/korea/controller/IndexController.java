@@ -81,9 +81,9 @@ private IContentMainService contentMainService;
 		
 		//---------TourImage 가져오기
 		
-		List<JoinPlaceTourImageDTO> joinPlaceTourImageDTO1 = contentMainService.getJoinPlaceTourImageDTOForIndex(theme1, location);
-		List<JoinPlaceTourImageDTO> joinPlaceTourImageDTO2 = contentMainService.getJoinPlaceTourImageDTOForIndex(theme2, location);
-		List<JoinPlaceTourImageDTO> joinPlaceTourImageDTO3 = contentMainService.getJoinPlaceTourImageDTOForIndex(theme3, location);
+		List<JoinPlaceTourImageDTO> joinPlaceTourImageDTO1 = contentMainService.getJoinPlaceTourImageDTOForIndex(theme1, location,0,6);
+		List<JoinPlaceTourImageDTO> joinPlaceTourImageDTO2 = contentMainService.getJoinPlaceTourImageDTOForIndex(theme2, location,0,6);
+		List<JoinPlaceTourImageDTO> joinPlaceTourImageDTO3 = contentMainService.getJoinPlaceTourImageDTOForIndex(theme3, location,0,6);
 		
 		
 		model.addAttribute("joinPlaceTourImageDTO1", joinPlaceTourImageDTO1);
@@ -115,7 +115,7 @@ private IContentMainService contentMainService;
 		//model.addAllAttributes(httpServletRequest.getParameterMap());
 
 		// 이미지 바인딩
-		List<JoinPlaceTourImageDTO> joinPlaceTourImageDTO = contentMainService.getJoinPlaceTourImageDTOForIndex(theme, location);
+		List<JoinPlaceTourImageDTO> joinPlaceTourImageDTO = contentMainService.getJoinPlaceTourImageDTOForIndex(theme, location,0,9);
 		
 		
 		model.addAttribute("joinPlaceTourImageDTO", joinPlaceTourImageDTO);

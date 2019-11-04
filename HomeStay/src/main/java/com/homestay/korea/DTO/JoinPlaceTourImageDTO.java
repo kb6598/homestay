@@ -8,7 +8,7 @@ public class JoinPlaceTourImageDTO {
 	private String theme;
 	private String location;
 	private long count;
-	private int imageno;
+	private Integer imageno;
 	private String imageurl;
 	
 	
