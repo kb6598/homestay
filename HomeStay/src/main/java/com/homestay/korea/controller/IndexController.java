@@ -151,9 +151,10 @@ private IThemePreferReadService themePreferReadService;
 		}else {
 			location = URLEncoder.encode("전체", "UTF-8");
 		}
+		model.addAttribute("location", location);
 		//--------------
 
-
+		
 
 		if(session.getAttribute("memberInfo") != null) {
 			MemberDTO member = (MemberDTO) session.getAttribute("memberInfo");
@@ -166,9 +167,11 @@ private IThemePreferReadService themePreferReadService;
 			logger.info("--------------------------------");
 			
 		
+			//-- value 값으로 map 정렬 
+			//--- 선호도 순으로 테마를 정렬
 			Map<String, Double> map = new HashMap<>();
 			//전체  관광지  문화시설  축제공연행사  여행코스  레포츠  숙박  쇼핑  음식점
-			map.put("문화시설",themePreferDTO.getCult_facil());
+			map.put("문화시설",themePreferDTO.getCult_facil());			
 			map.put("음식점",themePreferDTO.getDining());
 			map.put("축제공연행사",themePreferDTO.getEvent());
 			map.put("레포츠",themePreferDTO.getLeports());
@@ -176,14 +179,35 @@ private IThemePreferReadService themePreferReadService;
 			map.put("관광지",themePreferDTO.getTour_attr());
 			
 			List<String> keySetList = new ArrayList<>(map.keySet());
-			Collections.sort(keySetList, new Comparator<Double>() {
+			Collections.sort(keySetList, new Comparator<String>() {
 
 				@Override
-				public int compare(Double o1, Double o2) {
+				public int compare(String o1, String o2) {
 					// TODO Auto-generated method stub
 					return map.get(o2).compareTo(map.get(o1));
 				}
 			});
+//			for(String key : keySetList) {
+//				logger.info("--------------------------------");
+//				logger.info("--------------------------------");
+//	            logger.info(String.format("Key : %s, Value : %s", key, map.get(key)));
+//				logger.info("--------------------------------");
+//				logger.info("--------------------------------");
+//	        }
+			//----- 파라미터 전달
+			String[] themeHeader = new String[]{"theme1",	"theme2","theme3","theme4","theme5","theme6"};
+			String[] theme_korHeader = new String[]{"theme_kor1", "theme_kor2","theme_kor3","theme_kor4","theme_kor5","theme_kor6"};
+			
+			int index = 0;
+			for(String key : keySetList) {
+				model.addAttribute(themeHeader[index], key);
+				model.addAttribute(theme_korHeader[index], URLEncoder.encode(key, "UTF-8"));
+				index++;
+			}
+			
+			
+
+
 			
 		}else {
 			
@@ -196,18 +220,19 @@ private IThemePreferReadService themePreferReadService;
 			model.addAttribute("theme2", "축제공연행사");
 			model.addAttribute("theme3", "관광지");
 			model.addAttribute("theme4", "레포츠");
-			model.addAttribute("theme5", "음식");
+			model.addAttribute("theme5", "음식점");
 			model.addAttribute("theme6", "쇼핑");
 			//URLEncoder.encode("문화시설", "UTF-8")) -> 한글을 utf-8 url 값으로 변환
 			model.addAttribute("theme_kor1", URLEncoder.encode("문화시설", "UTF-8"));
 			model.addAttribute("theme_kor2", URLEncoder.encode("축제공연행사", "UTF-8"));
 			model.addAttribute("theme_kor3", URLEncoder.encode("관광지", "UTF-8"));
 			model.addAttribute("theme_kor4", URLEncoder.encode("레포츠", "UTF-8"));
-			model.addAttribute("theme_kor5", URLEncoder.encode("음식", "UTF-8"));
+			model.addAttribute("theme_kor5", URLEncoder.encode("음식점", "UTF-8"));
 			model.addAttribute("theme_kor6", URLEncoder.encode("쇼핑", "UTF-8"));
-			model.addAttribute("location", location);
+			
 
 		}
+			
 
 		
 		return "homestay/mainPage/index";
