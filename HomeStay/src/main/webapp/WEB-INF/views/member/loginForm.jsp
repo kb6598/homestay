@@ -83,7 +83,7 @@ input[type="password"] {
 						<input type="text" class="form-control" name="id" placeholder="ID" /> 
 							<input type="password" class="form-control" name="pw" placeholder="Password"/>
 						<button class="btn btn-lg btn-primary btn-block" data-oper="login" type="submit">Login</button>
-						<button class="btn btn-lg btn-primary btn-block" data-oper="join" type="submit">회원가입</button>
+						<button class="btn btn-lg btn-primary btn-block" data-oper="joinguest" type="submit">회원가입</button>
 					</form>
 				</div>
 			</div>
@@ -98,8 +98,8 @@ input[type="password"] {
 			e.preventDefault();
 			
 			var operation = $(this).data("oper");
-			if(operation === 'join') {
-				form.attr("action","/member/join").attr("method", "GET");
+			if(operation === 'joinguest') {
+				form.attr("action","/member/joinGuest").attr("method", "GET");
 				form.empty();
 			}
 			form.submit();

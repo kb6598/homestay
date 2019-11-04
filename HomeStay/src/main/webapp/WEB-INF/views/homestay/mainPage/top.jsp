@@ -13,7 +13,7 @@
         <div class="col-sm-3">
             <div class="btn-wrapper">
                 <a class="btn btn-outline-dark" href="../member/loginForm">Sign In</a>
-                <a class="btn btn-outline-dark" href="#joinForm">Sign Up</a>
+                <a class="btn btn-outline-dark" href="../member/joinGuest">Sign Up</a>
             </div>
         </div>
     </div>

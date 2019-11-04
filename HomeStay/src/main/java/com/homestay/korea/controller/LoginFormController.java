@@ -44,7 +44,7 @@ public class LoginFormController {
 		}
 		
 		session.setAttribute("memberInfo", member);
-		return "/main";
+		return "redirect:main";
 	}
 	
 	private boolean checkInput(String inputString) {
