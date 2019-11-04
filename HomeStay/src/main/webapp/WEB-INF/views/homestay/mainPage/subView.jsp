@@ -18,7 +18,7 @@
                 <div class="col-lg">
                     <div class="btn-wrapper" >
                     <a class="btn-secondary" href="#subView_${theme}" data-slide="prev">◁</a>
-                    num/num
+                    
                     <a class="btn-secondary" href="#subView_${theme}" data-slide="next">▷</a>
                     </div>
                 </div>
