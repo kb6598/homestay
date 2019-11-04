@@ -12,8 +12,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.homestay.korea.DTO.PlaceDetailDataDTO;
 import com.homestay.korea.DTO.ThemePreferDTO;
+
 import com.homestay.korea.DTO.TourImageDTO;
 import com.homestay.korea.service.IPlaceDetailDataReadService;
+
 import com.homestay.korea.service.IThemePreferReadService;
 import com.homestay.korea.service.ITourImageReadService;
 import com.homestay.korea.util.RelationAnalyze;
@@ -71,10 +73,10 @@ public class InfoController {
 		// 이미지 바인딩
 		List<TourImageDTO> TourImageList = contentMainService.getTourImageByThemeLocationOrderByPlcaeCountLimit(theme, location, 9); 
 		
-		
 		model.addAttribute("TourImageList", TourImageList);
 	}
 	
+
 	@RequestMapping(value="/detailContent")
 	public String detailContent(HttpServletRequest httpServletRequest) throws SQLException {
 		
@@ -93,7 +95,3 @@ public class InfoController {
 		
 	}
 }
-
-
-
-

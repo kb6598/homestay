@@ -30,7 +30,7 @@ public class JoinGuestController {
 	@Autowired
 	public IJoinMemberService memberservice;
 	
-	@GetMapping("/member/joinGuest")
+	@GetMapping("/member/joinGuest")	
 	public void ViewJoinGeustForm() {
 		
 	}
@@ -38,7 +38,7 @@ public class JoinGuestController {
 	@RequestMapping(value="/join",method= RequestMethod.POST)
 	public String joinGeust(MemberDTO dto) throws SQLException {
 		memberservice.insertMember(dto);
-		return "/main";
+		return "redirect:main";
 		
 	}
 	

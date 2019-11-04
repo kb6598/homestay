@@ -1,12 +1,9 @@
 package com.homestay.korea.DTO;
 
 public class TourImageDTO {
-	int imageno;
-	String imageurl;
-	String contentid;
-	
-	
-	
+	private int imageno;
+	private String imageurl;
+	private String contentid;
 	public int getImageno() {
 		return imageno;
 	}

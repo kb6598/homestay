@@ -25,7 +25,7 @@ public class RootConfig {
 	@Bean
 	public DataSource dataSource() {
 		DataSource ds=new DataSource();
-		ds.setDriverClassName("com.mysql.jdbc.Driver");
+		ds.setDriverClassName("com.mysql.cj.jdbc.Driver");
 		ds.setUrl("jdbc:mysql://itbuddy.iptime.org:8233/capstone"); 
 		ds.setUsername("capstone"); 
 		ds.setPassword("capstone1234"); 
