@@ -3,6 +3,9 @@ package com.homestay.korea.controller;
 
 import java.util.Locale;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -25,6 +28,17 @@ public class CommonController {
 
 		
 		return "homestay/common/bootstrap";
+	}
+	
+	//페이지 최상단 로고와 sign in sign up 버튼
+	@RequestMapping(value = "/mainpage/top")
+	public String top(HttpServletRequest httpServletRequest, Model model, HttpSession session) {
+		if(session.getAttribute("memberInfo") != null) {
+			model.addAttribute("memberinfo",session.getAttribute("memberInfo"));
+			return "homestay/common/top_login";
+		}else {
+			return "homestay/common/top_no_login";
+		}					
 	}
 	
 	

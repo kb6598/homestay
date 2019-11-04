@@ -11,10 +11,7 @@
             </a>
         </div>
         <div class="col-sm-3">
-            <div class="btn-wrapper">
-                <a class="btn btn-outline-dark" href="../member/loginForm">Sign In</a>
-                <a class="btn btn-outline-dark" href="../member/joinGuest">Sign Up</a>
-            </div>
+            	<h7> ${memberinfo.id}님 환영합니다. </h7>
         </div>
     </div>
 </div>

@@ -26,9 +26,9 @@ public class ContentMainService implements IContentMainService{
 		
 		List<JoinPlaceTourImageDTO> resultList = new ArrayList<JoinPlaceTourImageDTO>();
 		if(location.equals("전체")) {
-			resultList = joinPlaceTourImageDAO.readWithThemeStartEndOrderByParm(theme, 0, 9, "count");
+			resultList = joinPlaceTourImageDAO.readWithThemeStartEndOrderByParm(theme, start, end, "count");
 		}else {
-			resultList = joinPlaceTourImageDAO.readWithThemeLocationStartEndOrderByParm(theme, location, 0, 9, "count");
+			resultList = joinPlaceTourImageDAO.readWithThemeLocationStartEndOrderByParm(theme, location, start, end, "count");
 		}
 
 		

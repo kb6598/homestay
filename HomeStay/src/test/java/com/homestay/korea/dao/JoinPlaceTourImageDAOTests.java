@@ -30,7 +30,7 @@ public class JoinPlaceTourImageDAOTests {
 	//test 마무리
 	@Test
 	public void testReadimage() {
-		List<JoinPlaceTourImageDTO> itmes = joinPlaceTourImageDAO.readWithThemeLocationStartEndOrderByParm("문화시설", "경기", 0, 10, "count");
+		List<JoinPlaceTourImageDTO> itmes = joinPlaceTourImageDAO.readWithThemeLocationStartEndOrderByParm("문화시설", "경기", 0, 20, "count");
 		
 	
 			for (JoinPlaceTourImageDTO item : itmes) {
