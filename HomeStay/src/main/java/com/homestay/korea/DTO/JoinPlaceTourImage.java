@@ -60,5 +60,12 @@ public class JoinPlaceTourImage {
 	public void setImageurl(String imageurl) {
 		this.imageurl = imageurl;
 	}
+	@Override
+	public String toString() {
+		return "JoinPlaceTourImage [contentid=" + contentid + ", createdtime=" + createdtime + ", modifiedtime="
+				+ modifiedtime + ", theme=" + theme + ", location=" + location + ", count=" + count + ", imageno="
+				+ imageno + ", imageurl=" + imageurl + "]";
+	}
+	
 
 }
