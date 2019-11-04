@@ -21,4 +21,11 @@
 		SELECT * FROM place where theme=#{theme} order by Count desc limit #{limit}
 	</select>
 	
+	
+	<insert id="insertWithDTO" parameterType="com.homestay.korea.DTO.PlaceDTO" >	
+		INSERT INTO capstone.place(contentid, createdtime, modifiedtime, theme, count, location)
+		VALUES (#{contentid}, #{createdtime}, #{modifiedtime}, #{theme}, #{count}, #{location});
+	</insert>
+	
+	
 </mapper>

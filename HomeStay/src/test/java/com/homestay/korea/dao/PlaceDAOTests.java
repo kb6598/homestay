@@ -24,15 +24,34 @@ public class PlaceDAOTests {
 	private IPlaceDAO palceDAO;
 	
 	//test 마무리
-	//@Test
-	//public void testReadPlace() {
-	//	List<PlaceDTO> place = palceDAO.readWithThemeLocationLimitDesc("쇼핑", "경기", 5);
-	//	
-	//	for(PlaceDTO pl :  place) {
-	//		logger.info(pl.toString());
-	//	}
-		
-	//}
+//	@Test
+//	public void testReadPlace() {
+//		List<PlaceDTO> place = palceDAO.readWithThemeLocationLimitDesc("쇼핑", "경기", 5);
+//		
+//		for(PlaceDTO pl :  place) {
+//			logger.info(pl.toString());
+//		}
+//		
+//	}
+//	@Test
+//	public void testInsertPlace() {
+//		
+//		PlaceDTO placeDTO = new PlaceDTO();
+//		placeDTO.setContentid("401");
+//		placeDTO.setCount(1);
+//		placeDTO.setCreatedtime("2019-10-11 13:00:00");
+//		placeDTO.setLocation("경기");
+//		placeDTO.setModifiedtime("2019-10-11 13:00:01");
+//		placeDTO.setTheme("문화시설");
+//
+//		
+//		int resultNum = palceDAO.insertWithDTO(placeDTO);
+//		
+//		String str = ""+resultNum;
+//			logger.info(str);
+//
+//		
+//	}
 	
 }
 
