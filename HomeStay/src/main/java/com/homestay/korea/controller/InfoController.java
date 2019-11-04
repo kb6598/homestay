@@ -12,12 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.homestay.korea.DTO.PlaceDetailDataDTO;
 import com.homestay.korea.DTO.ThemePreferDTO;
-<<<<<<< HEAD
 import com.homestay.korea.DTO.TourImageDTO;
-import com.homestay.korea.service.IContentMainService;
 import com.homestay.korea.service.IPlaceDetailDataReadService;
-=======
->>>>>>> dce1ad45229bace5168fc1f0e488d0eb95f77e1b
 import com.homestay.korea.service.IThemePreferReadService;
 import com.homestay.korea.service.ITourImageReadService;
 import com.homestay.korea.util.RelationAnalyze;
@@ -47,7 +43,7 @@ public class InfoController {
 			vo.setContentid("1");
 			
 			//관광지 공통정보 불러오기
-			List<PlaceDetailDataDTO> readWithplaceDetailData = placeDetailDataReadService.readWithPlaceDetailDate(contentid, vo);
+			List<PlaceDetailDataDTO> readWithplaceDetailData = placeDetailDataReadService.readWithPlaceDetailDate(vo);
 			//관광지 이미지 불러오기
 			List<TourImageDTO> readWithPlaceDetailDateImage = tourImageReadService.readWithPlaceDetailDateImage(contentid);
 			
@@ -77,10 +73,10 @@ public class InfoController {
 		
 		
 		model.addAttribute("TourImageList", TourImageList);
-=======
+	}
+	
 	@RequestMapping(value="/detailContent")
 	public String detailContent(HttpServletRequest httpServletRequest) throws SQLException {
->>>>>>> dce1ad45229bace5168fc1f0e488d0eb95f77e1b
 		
 		//HttpSession httpSession = httpServletRequest.getSession();
 		//MemberDTO member = (MemberDTO)httpSession.getAttribute("memberInfo");

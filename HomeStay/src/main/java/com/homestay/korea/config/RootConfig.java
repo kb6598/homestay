@@ -1,8 +1,10 @@
 package com.homestay.korea.config;
 
-import org.apache.tomcat.jdbc.pool.DataSource;
+import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
+import org.apache.tomcat.jdbc.pool.DataSource;
 import org.mybatis.spring.SqlSessionFactoryBean;
+import org.mybatis.spring.SqlSessionTemplate;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -41,10 +43,21 @@ public class RootConfig {
 		sqlSessionFactory.setDataSource(dataSource());
 		return (SqlSessionFactory) sqlSessionFactory.getObject();
 	}
+	
+	@Bean
+	public SqlSession sqlSession() {
+		SqlSessionTemplate template=null;
+		try {
+			template = new SqlSessionTemplate(sqlSessionFactory());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return template;
+	}
 
 	@Bean
 	public DataSourceTransactionManager txManager() {
 		return new DataSourceTransactionManager(dataSource());
 	}
 
-}
+}	
