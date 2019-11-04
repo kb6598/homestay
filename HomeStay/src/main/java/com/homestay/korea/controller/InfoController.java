@@ -12,12 +12,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.homestay.korea.DTO.PlaceDetailDataDTO;
 import com.homestay.korea.DTO.ThemePreferDTO;
-<<<<<<< HEAD
+//<<<<<<< HEAD
 import com.homestay.korea.DTO.TourImageDTO;
 import com.homestay.korea.service.IContentMainService;
 import com.homestay.korea.service.IPlaceDetailDataReadService;
 =======
->>>>>>> dce1ad45229bace5168fc1f0e488d0eb95f77e1b
+//>>>>>>> dce1ad45229bace5168fc1f0e488d0eb95f77e1b
 import com.homestay.korea.service.IThemePreferReadService;
 import com.homestay.korea.service.ITourImageReadService;
 import com.homestay.korea.util.RelationAnalyze;
@@ -61,26 +61,10 @@ public class InfoController {
 		return "homestay/detailContent";
 	}
 	
-	@RequestMapping(value = "/mainpage/subview")
-	public String subview(HttpServletRequest httpServletRequest, Model model) {
-		
-		String theme = httpServletRequest.getParameter("theme").toString();
-		String theme_kor = httpServletRequest.getParameter("theme_kor").toString();
-		String location = httpServletRequest.getParameter("location").toString();
-		
-		model.addAttribute("theme_kor",theme_kor);
-		model.addAttribute("theme",theme);
-		model.addAttribute("location",location);
-		
-		// 이미지 바인딩
-		List<TourImageDTO> TourImageList = contentMainService.getTourImageByThemeLocationOrderByPlcaeCountLimit(theme, location, 9); 
-		
-		
-		model.addAttribute("TourImageList", TourImageList);
-=======
+
 	@RequestMapping(value="/detailContent")
 	public String detailContent(HttpServletRequest httpServletRequest) throws SQLException {
->>>>>>> dce1ad45229bace5168fc1f0e488d0eb95f77e1b
+//>>>>>>> dce1ad45229bace5168fc1f0e488d0eb95f77e1b
 		
 		//HttpSession httpSession = httpServletRequest.getSession();
 		//MemberDTO member = (MemberDTO)httpSession.getAttribute("memberInfo");
