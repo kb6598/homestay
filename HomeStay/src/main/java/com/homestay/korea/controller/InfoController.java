@@ -1,22 +1,21 @@
 package com.homestay.korea.controller;
 
 import java.util.List;
-import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.homestay.korea.DTO.MemberDTO;
+import com.homestay.korea.DTO.PlaceDetailDataDTO;
 import com.homestay.korea.DTO.ThemePreferDTO;
 import com.homestay.korea.DTO.TourImageDTO;
 import com.homestay.korea.service.IContentMainService;
+import com.homestay.korea.service.IPlaceDetailDataReadService;
 import com.homestay.korea.service.IThemePreferReadService;
+import com.homestay.korea.service.ITourImageReadService;
 import com.homestay.korea.util.RelationAnalyze;
 
 @Controller
@@ -27,6 +26,38 @@ public class InfoController {
 	
 	@Autowired
 	private IContentMainService contentMainService;
+	
+	@Autowired
+	private IPlaceDetailDataReadService placeDetailDataReadService;
+	
+	@Autowired
+	private ITourImageReadService tourImageReadService;
+	
+	
+	@RequestMapping("detail")
+	public String detail(PlaceDetailDataDTO vo, Model model, HttpServletRequest request) {
+		
+		//메인 페이지에서 관광지의 contentId받아오기
+		String contentid = request.getParameter("contentid");
+		
+		try {
+
+			vo.setContentid("1");
+			
+			//관광지 공통정보 불러오기
+			List<PlaceDetailDataDTO> readWithplaceDetailData = placeDetailDataReadService.readWithPlaceDetailDate(contentid, vo);
+			//관광지 이미지 불러오기
+			List<TourImageDTO> readWithPlaceDetailDateImage = tourImageReadService.readWithPlaceDetailDateImage(contentid);
+			
+			model.addAttribute("readWithplaceDetailData", readWithplaceDetailData);
+			model.addAttribute("readWithPlaceDetailDateImage", readWithPlaceDetailDateImage);
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return "homestay/detailContent";
+	}
 	
 	@RequestMapping(value = "/mainpage/subview")
 	public String subview(HttpServletRequest httpServletRequest, Model model) {

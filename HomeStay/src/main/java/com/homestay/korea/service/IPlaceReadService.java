@@ -1,6 +1,5 @@
 package com.homestay.korea.service;
 
-import java.util.HashMap;
 import java.util.List;
 
 import com.homestay.korea.DTO.PlaceDTO;

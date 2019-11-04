@@ -4,6 +4,9 @@ public class TourImageDTO {
 	int imageno;
 	String imageurl;
 	String contentid;
+	
+	
+	
 	public int getImageno() {
 		return imageno;
 	}

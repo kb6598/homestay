@@ -35,11 +35,4 @@ public class HomeController {
 		
 		return "home";
 	}
-	
-	@RequestMapping("detail")
-	public String detail() {
-		
-		return "homestay/detailContent";
-	}
-	
 }

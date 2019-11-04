@@ -1,10 +1,12 @@
 package com.homestay.korea.DTO;
 //when filed's value is null that means filed's value was not set
 public class PlaceDetailDataDTO {
+	
 	int cotent_no;
 	String content_category;
 	String content;
 	String contentid;
+	
 	public int getCotent_no() {
 		return cotent_no;
 	}

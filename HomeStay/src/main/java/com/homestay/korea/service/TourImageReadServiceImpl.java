@@ -1,15 +1,11 @@
 package com.homestay.korea.service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-
-import com.homestay.korea.DAO.IPlaceDAO;
 import com.homestay.korea.DAO.ITourImageDAO;
-import com.homestay.korea.DTO.PlaceDTO;
 import com.homestay.korea.DTO.TourImageDTO;
 
 @Service
@@ -33,12 +29,13 @@ public class TourImageReadServiceImpl implements ITourImageReadService {
 	}
 
 
-
-
-	
-	
-	
-	
+	//메인화면에서 관광지 클릭 시, 상세페이지로 넘어가며 보여질 관광지 사진
+	@Override
+	public List<TourImageDTO> readWithPlaceDetailDateImage(String contentid) {
+		
+		List<TourImageDTO> readWithPlaceDetailDateImage = tourImageDAO.readWithPlaceDetailDateImage(contentid);
+		return readWithPlaceDetailDateImage;
+	}
 }
 
 

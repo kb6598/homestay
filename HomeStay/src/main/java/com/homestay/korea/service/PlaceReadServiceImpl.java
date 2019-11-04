@@ -1,14 +1,11 @@
 package com.homestay.korea.service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-
 import com.homestay.korea.DAO.IPlaceDAO;
-
 import com.homestay.korea.DTO.PlaceDTO;
 
 @Service

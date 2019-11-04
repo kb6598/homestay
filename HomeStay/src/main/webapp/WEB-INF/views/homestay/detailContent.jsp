@@ -218,14 +218,9 @@
 		<div style="width: 2000px;">
 			<div id="slider-wrap" style="float: left;">
 				<ul id="slider">
-					<%-- <c:forEach items="${}" var=""> --%>
-						<li><img src="/resources/detailContent/1.jpg"></li>
-						<li><img src="/resources/detailContent/2.jpg"></li>
-						<li><img src="/resources/detailContent/3.jpg"></li>
-						<li><img src="/resources/detailContent/4.jpg"></li>
-						<li><img src="/resources/detailContent/5.jpg"></li>
-						<li><img src="/resources/detailContent/6.jpg"></li>
-					<%-- </c:forEach> --%>
+					<c:forEach items="${readWithPlaceDetailDateImage}" var="placeDetailDataImage">
+						<li><img src="${placeDetailDataImage.imageurl}"></li>
+					</c:forEach>
 				</ul>
 				<!--controls-->
 				<div class="btns" id="next">
@@ -247,12 +242,9 @@
 			<div style="float: left; height: 400px; margin-left: 3%">
 				<div style="margin-left:; height: 400px; margin-top: 20%;">
 					<font style="font-size: 20px; color: black;"> 
-						우편번호 : 05699<br>
-						전화명 : 서울시농수산식품공사<br>
-						전화번호 :02-3435-1000<br> 
-						홈페이지:http://garakmall.garak.co.kr<br>
-						http://www.seoul.go.kr<br>
-						주소 : 서울특별시 송파구 양재대로 932<br>
+						<c:forEach items="${readWithplaceDetailData}" var="placeDetailData">
+							${placeDetailData.content}
+						</c:forEach>
 					</font>
 				</div>
 			</div>
