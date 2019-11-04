@@ -1,5 +1,6 @@
 package com.homestay.korea.controller;
 
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Locale;
 
@@ -14,8 +15,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.homestay.korea.DTO.MemberDTO;
 import com.homestay.korea.DTO.ThemePreferDTO;
-import com.homestay.korea.DTO.TourImageDTO;
-import com.homestay.korea.service.IContentMainService;
 import com.homestay.korea.service.IThemePreferReadService;
 import com.homestay.korea.util.RelationAnalyze;
 
@@ -25,29 +24,12 @@ public class InfoController {
 	@Autowired
 	IThemePreferReadService themePreferReadService;
 	
-	@Autowired
-	private IContentMainService contentMainService;
 	
-	@RequestMapping(value = "/mainpage/subview")
-	public String subview(HttpServletRequest httpServletRequest, Model model) {
+	@RequestMapping(value="/detailContent")
+	public String detailContent(HttpServletRequest httpServletRequest) throws SQLException {
 		
-		String theme = httpServletRequest.getParameter("theme").toString();
-		String theme_kor = httpServletRequest.getParameter("theme_kor").toString();
-		String location = httpServletRequest.getParameter("location").toString();
-		
-		model.addAttribute("theme_kor",theme_kor);
-		model.addAttribute("theme",theme);
-		model.addAttribute("location",location);
-		
-		// 이미지 바인딩
-		List<TourImageDTO> TourImageList = contentMainService.getTourImageByThemeLocationOrderByPlcaeCountLimit(theme, location, 9); 
-		
-		
-		model.addAttribute("TourImageList", TourImageList);
-		
-		
-//		HttpSession httpSession = httpServletRequest.getSession();
-//		MemberDTO member = (MemberDTO)httpSession.getAttribute("memberInfo");
+		//HttpSession httpSession = httpServletRequest.getSession();
+		//MemberDTO member = (MemberDTO)httpSession.getAttribute("memberInfo");
 		ThemePreferDTO themePreferDTO =  themePreferReadService.getThemePrefer("billp");
 		RelationAnalyze relationAnalyze = new RelationAnalyze(themePreferDTO);
 
@@ -56,8 +38,12 @@ public class InfoController {
 		for(int i=0; i<idArr.length;i++) {
 			System.out.println(idArr[i]);
 		}
-		//model.addAllAttributes(httpServletRequest.getParameterMap());
 		
-		return "homestay/mainPage/subView";
+		return "/detailContent";
+		
 	}
 }
+
+
+
+
