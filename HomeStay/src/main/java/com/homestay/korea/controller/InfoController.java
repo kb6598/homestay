@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.homestay.korea.DTO.PlaceDetailDataDTO;
 import com.homestay.korea.DTO.ThemePreferDTO;
 import com.homestay.korea.DTO.TourImageDTO;
+
 import com.homestay.korea.service.IPlaceDetailDataReadService;
 import com.homestay.korea.service.IThemePreferReadService;
 import com.homestay.korea.service.ITourImageReadService;
@@ -30,7 +31,7 @@ public class InfoController {
 	
 	@Autowired
 	private ITourImageReadService tourImageReadService;
-
+	
 	//상세 페이지로 이동
 	@RequestMapping(value="/detailContent", method = RequestMethod.GET)
 	public String detailContent(PlaceDetailDataDTO placeDetailDataDTO, TourImageDTO tourImageDTO, Model model, HttpServletRequest request) {
