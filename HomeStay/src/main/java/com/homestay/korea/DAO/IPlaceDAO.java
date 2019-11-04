@@ -16,6 +16,6 @@ public interface IPlaceDAO {
 	public ArrayList<PlaceDTO> readWithThemeOrderByCount(@Param("theme") String theme, @Param("limit") int limit);
 	
 	
-	//insert 문
+	//insert 문 count는 지정하더라고 기본 0으로 삽입
 	public int insertWithDTO(PlaceDTO placeDTO);
 }
