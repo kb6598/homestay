@@ -18,12 +18,12 @@ public interface IJoinPlaceTourImageDAO {
 																			@Param("location") String location,
 																			@Param("start") int start,
 																			@Param("end") int end, 
-																			@Param("parm") String parm);
+																			@Param("param") String param);
 	
 	public ArrayList<JoinPlaceTourImageDTO> readWithThemeStartEndOrderByParm(@Param("theme") String theme, 
 			@Param("start") int start,
 			@Param("end") int end, 
-			@Param("parm") String parm);
+			@Param("param") String param);
 	
 
 }

@@ -50,9 +50,9 @@
                                     <div class="col-sm">
                                         <div class="container">
                                             <div class="card" >
-                                                <a href="/detailContent?contentid=${joinPlaceTourImageDTO[0].contentid }"><img src="${joinPlaceTourImageDTO[1].imageurl}" class="card-img-top" alt="..."></a>
+                                                <a href="/detailContent?contentid=${joinPlaceTourImageDTO[1].contentid }"><img src="${joinPlaceTourImageDTO[1].imageurl}" class="card-img-top" alt="..."></a>
                                                 <div class="card-body">
-                                                    <h5 class="card-title"><a href="/detailContent?contentid=${joinPlaceTourImageDTO[0].contentid }">Card title</a></h5>
+                                                    <h5 class="card-title"><a href="/detailContent?contentid=${joinPlaceTourImageDTO[1].contentid }">Card title</a></h5>
                                                 </div>
                                             </div>
                                         </div>
@@ -60,9 +60,9 @@
                                     <div class="col-sm">
                                         <div class="container">
                                             <div class="card" >
-                                                <a href="/detailContent?contentid=${joinPlaceTourImageDTO[0].contentid }"><img src="${joinPlaceTourImageDTO[2].imageurl}" class="card-img-top" alt="..."></a>
+                                                <a href="/detailContent?contentid=${joinPlaceTourImageDTO[2].contentid }"><img src="${joinPlaceTourImageDTO[2].imageurl}" class="card-img-top" alt="..."></a>
                                                 <div class="card-body">
-                                                    <h5 class="card-title"><a href="/detailContent?contentid=${joinPlaceTourImageDTO[0].contentid }">Card title</a></h5>
+                                                    <h5 class="card-title"><a href="/detailContent?contentid=${joinPlaceTourImageDTO[2].contentid }">Card title</a></h5>
                                                 </div>
                                             </div>
                                         </div>
@@ -76,9 +76,9 @@
                                     <div class="col-sm">
                                         <div class="container">
                                             <div class="card">
-                                            <a href="/detailContent?contentid=${joinPlaceTourImageDTO[0].contentid }"><img src="${joinPlaceTourImageDTO[3].imageurl}" class="card-img-top" alt=""></a>
+                                            <a href="/detailContent?contentid=${joinPlaceTourImageDTO[3].contentid }"><img src="${joinPlaceTourImageDTO[3].imageurl}" class="card-img-top" alt=""></a>
                                                 <div class="card-body">
-                                                    <h5 class="card-title"><a href="/detailContent?contentid=${joinPlaceTourImageDTO[0].contentid }">Card title</a></h5>
+                                                    <h5 class="card-title"><a href="/detailContent?contentid=${joinPlaceTourImageDTO[3].contentid }">Card title</a></h5>
                                                 </div>
                                             </div>
 
@@ -87,9 +87,9 @@
                                     <div class="col-sm">
                                         <div class="container">
                                             <div class="card" >
-                                                <a href="/detailContent?contentid=${joinPlaceTourImageDTO[0].contentid }"><img src="${joinPlaceTourImageDTO[4].imageurl}" class="card-img-top" alt="..."></a>
+                                                <a href="/detailContent?contentid=${joinPlaceTourImageDTO[4].contentid }"><img src="${joinPlaceTourImageDTO[4].imageurl}" class="card-img-top" alt="..."></a>
                                                 <div class="card-body">
-                                                    <h5 class="card-title"><a href="/detailContent?contentid=${joinPlaceTourImageDTO[0].contentid }">Card title</a></h5>
+                                                    <h5 class="card-title"><a href="/detailContent?contentid=${joinPlaceTourImageDTO[5].contentid }">Card title</a></h5>
                                                 </div>
                                             </div>
 
@@ -98,9 +98,9 @@
                                     <div class="col-sm">
                                         <div class="container">
                                             <div class="card" >
-                                                <a href="/detailContent?contentid=${joinPlaceTourImageDTO[0].contentid }"><img src="${joinPlaceTourImageDTO[5].imageurl}" class="card-img-top" alt="..."></a>
+                                                <a href="/detailContent?contentid=${joinPlaceTourImageDTO[5].contentid }"><img src="${joinPlaceTourImageDTO[5].imageurl}" class="card-img-top" alt="..."></a>
                                                 <div class="card-body">
-                                                    <h5 class="card-title"><a href="/detailContent?contentid=${joinPlaceTourImageDTO[0].contentid }">Card title</a></h5>
+                                                    <h5 class="card-title"><a href="/detailContent?contentid=${joinPlaceTourImageDTO[5].contentid }">Card title</a></h5>
                                                 </div>
                                             </div>
                                         </div>
@@ -114,9 +114,9 @@
                                     <div class="col-sm">
                                         <div class="container">
                                             <div class="card" >
-                                                <a href="/detailContent?contentid=${joinPlaceTourImageDTO[0].contentid }"><img src="${joinPlaceTourImageDTO[6].imageurl}" class="card-img-top" alt="..."></a>
+                                                <a href="/detailContent?contentid=${joinPlaceTourImageDTO[6].contentid }"><img src="${joinPlaceTourImageDTO[6].imageurl}" class="card-img-top" alt="..."></a>
                                                 <div class="card-body">
-                                                    <h5 class="card-title"><a href="/detailContent?contentid=${joinPlaceTourImageDTO[0].contentid }">Card title</a></h5>
+                                                    <h5 class="card-title"><a href="/detailContent?contentid=${joinPlaceTourImageDTO[6].contentid }">Card title</a></h5>
                                                 </div>
                                             </div>
 
@@ -125,9 +125,9 @@
                                     <div class="col-sm">
                                         <div class="container">
                                             <div class="card" >
-                                                <a href="/detailContent?contentid=${joinPlaceTourImageDTO[0].contentid }"><img src="${joinPlaceTourImageDTO[7].imageurl}" class="card-img-top" alt="..."></a>
+                                                <a href="/detailContent?contentid=${joinPlaceTourImageDTO[7].contentid }"><img src="${joinPlaceTourImageDTO[7].imageurl}" class="card-img-top" alt="..."></a>
                                                 <div class="card-body">
-                                                    <h5 class="card-title"><a href="/detailContent?contentid=${joinPlaceTourImageDTO[0].contentid }">Card title</a></h5>
+                                                    <h5 class="card-title"><a href="/detailContent?contentid=${joinPlaceTourImageDTO[7].contentid }">Card title</a></h5>
                                                 </div>
                                             </div>
 
@@ -136,9 +136,9 @@
                                     <div class="col-sm">
                                         <div class="container">
                                             <div class="card" >
-                                                <a href="/detailContent?contentid=${joinPlaceTourImageDTO[0].contentid }"><img src="${joinPlaceTourImageDTO[8].imageurl}" class="card-img-top" alt="..."></a>
+                                                <a href="/detailContent?contentid=${joinPlaceTourImageDTO[8].contentid }"><img src="${joinPlaceTourImageDTO[8].imageurl}" class="card-img-top" alt="..."></a>
                                                 <div class="card-body">
-                                                    <h5 class="card-title"><a href="/detailContent?contentid=${joinPlaceTourImageDTO[0].contentid }">Card title</a></h5>
+                                                    <h5 class="card-title"><a href="/detailContent?contentid=${joinPlaceTourImageDTO[8].contentid }">Card title</a></h5>
                                                 </div>
                                             </div>
 
