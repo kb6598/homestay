@@ -52,7 +52,7 @@
                                             <div class="card" >
                                                 <a href="/detailContent?contentid=${joinPlaceTourImageDTO[tmpidx].contentid }"><img src="${joinPlaceTourImageDTO[tmpidx].imageurl}" class="card-img-top" alt="..."></a>
                                                 <div class="card-body">
-                                                    <h5 class="card-title"><a href="/detailContent?contentid=${joinPlaceTourImageDTO[tmpidx].contentid }">Card title</a></h5>
+                                                    <h5 class="card-title"><a href="/detailContent?contentid=${joinPlaceTourImageDTO[tmpidx].contentid }">${titleList[tmpidx]}</a></h5>
                                                 </div>
                                             </div>
                                         </div>
