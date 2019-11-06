@@ -8,4 +8,5 @@ public interface IMemberDAO {
 	
 	public MemberDTO readWithId(String id);
 	public void memberInsert(MemberDTO dto);
+	
 }
