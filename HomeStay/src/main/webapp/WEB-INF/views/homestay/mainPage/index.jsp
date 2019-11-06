@@ -38,14 +38,15 @@
 
 	<script>
 	
-	
     var imgs = document.getElementsByTagName("img");
 
-        for(i = 0;i < imgs.length; i++)
-        {
-        	imgs[i].setAttribute("onError","/resources/mainContent/No-image-found.jpg");
+    for(i = 0;i < imgs.length; i++)
+    {
+    	imgs[i].setAttribute("onError","http://toeic.ybmclass.com/toeic/img/noimage.gif");
+        if(imgs[i].getAttribute("src") == null || imgs[i].getAttribute("src") == ""||imgs[i].getAttribute("src") == "null"){
+            imgs[i].setAttribute("src","http://toeic.ybmclass.com/toeic/img/noimage.gif");
         }
-    
+    }
     </script>
 
 	
