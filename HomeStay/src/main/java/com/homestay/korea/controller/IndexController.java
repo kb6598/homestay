@@ -29,9 +29,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.homestay.korea.HomeController;
 import com.homestay.korea.DTO.JoinPlaceTourImageDTO;
 import com.homestay.korea.DTO.MemberDTO;
+import com.homestay.korea.DTO.PlaceDetailDataDTO;
 import com.homestay.korea.DTO.ThemePreferDTO;
 import com.homestay.korea.DTO.TourImageDTO;
 import com.homestay.korea.service.IContentMainService;
+import com.homestay.korea.service.IPlaceDetailDataReadService;
 import com.homestay.korea.service.IThemePreferReadService;
 
 
@@ -44,6 +46,9 @@ private IContentMainService contentMainService;
 @Autowired
 private IThemePreferReadService themePreferReadService;
 
+@Autowired
+private IPlaceDetailDataReadService placeDetailDataReadService;
+
 
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 
@@ -51,7 +56,7 @@ private IThemePreferReadService themePreferReadService;
 	 * Simply selects the home view to render by returning its name.
 	 */
 	
-	
+
 
 	
 	
@@ -102,6 +107,9 @@ private IThemePreferReadService themePreferReadService;
 		model.addAttribute("theme_kor3", theme_kor3);
 		model.addAttribute("location", location);
 		
+		
+	
+		
 		//---------TourImage 바인딩
 		
 		List<JoinPlaceTourImageDTO> joinPlaceTourImageDTO1 = contentMainService.getJoinPlaceTourImageDTOForIndex(theme1, location,0,6);
@@ -113,6 +121,18 @@ private IThemePreferReadService themePreferReadService;
 		model.addAttribute("joinPlaceTourImageDTO2", joinPlaceTourImageDTO2);
 		model.addAttribute("joinPlaceTourImageDTO3", joinPlaceTourImageDTO3);
 
+		
+		//제목 바인딩
+		
+		List<String> titleList1 = contentMainService.getTitleByListJoinPlaceTourImageDTO(joinPlaceTourImageDTO1);
+		List<String> titleList2 = contentMainService.getTitleByListJoinPlaceTourImageDTO(joinPlaceTourImageDTO2);
+		List<String> titleList3 = contentMainService.getTitleByListJoinPlaceTourImageDTO(joinPlaceTourImageDTO3);
+		
+		
+		model.addAttribute("titleList1", titleList1);
+		model.addAttribute("titleList2", titleList2);
+		model.addAttribute("titleList3", titleList3);
+		
 		
 		return "homestay/mainPage/mainView";
 	}
@@ -131,6 +151,12 @@ private IThemePreferReadService themePreferReadService;
 		// 이미지 바인딩
 		List<JoinPlaceTourImageDTO> joinPlaceTourImageDTO = contentMainService.getJoinPlaceTourImageDTOForIndex(theme, location,0,9);		
 		model.addAttribute("joinPlaceTourImageDTO", joinPlaceTourImageDTO);
+		
+		List<String> titleList = contentMainService.getTitleByListJoinPlaceTourImageDTO(joinPlaceTourImageDTO);
+
+		
+		model.addAttribute("titleList", titleList);
+
 		
 		
 		return "homestay/mainPage/subView";

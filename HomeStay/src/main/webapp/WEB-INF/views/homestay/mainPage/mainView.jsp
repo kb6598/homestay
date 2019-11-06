@@ -24,7 +24,7 @@
 						<a href="/detailContent?contentid=${item.contentid}"><img  src="${item.imageurl}" class="d-block w-100" alt="..."></a>
 						<div class="carousel-text">
 							<div class="category">${item.theme}</div>
-							<div class="place">롯데월드</div>
+							<div class="place">${titleList1[idx.index]}</div>
 						</div>
 				</div>
 				</c:forEach>
@@ -57,7 +57,7 @@
 					<a href="/detailContent?contentid=${item.contentid}"></a><img src="${item.imageurl}" class="d-block w-100" alt="..."></a>
 					<div class="carousel-text">
 						<div class="category">${item.theme}</div>
-						<div class="place">롯데월드</div>
+						<div class="place">${titleList2[idx.index]}</div>
 					</div>
 			</div>
 			</c:forEach>
@@ -89,7 +89,7 @@
 				<a href="/detailContent?contentid=${item.contentid}"><img src="${item.imageurl}" class="d-block w-100" alt="..."></a>
 				<div class="carousel-text">
 					<div class="category">${item.theme}</div>
-					<div class="place">롯데월드</div>
+					<div class="place">${titleList2[idx.index]}</div>
 				</div>
 		</div>
 		</c:forEach>

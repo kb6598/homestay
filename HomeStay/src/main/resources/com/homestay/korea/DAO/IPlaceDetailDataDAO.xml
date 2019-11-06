@@ -13,4 +13,15 @@
 			contentid=#{contentid}
 	</select>
 	
+	<select id="readWithPlaceDetailDataContent_value" resultType="com.homestay.korea.DTO.PlaceDetailDataDTO">
+		SELECT 
+			*
+		FROM
+			place_detailData
+		WHERE
+			contentid=#{contentid}
+		AND
+			content_category = #{contentid}
+	</select>
+	
 </mapper>

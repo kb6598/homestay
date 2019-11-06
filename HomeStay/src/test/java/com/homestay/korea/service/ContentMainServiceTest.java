@@ -28,7 +28,9 @@ public class ContentMainServiceTest {
 	public void testReadService() {
 		List<JoinPlaceTourImageDTO> items = contentMainService.getJoinPlaceTourImageDTOForIndex("문화시설", "경기",0,10);
 		
-		for(JoinPlaceTourImageDTO item : items) {
+		List<String> list = contentMainService.getTitleByListJoinPlaceTourImageDTO(items);
+		
+		for(String item : list) {
 			logger.info(item.toString());
 		}
 		
