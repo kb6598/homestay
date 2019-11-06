@@ -185,7 +185,7 @@ private IThemePreferReadService themePreferReadService;
 		
 			//-- value 값으로 map 정렬 
 			//--- 선호도 순으로 테마를 정렬
-			Map<String, Double> map = new HashMap<>();
+			Map<String, Integer> map = new HashMap<>();
 			//전체  관광지  문화시설  축제공연행사  여행코스  레포츠  숙박  쇼핑  음식점
 			map.put("문화시설",themePreferDTO.getCult_facil());			
 			map.put("음식점",themePreferDTO.getDining());
