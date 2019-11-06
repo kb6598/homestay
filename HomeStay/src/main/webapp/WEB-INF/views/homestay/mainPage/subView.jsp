@@ -5,8 +5,8 @@
 
 
 
-<jsp:include page="/common/bootstrap"></jsp:include>
-<link rel="stylesheet" href="/resources/mainContent/subView.css">
+
+
 
    <div class="container container-subview">
     <div class="row subview">
