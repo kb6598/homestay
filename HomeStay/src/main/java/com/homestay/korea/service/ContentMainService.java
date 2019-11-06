@@ -55,7 +55,6 @@ public class ContentMainService implements IContentMainService{
 				resultList.add(placeDetailDataDAO.readWithPlaceDetailDataContent_value(placeDetailDataDTO).getContent());
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
-				e.printStackTrace();
 				resultList.add("제목없음");
 			}
 			
