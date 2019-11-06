@@ -146,10 +146,19 @@ private IThemePreferReadService themePreferReadService;
 	public String index(HttpServletRequest httpServletRequest, Model model, HttpSession session) throws UnsupportedEncodingException {
 
 
-		
-		
-
-		
+//		List<JoinPlaceTourImageDTO>test = contentMainService.getJoinPlaceTourImageDTOForIndex("문화시설", "전체", 0, 100);
+//		
+//		logger.info("--------------------------------");
+//		logger.info("--------------------------------");
+//		for(JoinPlaceTourImageDTO t : test) {
+//
+//
+//			logger.info(t.toString());
+//
+//		}
+//		logger.info("--------------------------------");
+//		logger.info("--------------------------------");
+//		
 		//get으로 전달 받는 파라미터가 없다면  location 값 전체로 설정  
 		//----------- get 으로 location값이 없으면 전체로 설정
 		String location ="";
@@ -167,11 +176,11 @@ private IThemePreferReadService themePreferReadService;
 			MemberDTO member = (MemberDTO) session.getAttribute("memberInfo");
 			
 			ThemePreferDTO themePreferDTO = themePreferReadService.getThemePrefer(member.getId());
-			logger.info("--------------------------------");
-			logger.info("--------------------------------");
-			logger.info(themePreferDTO.toString());
-			logger.info("--------------------------------");
-			logger.info("--------------------------------");
+//			logger.info("--------------------------------");
+//			logger.info("--------------------------------");
+//			logger.info(themePreferDTO.toString());
+//			logger.info("--------------------------------");
+//			logger.info("--------------------------------");
 			
 		
 			//-- value 값으로 map 정렬 
