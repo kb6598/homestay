@@ -432,13 +432,38 @@
 		        },
 		        success : function(data){
 		        	alert(data);
-		        	imgDiv.innerHTML ="";
-		        	var obj = JSON.parse(data);
+
+		        	
+		        	   var 
+		               targetDiv = document.getElementById("imgDiv"),
+		               wrapDiv, tmpImg, tmpA;
+		        	   
+
+
+
+		        	
+		        	
+		               var obj = JSON.parse(data);
 		        	obj.forEach(function (item, index, array) {
+		        		
+		        		
 		        		if(item.hasOwnProperty('firstimage')){
-		        			imgDiv.innerHTML += '<div class="swiper-slide" style="width: 200px; height: 250px;">'+
-			        		'<a href="/detailContent?contentid='+item.contentid+'">'+
-			        		'<img src="'+item.firstimage+'" class="ApiImage"></a></div>';
+				        	   wrapDiv = document.createElement('div');
+				          		wrapDiv.setAttribute("draggable", 'true');
+				        	   wrapDiv.setAttribute("class", "swiper-slide");
+								
+				        	   tmpA = document.createElement('a');
+				               tmpA.setAttribute("href", "/detailContent?contentid="+item.contentid);
+								
+				               tmpImg = document.createElement('img');
+				               tmpImg.setAttribute("class","ApiImage");
+				               tmpImg.setAttribute("src",item.firstimage);
+				               
+				               tmpA.appendChild(tmpImg);    
+				               wrapDiv.appendChild(tmpA);
+				               targetDiv.appendChild(wrapDiv);
+				               console.info(wrapDiv);
+
 		        		}        		
       				});
 		        }   
