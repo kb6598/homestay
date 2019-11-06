@@ -36,7 +36,17 @@
 	</div>
 
 
+	<script>
+	
+	
+    var imgs = document.getElementsByTagName("img");
 
+        for(i = 0;i < imgs.length; i++)
+        {
+        	imgs[i].setAttribute("onError","/resources/mainContent/No-image-found.jpg");
+        }
+    
+    </script>
 
 	
 </body>
