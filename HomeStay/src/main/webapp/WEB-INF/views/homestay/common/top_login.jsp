@@ -11,7 +11,8 @@
             </a>
         </div>
         <div class="col-sm-3">
-            	<h7> ${memberinfo.id}님 환영합니다. </h7>
+            	<a>${memberinfo.id} 님  &nbsp&nbsp</a>
+                <a class="btn btn-outline-dark" href="/logout">Log Out</a>
         </div>
     </div>
 </div>
