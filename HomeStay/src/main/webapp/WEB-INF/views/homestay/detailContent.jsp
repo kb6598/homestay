@@ -299,7 +299,7 @@
 	<script src="/resources/detailContent/swiper.min.js"></script>
 	<script>  
 		var swiper = new Swiper('.swiper-container', {
-			slidesPerView : 6,
+			slidesPerView : 5,
 			spaceBetween : 30,
 			loop : true,
 			pagination : {
@@ -435,9 +435,11 @@
 		        	imgDiv.innerHTML ="";
 		        	var obj = JSON.parse(data);
 		        	obj.forEach(function (item, index, array) {
-		        		imgDiv.innerHTML += '<div class="swiper-slide" style="width: 200px; height: 250px;">'+
-		        		'<a href="/detailContent?contentid='+item.contentid+'">'+
-		        		'<img src="'+item.firstimage+'" class="ApiImage"></a></div>';
+		        		if(item.hasOwnProperty('firstimage')){
+		        			imgDiv.innerHTML += '<div class="swiper-slide" style="width: 200px; height: 250px;">'+
+			        		'<a href="/detailContent?contentid='+item.contentid+'">'+
+			        		'<img src="'+item.firstimage+'" class="ApiImage"></a></div>';
+		        		}        		
       				});
 		        }   
 		    });
