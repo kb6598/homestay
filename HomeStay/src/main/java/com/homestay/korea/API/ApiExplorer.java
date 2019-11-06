@@ -64,7 +64,6 @@ public class ApiExplorer{
         JsonObject jsonObject = new JsonParser().parse(r).getAsJsonObject();
         JsonObject jsonObject2 = (JsonObject) jsonObject.get("response").getAsJsonObject().get("body").getAsJsonObject().get("items");
         JsonArray jsonArray = jsonObject2.getAsJsonArray("item");
-        System.out.println(jsonArray.toString());
 		return jsonArray;
 	}
 }

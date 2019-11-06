@@ -257,9 +257,9 @@
 	<!-- Tour API -->
 	<div class="swiper-container" style="width: 1200px; height: 500px;">
 		<h2>주변 관광지</h2>
-		<div class="swiper-wrapper">
+		<div id="imgDiv" class="swiper-wrapper">
 			<%-- <c:forEach items="${}" var=""> --%>
-				<div class="swiper-slide" style="width: 200px; height: 250px;">
+				<!-- <div class="swiper-slide" style="width: 200px; height: 250px;">
 					<img src="/resources/detailContent/1.jpg" class="ApiImage">
 				</div>
 				<div class="swiper-slide" style="width: 200px; height: 250px;">
@@ -276,7 +276,7 @@
 				</div>
 				<div class="swiper-slide" style="width: 200px; height: 250px;">
 					<img src="/resources/detailContent/6.jpg" class="ApiImage">
-				</div>
+				</div> -->
 			<%-- </c:forEach> --%>
 		</div>
 		<!-- Add Pagination -->
@@ -297,10 +297,9 @@
 
 	<!-- Swiper JS -->
 	<script src="/resources/detailContent/swiper.min.js"></script>
-	<script>
-           
+	<script>  
 		var swiper = new Swiper('.swiper-container', {
-			slidesPerView : 5,
+			slidesPerView : 6,
 			spaceBetween : 30,
 			loop : true,
 			pagination : {
@@ -424,15 +423,22 @@
 		//주변관광지
 		$(document).ready(function(){
 			$.ajax({
-		        type : "GET",
+		        type : "POST",
 		        url : "/location",
-		        data: {contentId:"126508"},
+		        data: {contentId:"${contentId}"},
 		        dataType: "text",
 		        error : function(data,xhr,status,error){
 		            alert(xhr+", "+status+", "+error);
 		        },
 		        success : function(data){
 		        	alert(data);
+		        	imgDiv.innerHTML ="";
+		        	var obj = JSON.parse(data);
+		        	obj.forEach(function (item, index, array) {
+		        		imgDiv.innerHTML += '<div class="swiper-slide" style="width: 200px; height: 250px;">'+
+		        		'<a href="/detailContent?contentid='+item.contentid+'">'+
+		        		'<img src="'+item.firstimage+'" class="ApiImage"></a></div>';
+      				});
 		        }   
 		    });
 		});
