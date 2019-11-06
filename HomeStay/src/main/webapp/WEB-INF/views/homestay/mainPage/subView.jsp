@@ -23,7 +23,7 @@
                     </div>
                 </div>
             </div>
-     
+     </div>
             <div class="row subview-center">
                 <div class="col-lg">
                     <div id="subView_${theme}" class="carousel slide" data-ride="carousel">
@@ -41,7 +41,7 @@
                                 			<div class="row">
                                 	</c:when>
                                 	<c:otherwise>
-                            			<div class="carousel-item active" data-interval="5000">
+                            			<div class="carousel-item" data-interval="5000">
                                 			<div class="row">
                                 	</c:otherwise>
                                 </c:choose>
@@ -63,12 +63,11 @@
                                </div>
                              </c:forEach>
 
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-</div>
-</div>
 </div>
 </div>
