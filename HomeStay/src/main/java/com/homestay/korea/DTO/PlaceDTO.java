@@ -7,6 +7,10 @@ public class PlaceDTO {
 	private String theme;
 	private String location;
 	private long count;
+	
+	private double mapx;
+	private double mapy;
+	
 	public String getContentid() {
 		return contentid;
 	}
@@ -47,6 +51,18 @@ public class PlaceDTO {
 		this.location = location;
 	}
 
+	public double getMapx() {
+		return mapx;
+	}
+	public void setMapx(double mapx) {
+		this.mapx = mapx;
+	}
+	public double getMapy() {
+		return mapy;
+	}
+	public void setMapy(double mapy) {
+		this.mapy = mapy;
+	}
 	@Override
 	public String toString() {
 		return "PlaceDTO [contentid=" + contentid + ", createdtime=" + createdtime + ", modifiedtime=" + modifiedtime
