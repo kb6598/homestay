@@ -31,16 +31,16 @@ public class LoginFormController {
 		
 		
 		if(!checkInput(id) || !checkInput(pw)) {
-			return "/member/loginForm";
+			return "member/loginForm";
 		}
 		
 		if(!mExistsService.isExistsId(id)) {
-			return "/member/loginForm"; 
+			return "member/loginForm"; 
 		}
 		
 		MemberDTO member = mMemberReadService.getMember(id);
 		if(!(member.getPw().equals(pw))) {
-			return "/member/loginForm";
+			return "member/loginForm";
 		}
 		
 		session.setAttribute("memberInfo", member);

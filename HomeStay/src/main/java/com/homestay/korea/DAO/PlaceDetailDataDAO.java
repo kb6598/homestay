@@ -20,4 +20,10 @@ public class PlaceDetailDataDAO implements IPlaceDetailDataDAO {
 		
 		return null;
 	}
+
+	@Override
+	public void insert(PlaceDetailDataDTO placeDetailDataDTO) {
+		
+	}
+	
 }

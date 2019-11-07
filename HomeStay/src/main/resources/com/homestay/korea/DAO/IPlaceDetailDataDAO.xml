@@ -13,4 +13,11 @@
 			contentid=#{contentid}
 	</select>
 	
+	<insert id="insert">
+		insert into place_detailData(cotent_no, content_category, content, contentid)
+		values(
+			(SELECT IFNULL(MAX(cotent_no)+1,1) FROM place_detailData pd),
+			#{content_category},#{content},#{contentid}
+		)
+	</insert>
 </mapper>
