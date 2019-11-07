@@ -6,16 +6,17 @@ import java.util.HashMap;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import com.homestay.korea.DTO.PlaceDTO;
 
 public class ApiExplorerLocationBased{
 
 	ApiExplorer api = null;
+	public ApiExplorerLocationBased(){}
 	
-	public ApiExplorerLocationBased(){
+	public ApiExplorerLocationBased(PlaceDTO placeDTO){
 		HashMap<String, String> hm = new HashMap<String, String>();
-		hm.put("numOfRows", "5");
-		hm.put("mapX", "126.981611");
-		hm.put("mapY", "37.568477");
+		hm.put("mapX", String.valueOf(placeDTO.getMapx()));
+		hm.put("mapY", String.valueOf(placeDTO.getMapx()));
 		hm.put("radius", "2000");
 		try {
 			api = new ApiExplorer("locationBasedList", hm);

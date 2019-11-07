@@ -57,7 +57,7 @@ public class ApiExplorer{
         rd.close();
         conn.disconnect();
         r=sb.toString();
-        //System.out.println(sb.toString());
+        System.out.println(sb.toString());
 	}
 	
 	public JsonArray getJArray(){
