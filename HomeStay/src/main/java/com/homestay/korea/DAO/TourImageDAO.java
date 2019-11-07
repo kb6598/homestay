@@ -34,4 +34,9 @@ public class TourImageDAO implements ITourImageDAO {
 		return sqlSession.selectList(Namespace+".readWithPlaceDetailDateImage", vo);
 	}
 
+	@Override
+	public void insertSingleTourImageRecord(TourImageDTO tourImageDTO) {
+		
+	}
+
 }

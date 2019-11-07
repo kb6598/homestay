@@ -22,4 +22,29 @@
 			contentid=#{contentid}
 	</select>
 	
+	<insert id="insertSingleTourImageRecord">
+		insert into tour_image(imageno, imageurl, contentid)
+		values(
+			(SELECT IFNULL(MAX(imageno)+1,1) FROM tour_image ti),
+			#{imageurl},#{contentid}
+		)
+	</insert>
+	
 </mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

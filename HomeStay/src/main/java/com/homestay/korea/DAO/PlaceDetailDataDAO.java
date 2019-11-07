@@ -22,6 +22,10 @@ public class PlaceDetailDataDAO implements IPlaceDetailDataDAO {
 	}
 
 	@Override
+	public void insert(PlaceDetailDataDTO placeDetailDataDTO) {
+		
+	}
+	
 	public PlaceDetailDataDTO readWithPlaceDetailDataContent_value(PlaceDetailDataDTO vo) throws Exception {
 		// TODO Auto-generated method stub
 		return null;

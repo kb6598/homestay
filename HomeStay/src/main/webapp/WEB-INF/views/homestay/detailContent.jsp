@@ -258,26 +258,6 @@
 	<div class="swiper-container" style="width: 1200px; height: 500px;">
 		<h2>주변 관광지</h2>
 		<div id="imgDiv" class="swiper-wrapper">
-			<%-- <c:forEach items="${}" var=""> --%>
-				<!-- <div class="swiper-slide" style="width: 200px; height: 250px;">
-					<img src="/resources/detailContent/1.jpg" class="ApiImage">
-				</div>
-				<div class="swiper-slide" style="width: 200px; height: 250px;">
-					<img src="/resources/detailContent/2.jpg" class="ApiImage">
-				</div>
-				<div class="swiper-slide" style="width: 200px; height: 250px;">
-					<img src="/resources/detailContent/3.jpg" class="ApiImage">
-				</div>
-				<div class="swiper-slide" style="width: 200px; height: 250px;">
-					<img src="/resources/detailContent/4.jpg" class="ApiImage">
-				</div>
-				<div class="swiper-slide" style="width: 200px; height: 250px;">
-					<img src="/resources/detailContent/5.jpg" class="ApiImage">
-				</div>
-				<div class="swiper-slide" style="width: 200px; height: 250px;">
-					<img src="/resources/detailContent/6.jpg" class="ApiImage">
-				</div> -->
-			<%-- </c:forEach> --%>
 		</div>
 		<!-- Add Pagination -->
 		<!-- Add Arrows -->
@@ -298,6 +278,9 @@
 	<!-- Swiper JS -->
 	<script src="/resources/detailContent/swiper.min.js"></script>
 	<script>  
+	function bind(){
+		
+	
 		var swiper = new Swiper('.swiper-container', {
 			slidesPerView : 5,
 			spaceBetween : 30,
@@ -311,10 +294,7 @@
 				prevEl : '.swiper-button-prev',
 			},
 		});
-	</script>
 
-	<!-- Content Image Slider -->
-	<script type="text/javascript">
 		//current position
 		var pos = 0;
 		//number of slides
@@ -419,57 +399,32 @@
 			$('#pagination-wrap ul li').removeClass('active');
 			$('#pagination-wrap ul li:eq(' + pos + ')').addClass('active');
 		}
-		
-		//주변관광지
-		$(document).ready(function(){
-			$.ajax({
-		        type : "POST",
-		        url : "/location",
-		        data: {contentId:"${contentId}"},
-		        dataType: "text",
-		        error : function(data,xhr,status,error){
-		            alert(xhr+", "+status+", "+error);
-		        },
-		        success : function(data){
-		        	alert(data);
-
-		        	
-		        	   var 
-		               targetDiv = document.getElementById("imgDiv"),
-		               wrapDiv, tmpImg, tmpA;
-		        	   
-
-
-
-		        	
-		        	
-		               var obj = JSON.parse(data);
-		        	obj.forEach(function (item, index, array) {
-		        		
-		        		
-		        		if(item.hasOwnProperty('firstimage')){
-				        	   wrapDiv = document.createElement('div');
-				          		wrapDiv.setAttribute("draggable", 'true');
-				        	   wrapDiv.setAttribute("class", "swiper-slide");
-								
-				        	   tmpA = document.createElement('a');
-				               tmpA.setAttribute("href", "/detailContent?contentid="+item.contentid);
-								
-				               tmpImg = document.createElement('img');
-				               tmpImg.setAttribute("class","ApiImage");
-				               tmpImg.setAttribute("src",item.firstimage);
-				               
-				               tmpA.appendChild(tmpImg);    
-				               wrapDiv.appendChild(tmpA);
-				               targetDiv.appendChild(wrapDiv);
-				               console.info(wrapDiv);
-
-		        		}        		
-      				});
-		        }   
-		    });
-		});
+	}
+	
+	//주변관광지
+	$(document).ready(function(){
+		$.ajax({
+	        type : "POST",
+	        url : "/location",
+	        data: {contentId:"${contentId}"},
+	        dataType: "text",
+	        error : function(data,xhr,status,error){
+	            alert(xhr+", "+status+", "+error);
+	        },
+	        success : function(data){
+	        	alert(data);
+	        	var obj = JSON.parse(data);
+	        	obj.forEach(function (item, index, array) {
+	        		if(item.hasOwnProperty('firstimage')){
+		        		imgDiv.innerHTML += '<div class="swiper-slide" style="width: 200px; height: 250px;">'+
+		        		'<a href="/detailContent?contentid='+item.contentid+'">'+
+		        		'<img src="'+item.firstimage+'" class="ApiImage"></a></div>';
+		        	}
+	        	})
+	        	bind();
+	        }  
+	    });
+	});
 	</script>
-
 </body>
 </html>

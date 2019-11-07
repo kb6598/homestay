@@ -26,14 +26,20 @@ public class TourImageDAOTests {
 	private ITourImageDAO tourImageDAO;
 	
 	//test 마무리
-	@Test
-	public void testReadimage() {
-		TourImageDTO image = tourImageDAO.readWithContentid("1");
-		
+//	@Test
+//	public void testReadimage() {
+//		TourImageDTO image = tourImageDAO.readWithContentid("1");
+//		logger.info(image.toString());
+//	}
 	
-			logger.info(image.toString());
-
-	}
+	//test마무리
+//	@Test
+//	public void testInsert() {
+//		TourImageDTO dto = new TourImageDTO();
+//		dto.setContentid("테스트contentid");
+//		dto.setImageurl("테스트imageurl");
+//		tourImageDAO.insertSingleTourImageRecord(dto);
+//	}
 	
 }
 
