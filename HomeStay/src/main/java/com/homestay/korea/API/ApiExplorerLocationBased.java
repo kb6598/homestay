@@ -16,7 +16,7 @@ public class ApiExplorerLocationBased{
 	public ApiExplorerLocationBased(PlaceDTO placeDTO){
 		HashMap<String, String> hm = new HashMap<String, String>();
 		hm.put("mapX", String.valueOf(placeDTO.getMapx()));
-		hm.put("mapY", String.valueOf(placeDTO.getMapx()));
+		hm.put("mapY", String.valueOf(placeDTO.getMapy()));
 		hm.put("radius", "2000");
 		try {
 			api = new ApiExplorer("locationBasedList", hm);
