@@ -37,7 +37,7 @@ public class InfoController {
 	public String detailContent(PlaceDetailDataDTO placeDetailDataDTO, TourImageDTO tourImageDTO, Model model, HttpServletRequest request) {
 		
 		//메인 페이지에서 관광지의 contentId받아오기
-		String contentId = request.getParameter("contentId");
+		String contentId = request.getParameter("contentid");
 		
 		try {
 			
@@ -66,6 +66,9 @@ public class InfoController {
 			model.addAttribute("readWithPlaceDetailDate", placeDetailDataReadService.readWithPlaceDetailDate(placeDetailDataDTO));
 			//관광지 이미지정보 불러오기
 			model.addAttribute("readWithPlaceDetailDateImage", tourImageReadService.readWithPlaceDetailDateImage(tourImageDTO));
+			//contentId
+			model.addAttribute("contentId", contentId);
+			System.out.println("contentId : "+contentId);
 		}catch(Exception e) {
 			e.printStackTrace();
 		}

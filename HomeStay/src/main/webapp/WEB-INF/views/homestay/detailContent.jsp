@@ -257,9 +257,9 @@
 	<!-- Tour API -->
 	<div class="swiper-container" style="width: 1200px; height: 500px;">
 		<h2>주변 관광지</h2>
-		<div class="swiper-wrapper">
+		<div id="imgDiv" class="swiper-wrapper">
 			<%-- <c:forEach items="${}" var=""> --%>
-				<div class="swiper-slide" style="width: 200px; height: 250px;">
+				<!-- <div class="swiper-slide" style="width: 200px; height: 250px;">
 					<img src="/resources/detailContent/1.jpg" class="ApiImage">
 				</div>
 				<div class="swiper-slide" style="width: 200px; height: 250px;">
@@ -276,7 +276,7 @@
 				</div>
 				<div class="swiper-slide" style="width: 200px; height: 250px;">
 					<img src="/resources/detailContent/6.jpg" class="ApiImage">
-				</div>
+				</div> -->
 			<%-- </c:forEach> --%>
 		</div>
 		<!-- Add Pagination -->
@@ -297,8 +297,7 @@
 
 	<!-- Swiper JS -->
 	<script src="/resources/detailContent/swiper.min.js"></script>
-	<script>
-           
+	<script>  
 		var swiper = new Swiper('.swiper-container', {
 			slidesPerView : 5,
 			spaceBetween : 30,
@@ -424,15 +423,49 @@
 		//주변관광지
 		$(document).ready(function(){
 			$.ajax({
-		        type : "GET",
+		        type : "POST",
 		        url : "/location",
-		        data: {contentId:"126508"},
+		        data: {contentId:"${contentId}"},
 		        dataType: "text",
 		        error : function(data,xhr,status,error){
 		            alert(xhr+", "+status+", "+error);
 		        },
 		        success : function(data){
 		        	alert(data);
+
+		        	
+		        	   var 
+		               targetDiv = document.getElementById("imgDiv"),
+		               wrapDiv, tmpImg, tmpA;
+		        	   
+
+
+
+		        	
+		        	
+		               var obj = JSON.parse(data);
+		        	obj.forEach(function (item, index, array) {
+		        		
+		        		
+		        		if(item.hasOwnProperty('firstimage')){
+				        	   wrapDiv = document.createElement('div');
+				          		wrapDiv.setAttribute("draggable", 'true');
+				        	   wrapDiv.setAttribute("class", "swiper-slide");
+								
+				        	   tmpA = document.createElement('a');
+				               tmpA.setAttribute("href", "/detailContent?contentid="+item.contentid);
+								
+				               tmpImg = document.createElement('img');
+				               tmpImg.setAttribute("class","ApiImage");
+				               tmpImg.setAttribute("src",item.firstimage);
+				               
+				               tmpA.appendChild(tmpImg);    
+				               wrapDiv.appendChild(tmpA);
+				               targetDiv.appendChild(wrapDiv);
+				               console.info(wrapDiv);
+
+		        		}        		
+      				});
 		        }   
 		    });
 		});

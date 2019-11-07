@@ -2,54 +2,52 @@ package com.homestay.korea.DTO;
 //when filed's value is null that means filed's value was not set
 public class ThemePreferDTO {
 	String id;
-	Double tour_attr;
-	Double cult_facil;
-	Double event;
-	Double shopping;
-	Double leports;
-	Double dining;
+	int tour_attr;
+	int cult_facil;
+	int event;
+	int shopping;
+	int leports;
+	int dining;
 	public String getId() {
 		return id;
 	}
 	public void setId(String id) {
 		this.id = id;
-	}
-	public Double getTour_attr() {
+	}	
+	public int getTour_attr() {
 		return tour_attr;
 	}
-	public void setTour_attr(Double tour_attr) {
+	public void setTour_attr(int tour_attr) {
 		this.tour_attr = tour_attr;
 	}
-	public Double getCult_facil() {
+	public int getCult_facil() {
 		return cult_facil;
 	}
-	public void setCult_facil(Double cult_facil) {
+	public void setCult_facil(int cult_facil) {
 		this.cult_facil = cult_facil;
 	}
-	public Double getEvent() {
+	public int getEvent() {
 		return event;
 	}
-	public void setEvent(Double event) {
+	public void setEvent(int event) {
 		this.event = event;
 	}
-	public Double getShopping() {
+	public int getShopping() {
 		return shopping;
 	}
-	public void setShopping(Double shopping) {
+	public void setShopping(int shopping) {
 		this.shopping = shopping;
 	}
-	public Double getLeports() {
+	public int getLeports() {
 		return leports;
 	}
-	public void setLeports(Double leports) {
+	public void setLeports(int leports) {
 		this.leports = leports;
 	}
-	public Double getDining() {	
-		
+	public int getDining() {
 		return dining;
 	}
-
-	public void setDining(Double dining) {
+	public void setDining(int dining) {
 		this.dining = dining;
 	}
 	@Override

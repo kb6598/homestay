@@ -26,4 +26,8 @@ public class PlaceDetailDataDAO implements IPlaceDetailDataDAO {
 		
 	}
 	
+	public PlaceDetailDataDTO readWithPlaceDetailDataContent_value(PlaceDetailDataDTO vo) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

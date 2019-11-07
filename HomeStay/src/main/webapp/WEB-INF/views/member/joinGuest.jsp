@@ -216,6 +216,20 @@ html, body {
        <div class="row margin">
         <div class="input-field col s12">
           <!-- <i class="mdi-action-lock-outline prefix"></i> -->
+
+          <select name="nation" id="nation" class="custom-select">
+          <option value="0">국가</option>
+          	<c:forEach var="country" items="${list}" varStatus="i">
+          		<option value="${country.id}">${country.cname}</option>
+          	</c:forEach>
+          </select>
+        </div>
+      </div>
+
+      
+       <div class="row margin">
+        <div class="input-field col s12">
+          <!-- <i class="mdi-action-lock-outline prefix"></i> -->
           <input id="phone" name="phone" type="text" onKeyup="inputPhoneNumber(this)" maxlength="13" />
           <label for="phone">전화번호</label>
         </div>
@@ -226,11 +240,11 @@ html, body {
         <div class="input-field col s12">
        
         	<div class="custom-control custom-radio custom-control-inline">
-        	 	 <input type="radio" class="custom-control-input" id="gender_male" name="gender_select"/>
+        	 	 <input type="radio" class="custom-control-input" id="gender_male" name="gender" value="male"/>
          		  <label class="custom-control-label" for="gender_male">남 자</label>
          		  	</div>
          	<div class="custom-control custom-radio custom-control-inline">
-         		  <input type="radio" class="custom-control-input" id="gender_female" name="gender_select"/>
+         		  <input type="radio" class="custom-control-input" id="gender_female" name="gender" value="female"/>
          		  <label class="custom-control-label" for="gender_female">여 자</label>
          		  	</div>          
         </div>
@@ -241,27 +255,27 @@ html, body {
         <div class="row margin">
         <div class="input-field col s12">
         	<div class="custom-control custom-radio custom-control-inline">
-        	 	 <input type="radio" class="custom-control-input" id="age10" name="age_select"/>
+        	 	 <input type="radio" class="custom-control-input" id="age10" name="age" value="10"/>
          		  <label class="custom-control-label" for="age10">10대</label>
          	</div>
          	<div class="custom-control custom-radio custom-control-inline">
-         		  <input type="radio" class="custom-control-input" id="age20" name="age_select"/>
+         		  <input type="radio" class="custom-control-input" id="age20" name="age" value="20"/>
          		  <label class="custom-control-label" for="age20">20대</label>
          	</div> 
          	<div class="custom-control custom-radio custom-control-inline">
-        	 	 <input type="radio" class="custom-control-input" id="age30" name="age_select"/>
+        	 	 <input type="radio" class="custom-control-input" id="age30" name="age" value="30"/>
          		  <label class="custom-control-label" for="age30">30대</label>
          	</div>
          	<div class="custom-control custom-radio custom-control-inline">
-         		  <input type="radio" class="custom-control-input" id="age40" name="age_select"/>
+         		  <input type="radio" class="custom-control-input" id="age40" name="age" value="40"/>
          		  <label class="custom-control-label" for="age40">40대</label>
          	</div>  
          	<div class="custom-control custom-radio custom-control-inline">
-        	 	 <input type="radio" class="custom-control-input" id="age50" name="age_select"/>
+        	 	 <input type="radio" class="custom-control-input" id="age50" name="age" value="50"/>
          		  <label class="custom-control-label" for="age50">50대</label>
          	</div>
          	<div class="custom-control custom-radio custom-control-inline">
-         		  <input type="radio" class="custom-control-input" id="age60" name="age_select"/>
+         		  <input type="radio" class="custom-control-input" id="age60" name="age" value="60"/>
          		  <label class="custom-control-label" for="age60">60대</label>
          	</div>         		  	       		  	     
         </div>
@@ -274,19 +288,19 @@ html, body {
         <div class="row margin">
         <div class="input-field col s12">
         	<div class="custom-control custom-radio custom-control-inline">
-        	 	 <input type="radio" class="custom-control-input" id="companion_solo" name="companion_select" value="solo"/>
+        	 	 <input type="radio" class="custom-control-input" id="companion_solo" name="companion" value="solo"/>
          		  <label class="custom-control-label" for="companion_solo">혼자</label>
          	</div>
          	<div class="custom-control custom-radio custom-control-inline">
-         		  <input type="radio" class="custom-control-input" id="companion_family" name="companion_select" value="family"/>
+         		  <input type="radio" class="custom-control-input" id="companion_family" name="companion" value="family"/>
          		  <label class="custom-control-label" for="companion_family">가족</label>
          	</div> 
          	<div class="custom-control custom-radio custom-control-inline">
-        	 	 <input type="radio" class="custom-control-input" id="companion_friends" name="companion_select" value="friends"/>
+        	 	 <input type="radio" class="custom-control-input" id="companion_friends" name="companion" value="friends"/>
          		  <label class="custom-control-label" for="companion_friends">친구</label>
          	</div>
          	<div class="custom-control custom-radio custom-control-inline">
-         		  <input type="radio" class="custom-control-input" id="companion_couple" name="companion_select" value="couple"/>
+         		  <input type="radio" class="custom-control-input" id="companion_couple" name="companion" value="couple"/>
          		  <label class="custom-control-label" for="companion_couple">애인</label>
       		  	       		  	     
         </div>
@@ -297,29 +311,29 @@ html, body {
       <div class="row margin">
         <div class="input-field col s12">
         	<div class="custom-control custom-radio custom-control-inline">
-        	 	 <input type="checkbox" class="custom-control-input" id="theme_tour" name="theme_select" value="tour" onclick="CountChecked(this)"/>
+        	 	 <input type="checkbox" class="custom-control-input" id="theme_tour" name="tour_attr" value="1" onclick="CountChecked(this)"/>
          		  <label class="custom-control-label" for="theme_tour">관광지</label>
          	</div>
          	<div class="custom-control custom-radio custom-control-inline">
-         		  <input type="checkbox" class="custom-control-input" id="theme_cult" name="theme_select" value="cult" onclick="CountChecked(this)"/>
+         		  <input type="checkbox" class="custom-control-input" id="theme_cult" name="cult_facil" value="1" onclick="CountChecked(this)"/>
          		  <label class="custom-control-label" for="theme_cult">문화시설</label>
          	</div> 
          	<div class="custom-control custom-radio custom-control-inline">
-        	 	 <input type="checkbox" class="custom-control-input" id="theme_event" name="theme_select" value="event" onclick="CountChecked(this)"/>
+        	 	 <input type="checkbox" class="custom-control-input" id="theme_event" name="event" value="1" onclick="CountChecked(this)"/>
          		  <label class="custom-control-label" for="theme_event">축제 및 공연</label>
          	</div>
          	<div class="custom-control custom-radio custom-control-inline">
-         		  <input type="checkbox" class="custom-control-input" id="theme_shopping" name="theme_select" value="shopping" onclick="CountChecked(this)"/>
+         		  <input type="checkbox" class="custom-control-input" id="theme_shopping" name="shopping" value="1" onclick="CountChecked(this)"/>
          		  <label class="custom-control-label" for="theme_shopping">쇼핑</label>
          		   </div>
          		   
 			 <div class="custom-control custom-radio custom-control-inline">
-         	<input type="checkbox" class="custom-control-input" id="theme_leports" name="theme_select" value="leports" onclick="CountChecked(this)"/>
+         	<input type="checkbox" class="custom-control-input" id="theme_leports" name="leports" value="1" onclick="CountChecked(this)"/>
          	<label class="custom-control-label" for="theme_leports">레포츠</label>
       		  	       		  	     
         </div>
         <div class="custom-control custom-radio custom-control-inline">
-         	<input type="checkbox" class="custom-control-input" id="theme_dining" name="theme_select" value="dining" onclick="CountChecked(this)"/>
+         	<input type="checkbox" class="custom-control-input" id="theme_dining" name="dining" value="1" onclick="CountChecked(this)"/>
          	<label class="custom-control-label" for="theme_dining">음식점</label>
       		  	       		  	     
         </div>

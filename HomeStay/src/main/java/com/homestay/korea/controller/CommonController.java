@@ -40,7 +40,14 @@ public class CommonController {
 			return "homestay/common/top_no_login";
 		}					
 	}
-	
+	//로그아웃 기능
+	@RequestMapping(value = "/logout")
+	public String logout(HttpServletRequest httpServletRequest, Model model, HttpSession session) {
+		if(session.getAttribute("memberInfo") != null) {
+			session.removeAttribute("memberInfo");			
+		}
+		return "redirect:main";
+	}
 	
 	
 }

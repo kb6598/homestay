@@ -47,8 +47,8 @@ public class RelationAnalyze {
 	
 	
 	private double Pearson(ThemePreferDTO compareData) {
-		Map<String, Double> loginDataMap = new HashMap<String, Double>();
-		Map<String, Double> compareDataMap = new HashMap<String, Double>();
+		Map<String, Integer> loginDataMap = new HashMap<String, Integer>();
+		Map<String, Integer> compareDataMap = new HashMap<String, Integer>();
 		
 		loginDataMap.put("Cult_facil", loginData.getCult_facil());
 		loginDataMap.put("Dining", loginData.getDining());

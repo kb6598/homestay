@@ -10,4 +10,8 @@
 	<select id="readListWithId" resultType="com.homestay.korea.DTO.ThemePreferDTO">
 		select * from theme_prefer
 	</select>
+	<insert id="PreferInsert">
+	insert into member(id, tour_attr, cult_facil, event, shopping, leports, dining)
+		VALUES(#{id}, #{tour_attr}, #{cult_facil}, #{event}, #{shopping}, #{leports}, #{dining})		
+	</insert>
 </mapper>

@@ -5,8 +5,8 @@
 
 
 
-<jsp:include page="/common/bootstrap"></jsp:include>
-<link rel="stylesheet" href="/resources/mainContent/subView.css">
+
+
 
    <div class="container container-subview">
     <div class="row subview">
@@ -23,8 +23,7 @@
                     </div>
                 </div>
             </div>
-        </div>
-     
+     </div>
             <div class="row subview-center">
                 <div class="col-lg">
                     <div id="subView_${theme}" class="carousel slide" data-ride="carousel">
@@ -33,125 +32,42 @@
                             <li data-target="#subView" data-slide-to="1"></li>
                             <li data-target="#subView" data-slide-to="2"></li>
                         </ol>
-                        <div class="carousel-inner">
-                            <div class="carousel-item active" data-interval="5000">
-
-                                <div class="row">
+						<div class="carousel-inner">
+							<c:set var="tmpidx" value = "0" scope="page"/>
+							<c:forEach begin="0" end="2" step="1" var="i">
+								<c:choose>
+									<c:when test="${i == 0}">
+                            			<div class="carousel-item active" data-interval="5000">
+                                			<div class="row">
+                                	</c:when>
+                                	<c:otherwise>
+                            			<div class="carousel-item" data-interval="5000">
+                                			<div class="row">
+                                	</c:otherwise>
+                                </c:choose>
+                                
+                                <c:forEach begin="0" end="2" step="1" var="j">
                                     <div class="col-sm">
                                         <div class="container">
                                             <div class="card" >
-                                                <a href="/detailContent?contentid=${joinPlaceTourImageDTO[0].contentid }"><img src="${joinPlaceTourImageDTO[0].imageurl}" class="card-img-top" alt="..."></a>
+                                                <a href="/detailContent?contentid=${joinPlaceTourImageDTO[tmpidx].contentid }"><img src="${joinPlaceTourImageDTO[tmpidx].imageurl}" class="card-img-top" alt="..."></a>
                                                 <div class="card-body">
-                                                    <h5 class="card-title"><a href="/detailContent?contentid=${joinPlaceTourImageDTO[0].contentid }">Card title</a></h5>
+                                                    <h5 class="card-title"><a href="/detailContent?contentid=${joinPlaceTourImageDTO[tmpidx].contentid }">${titleList[tmpidx]}</a></h5>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-sm">
-                                        <div class="container">
-                                            <div class="card" >
-                                                <a href="/detailContent?contentid=${joinPlaceTourImageDTO[1].contentid }"><img src="${joinPlaceTourImageDTO[1].imageurl}" class="card-img-top" alt="..."></a>
-                                                <div class="card-body">
-                                                    <h5 class="card-title"><a href="/detailContent?contentid=${joinPlaceTourImageDTO[1].contentid }">Card title</a></h5>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm">
-                                        <div class="container">
-                                            <div class="card" >
-                                                <a href="/detailContent?contentid=${joinPlaceTourImageDTO[2].contentid }"><img src="${joinPlaceTourImageDTO[2].imageurl}" class="card-img-top" alt="..."></a>
-                                                <div class="card-body">
-                                                    <h5 class="card-title"><a href="/detailContent?contentid=${joinPlaceTourImageDTO[2].contentid }">Card title</a></h5>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <c:set var="tmpidx" value = "${tmpidx + 1}" scope="page"/>
+								</c:forEach>
                                 </div>
+                               </div>
+                             </c:forEach>
 
-                            </div>
-                            <div class="carousel-item" data-interval="5000">
-
-                                <div class="row">
-                                    <div class="col-sm">
-                                        <div class="container">
-                                            <div class="card">
-                                            <a href="/detailContent?contentid=${joinPlaceTourImageDTO[3].contentid }"><img src="${joinPlaceTourImageDTO[3].imageurl}" class="card-img-top" alt=""></a>
-                                                <div class="card-body">
-                                                    <h5 class="card-title"><a href="/detailContent?contentid=${joinPlaceTourImageDTO[3].contentid }">Card title</a></h5>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                    <div class="col-sm">
-                                        <div class="container">
-                                            <div class="card" >
-                                                <a href="/detailContent?contentid=${joinPlaceTourImageDTO[4].contentid }"><img src="${joinPlaceTourImageDTO[4].imageurl}" class="card-img-top" alt="..."></a>
-                                                <div class="card-body">
-                                                    <h5 class="card-title"><a href="/detailContent?contentid=${joinPlaceTourImageDTO[5].contentid }">Card title</a></h5>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                    <div class="col-sm">
-                                        <div class="container">
-                                            <div class="card" >
-                                                <a href="/detailContent?contentid=${joinPlaceTourImageDTO[5].contentid }"><img src="${joinPlaceTourImageDTO[5].imageurl}" class="card-img-top" alt="..."></a>
-                                                <div class="card-body">
-                                                    <h5 class="card-title"><a href="/detailContent?contentid=${joinPlaceTourImageDTO[5].contentid }">Card title</a></h5>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                            <div class="carousel-item" data-interval="5000">
-
-                                <div class="row">
-                                    <div class="col-sm">
-                                        <div class="container">
-                                            <div class="card" >
-                                                <a href="/detailContent?contentid=${joinPlaceTourImageDTO[6].contentid }"><img src="${joinPlaceTourImageDTO[6].imageurl}" class="card-img-top" alt="..."></a>
-                                                <div class="card-body">
-                                                    <h5 class="card-title"><a href="/detailContent?contentid=${joinPlaceTourImageDTO[6].contentid }">Card title</a></h5>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                    <div class="col-sm">
-                                        <div class="container">
-                                            <div class="card" >
-                                                <a href="/detailContent?contentid=${joinPlaceTourImageDTO[7].contentid }"><img src="${joinPlaceTourImageDTO[7].imageurl}" class="card-img-top" alt="..."></a>
-                                                <div class="card-body">
-                                                    <h5 class="card-title"><a href="/detailContent?contentid=${joinPlaceTourImageDTO[7].contentid }">Card title</a></h5>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                    <div class="col-sm">
-                                        <div class="container">
-                                            <div class="card" >
-                                                <a href="/detailContent?contentid=${joinPlaceTourImageDTO[8].contentid }"><img src="${joinPlaceTourImageDTO[8].imageurl}" class="card-img-top" alt="..."></a>
-                                                <div class="card-body">
-                                                    <h5 class="card-title"><a href="/detailContent?contentid=${joinPlaceTourImageDTO[8].contentid }">Card title</a></h5>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-       
-    </div>
-    </div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
