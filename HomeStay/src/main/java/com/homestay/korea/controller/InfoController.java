@@ -42,8 +42,8 @@ public class InfoController {
 		try {
 			
 			//관광지 공통정보 + 관광지 이미지
-			placeDetailDataDTO.setContentid(contentId);
-			tourImageDTO.setContentid(contentId);
+			placeDetailDataDTO.setContentid(contentid);
+			tourImageDTO.setContentid(contentid);
 			
 			//메인에서 값 넘겨주기 전까지는 해당 소스 사용
 			//placeDetailDataDTO.setContentid("1");
