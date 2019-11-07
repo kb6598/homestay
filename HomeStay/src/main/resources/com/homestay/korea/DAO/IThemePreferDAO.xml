@@ -11,7 +11,7 @@
 		select * from theme_prefer
 	</select>
 	<insert id="PreferInsert">
-	insert into member(id, tour_attr, cult_facil, event, shopping, leports, dining)
+	insert into theme_prefer(id, tour_attr, cult_facil, event, shopping, leports, dining)
 		VALUES(#{id}, #{tour_attr}, #{cult_facil}, #{event}, #{shopping}, #{leports}, #{dining})		
 	</insert>
 </mapper>

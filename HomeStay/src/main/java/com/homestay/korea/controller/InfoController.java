@@ -42,12 +42,12 @@ public class InfoController {
 		try {
 			
 			//관광지 공통정보 + 관광지 이미지
-			//placeDetailDataDTO.setContentid(contentId);
-			//tourImageDTO.setContentid(contentId);
+			placeDetailDataDTO.setContentid(contentId);
+			tourImageDTO.setContentid(contentId);
 			
 			//메인에서 값 넘겨주기 전까지는 해당 소스 사용
-			placeDetailDataDTO.setContentid("1");
-			tourImageDTO.setContentid("1");
+			//placeDetailDataDTO.setContentid("1");
+			//tourImageDTO.setContentid("1");
 			
 			//User-Based Collaborative Filtering
 			//HttpSession httpSession = httpServletRequest.getSession();
