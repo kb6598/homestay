@@ -406,7 +406,7 @@
 		$.ajax({
 	        type : "POST",
 	        url : "/location",
-	        data: {contentId:"${contentId}"},
+	        data: {contentid:"${contentid}"},
 	        dataType: "text",
 	        error : function(data,xhr,status,error){
 	            alert(xhr+", "+status+", "+error);

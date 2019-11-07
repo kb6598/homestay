@@ -50,7 +50,7 @@
     for(i = 0;i < imgs.length; i++)
     {
     	imgs[i].setAttribute("onError","http://toeic.ybmclass.com/toeic/img/noimage.gif");
-        if(imgs[i].getAttribute("src") == null || imgs[i].getAttribute("src") == ""||imgs[i].getAttribute("src") == "null"){
+        if(imgs[i].getAttribute("src") == null || imgs[i].getAttribute("src") == ""||imgs[i].getAttribute("src") == "null"||imgs[i].getAttribute("src") == "noImage	"){
             imgs[i].setAttribute("src","http://toeic.ybmclass.com/toeic/img/noimage.gif");
             
         }
