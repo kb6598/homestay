@@ -23,8 +23,8 @@
 	
 	
 	<insert id="insertWithDTO" parameterType="com.homestay.korea.DTO.PlaceDTO" >	
-		INSERT INTO capstone.place(contentid, createdtime, modifiedtime, theme, count, location)
-		VALUES (#{contentid}, #{createdtime}, #{modifiedtime}, #{theme}, 0, #{location});
+		INSERT INTO capstone.place(contentid, createdtime, modifiedtime, theme, count, location, mapx, mapy)
+		VALUES (#{contentid}, #{createdtime}, #{modifiedtime}, #{theme}, 0, #{location}, #{mapx}, #{mapy});
 	</insert>
 	
 	

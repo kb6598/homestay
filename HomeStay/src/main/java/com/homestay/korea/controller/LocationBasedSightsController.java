@@ -15,7 +15,7 @@ public class LocationBasedSightsController {
 	
 	@ResponseBody
 	@RequestMapping(value="/location", method=RequestMethod.POST, produces="text/plain;charset=utf-8")
-	public String location(@RequestParam("contentId") String contentId) {
+	public String location(@RequestParam("contentid") String contentid) {
 		ApiExplorerLocationBased api = new ApiExplorerLocationBased();
 		return api.getJArray().toString();
 	}

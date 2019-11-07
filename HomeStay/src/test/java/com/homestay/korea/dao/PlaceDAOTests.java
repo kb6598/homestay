@@ -33,6 +33,8 @@ public class PlaceDAOTests {
 //		}
 //		
 //	}
+	
+	//test 마무리
 //	@Test
 //	public void testInsertPlace() {
 //		
@@ -43,14 +45,13 @@ public class PlaceDAOTests {
 //		placeDTO.setLocation("경기");
 //		placeDTO.setModifiedtime("2019-10-11 13:00:01");
 //		placeDTO.setTheme("문화시설");
+//		placeDTO.setMapx(12.1231231233);
+//		placeDTO.setMapy(123.123456789);
 //
-//		
 //		int resultNum = palceDAO.insertWithDTO(placeDTO);
 //		
 //		String str = ""+resultNum;
 //			logger.info(str);
-//
-//		
 //	}
 	
 }
