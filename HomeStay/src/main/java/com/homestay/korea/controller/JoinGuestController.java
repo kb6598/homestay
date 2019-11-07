@@ -4,8 +4,6 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.Locale;
 
-import javax.activation.CommandMap;
-import javax.annotation.Resource;
 import javax.inject.Inject;
 
 import org.slf4j.Logger;
@@ -23,6 +21,7 @@ import com.google.protobuf.Internal.ListAdapter;
 import com.homestay.korea.HomeController;
 import com.homestay.korea.DTO.CountryDTO;
 import com.homestay.korea.DTO.MemberDTO;
+import com.homestay.korea.DTO.ThemePreferDTO;
 import com.homestay.korea.service.ICountryReadService;
 import com.homestay.korea.service.IJoinMemberService;
 
@@ -46,11 +45,13 @@ public class JoinGuestController {
 
 	
 	@RequestMapping(value="/join",method= RequestMethod.POST)
-	public String joinGeust(MemberDTO dto) throws SQLException {
-		memberservice.insertMember(dto);
+	public String joinGeust(MemberDTO memberdto, ThemePreferDTO themepreferdto) throws SQLException {
+		memberservice.insertMember(memberdto);
+		memberservice.insertPrefer(themepreferdto);
 		return "redirect:main";
 		
 	}
+
 	
 	
 

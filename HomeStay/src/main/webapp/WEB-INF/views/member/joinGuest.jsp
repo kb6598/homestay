@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -225,6 +226,27 @@ html, body {
           </select>
         </div>
       </div>
+      
+        <div class="row margin">
+        <div class="input-field col s12">
+          <!-- <i class="mdi-action-lock-outline prefix"></i> -->
+
+          <select name="regional" id="regional" class="custom-select">
+          <option value="0">권역</option>
+          	<option value="서울">서울</option>
+          	<option value="경기">경기</option>
+          	<option value="인천">인천</option>
+          	<option value="강원">강원</option>
+          	<option value="충청">충청</option>
+          	<option value="대구">대구</option>
+          	<option value="부산">부산</option>
+          	<option value="울산">울산</option>
+          	<option value="광주">광주</option>
+          	<option value="제주">제주</option>
+          </select>
+        </div>
+      </div>
+      
 
       
        <div class="row margin">
@@ -240,11 +262,11 @@ html, body {
         <div class="input-field col s12">
        
         	<div class="custom-control custom-radio custom-control-inline">
-        	 	 <input type="radio" class="custom-control-input" id="gender_male" name="gender" value="male"/>
+        	 	 <input type="radio" class="custom-control-input" id="gender_male" name="gender" value="m"/>
          		  <label class="custom-control-label" for="gender_male">남 자</label>
          		  	</div>
          	<div class="custom-control custom-radio custom-control-inline">
-         		  <input type="radio" class="custom-control-input" id="gender_female" name="gender" value="female"/>
+         		  <input type="radio" class="custom-control-input" id="gender_female" name="gender" value="f"/>
          		  <label class="custom-control-label" for="gender_female">여 자</label>
          		  	</div>          
         </div>
