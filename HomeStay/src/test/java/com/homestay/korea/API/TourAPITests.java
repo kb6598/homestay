@@ -42,9 +42,34 @@ import com.homestay.korea.exception.NotOkResponseException;
 @ContextConfiguration(classes= {RootConfig.class})
 public class TourAPITests {
 	
-	//김승현 서비스 키
-	private final String SEUNGHYUN_SERVICEKEY = "5GNVseCsSklXvjRoIA81IY%2Bvu94C4OoBIeWM%2FQNuOUOKytgK6GWGx1IkOSY9gJHvZQ7yWBNy5fWFTiACpGYtVw%3D%3D";
-	private final int CALL_API_FIRST_PAGE = 1;
+	/*
+선상원 : 
+KaI%2FcewqprPhkm8XnSeaZV5lfBAZAiQSe0RCCjYJG7UDgj5a5ChYmXLG5GObAWG%2BxoBQC0HESNXkd88FtcAR1A%3D%3D
+
+노원호 :
+ZMvobRaDObK%2BFAohyI8niOVo9MI1W%2BVK7MRTb3ygvPsEyvrqfANugmGpLeRAeaVutOXbf0GDhS6cjojJt7QLzA%3D%3D
+
+이민혁 : 
+Yraqccx4LfA%2Bu6%2BRBKLwVEDFhi5woOoWBUZECv%2F0l%2Fs%2BL4s54Z0JX4TZDy7RJv%2FRdA%2FlFDp4eMqaTvmqzaO4XA%3D%3D
+
+여수향 : 
+qenZlJjZb6XaqFBDSk%2B6BE6hSgp4HMzlVHjuZV%2FN07OXNyH4dHxyXjyH3qtq8LyC6EC%2Bd1gOg0Tm2gR%2FusFSWQ%3D%3D
+
+나평근 : 
+nz39ogDb3ERsaiPwd4lfxl0pwSqRGkR6HtXkM%2Bcoe04m1iXMHmNFQgmz3mpRt0g2ns3wrzGiSueBRhdBE4PLkA%3D%3D
+
+최우중 : 
+ZgU24ffu7eXD%2BvDP%2Fgg1C7NmQWf4bpC6G879XYYYZjRDO59Ld5NY%2FTXdPTGVt2P3b%2BRHbr0eYyPw%2Bc%2FQpmqo7Q%3D%3D
+
+이빌립 : 
+XTqju5%2BKJ1B65Rcv%2FDQzBbher7JEH6YCJYshlzqThmSU97RsoM2tSIn2WotU8jsAOc3LWr9APLD98YplWCOWHw%3D%3D
+
+김승현 :
+5GNVseCsSklXvjRoIA81IY%2Bvu94C4OoBIeWM%2FQNuOUOKytgK6GWGx1IkOSY9gJHvZQ7yWBNy5fWFTiACpGYtVw%3D%3D
+	 * 
+	 */
+	
+	private final String SERVICEKEY = "KaI%2FcewqprPhkm8XnSeaZV5lfBAZAiQSe0RCCjYJG7UDgj5a5ChYmXLG5GObAWG%2BxoBQC0HESNXkd88FtcAR1A%3D%3D";
 	private final int CALL_API_PAGE_COUNT = 100;
 	
 	@Autowired
@@ -75,23 +100,23 @@ public class TourAPITests {
 	}
 	
 //	@Test
-	public void handleException() {
-		//<resultCode>태그값이 22이면  서비스 요청제한횟수 초과에러(처리해줘야함)
-		//<resultCode>값이 0이외에는 모두 에러
-		
-		//관광지한페이지에 50개 * 100번호출하면 총 관광지 갯수 = 5000개
-		for(int i=CALL_API_FIRST_PAGE; i<CALL_API_PAGE_COUNT; i++) {
-			try {
-				callTourAPIToStoreDB(i);
-			}catch(LimitedRequestException e) {
-				//서비스 호출 제한 걸렸을때 처리
-			}catch(NotOkResponseException e) {
-				//응답이 바르지 못했을 때 처리
-			}catch(Exception e) {
-				e.printStackTrace();
-			}
-		}
-	}
+//	public void handleException() {
+//		//<resultCode>태그값이 22이면  서비스 요청제한횟수 초과에러(처리해줘야함)
+//		//<resultCode>값이 0이외에는 모두 에러
+//		
+//		//관광지한페이지에 50개 * 100번호출하면 총 관광지 갯수 = 5000개
+//		for(int i=1; i<CALL_API_PAGE_COUNT; i++) {
+//			try {
+//				callTourAPIToStoreDB(i);
+//			}catch(LimitedRequestException e) {
+//				//서비스 호출 제한 걸렸을때 처리
+//			}catch(NotOkResponseException e) {
+//				//응답이 바르지 못했을 때 처리
+//			}catch(Exception e) {
+//				e.printStackTrace();
+//			}
+//		}
+//	}
 	
 	/*
 	 * To do list
@@ -108,12 +133,14 @@ public class TourAPITests {
 	 * 7. 각 1개의 관광지의 이미지정보 호출
 	 * 8. 이미지 url을 tour_image테이블의 imageUrl에 저장
 	 */
-//	@Test
-	public void callTourAPIToStoreDB(int pageNo) throws Exception {
+	
+	@Test
+	public void callTourAPIToStoreDB() throws Exception {
 		
 		Map<String,String> basedAreaUriMap = new HashMap<String,String>();
-		basedAreaUriMap.put("pageNo",String.valueOf(pageNo)); //반복처리할것
-		basedAreaUriMap.put("numOfRows","50"); //50으로 처리할것임
+//		basedAreaUriMap.put("pageNo",String.valueOf(pageNo)); //반복처리할것
+		basedAreaUriMap.put("pageNo","7");
+		basedAreaUriMap.put("numOfRows","200"); 
 		basedAreaUriMap.put("listYN","Y");
 		
 		Map<String,String> commonDataUriMap = new HashMap<String,String>();
@@ -133,7 +160,7 @@ public class TourAPITests {
 
 		//각각 api를 호출하고 결과에서 <resultCode>값을 확인해서 0000 이외면 exception 날림
 		try {
-			basedArea = new Api("areaBasedList", basedAreaUriMap, SEUNGHYUN_SERVICEKEY); //지역기반 호출
+			basedArea = new Api("areaBasedList", basedAreaUriMap, SERVICEKEY); //지역기반 호출
 			int repeatCnt=0;
 			int startIdx=0;
 			int lastIdx=0;
@@ -176,19 +203,23 @@ public class TourAPITests {
 					placeDTO.setModifiedtime(transforCalendar(resultMTime));
 					placeDTO.setLocation(korAreaName);
 					placeDTO.setTheme(korTheme);
-					placeDetailDataDTO.setContent_category("mapX");
-					placeDetailDataDTO.setContent(resultXLocation);
-					placeDetailDataDTO.setContent_category("mapY");
-					placeDetailDataDTO.setContent(resultYLocation);
-//					placeDao.insertWithDTO(placeDTO); //지역정보DB에 저장
+					placeDTO.setMapx(Double.parseDouble(resultXLocation));
+					placeDTO.setMapy(Double.parseDouble(resultYLocation));
+					placeDao.insertWithDTO(placeDTO); //지역정보DB에 저장
+					
+					if(resultFirstImage.equals("noTag")) {
+						tourImageDTO.setImageurl("noImage");
+						tourImageDTO.setContentid(resultContentId);
+						tourImageDao.insertSingleTourImageRecord(tourImageDTO);
+					}
 					
 					System.out.println("생성날짜:"+transforCalendar(resultCTime));
 					System.out.println("수정날짜:"+transforCalendar(resultMTime));
 					System.out.println("테마:"+korTheme);
 					System.out.println("관광지고유번호:"+resultContentId);
 					System.out.println("지역:"+korAreaName);
-					System.out.println("원본이미지 url:"+resultFirstImage);
-					System.out.println("썸네일이미지 url:"+resultThumnailImage);
+//					System.out.println("원본이미지 url:"+resultFirstImage);
+//					System.out.println("썸네일이미지 url:"+resultThumnailImage);
 					System.out.println("--------------------------------- 지역 정보 끝---------------------------------");
 					
 					//--------------------------------------------------------------------------------------
@@ -198,7 +229,7 @@ public class TourAPITests {
 					}else {
 						commonDataUriMap.put("contentId", resultContentId);
 					}
-					commonData = new Api("detailCommon", commonDataUriMap, SEUNGHYUN_SERVICEKEY);
+					commonData = new Api("detailCommon", commonDataUriMap, SERVICEKEY);
 					String resultCommonDataXmlStr = commonData.getResultXmlStr();
 					String resultCodeStr = extractXmlValue(resultCommonDataXmlStr, "<resultCode>");
 					if(!resultCodeStr.equals("0000")) {
@@ -219,7 +250,7 @@ public class TourAPITests {
 								placeDetailDataDTO.setContent_category(tagInfo.commonTag.get(commonTempStrArr[idx]));
 								placeDetailDataDTO.setContent(extractXmlValue(resultCommonDataXmlStr,commonTempStrArr[idx]));
 								placeDetailDataDTO.setContentid(resultContentId);
-//								placeDetailDao.insert(placeDetailDataDTO); //공통db에 저장
+								placeDetailDao.insert(placeDetailDataDTO); //공통db에 저장
 							}
 						}
 						
@@ -235,7 +266,7 @@ public class TourAPITests {
 					//세부정보 조회 호출() 
 					introDataUriMap.put("contentTypeId", resultTypeId); //갱신해야함
 					introDataUriMap.put("contentId", resultContentId); //갱신해야함
-					Map<String,String> eachNodeNames=extractXmlNodeAndValue(makeAPIUri("detailIntro", introDataUriMap, SEUNGHYUN_SERVICEKEY));
+					Map<String,String> eachNodeNames=extractXmlNodeAndValue(makeAPIUri("detailIntro", introDataUriMap, SERVICEKEY));
 					Map<String,String> resultDetailMap = new HashMap<>(); //DB에 저장해야하는 파싱된정보
 					System.out.println("--------------------------------- 상세 정보 시작---------------------------------");
 					for(Map.Entry<String,String> entry : eachNodeNames.entrySet()){
@@ -247,7 +278,7 @@ public class TourAPITests {
 						placeDetailDataDTO.setContent_category(key);
 						placeDetailDataDTO.setContent(entry.getValue()); //문제점이 value값에 <br/>태그라던가 &nbsp;등 html요소가 포함되어있음
 						placeDetailDataDTO.setContentid(resultContentId);
-//						placeDetailDao.insert(placeDetailDataDTO); //상세정보db에 저장
+						placeDetailDao.insert(placeDetailDataDTO); //상세정보db에 저장
 						System.out.println("상세정보 키값:" + key + ", 상세정보 value값:" + entry.getValue());
 					}
 					System.out.println("--------------------------------- 상세 정보 끝---------------------------------");
@@ -255,7 +286,7 @@ public class TourAPITests {
 					//--------------------------------------------------------------------------------------
 					//이미지정보 조회 호출()
 					detailImageUriMap.put("contentId", resultContentId);
-					Map<String,String> eachImageUrl=extractXmlNodeAndValue(makeAPIUri("detailImage", detailImageUriMap, SEUNGHYUN_SERVICEKEY));
+					Map<String,String> eachImageUrl=extractXmlNodeAndValue(makeAPIUri("detailImage", detailImageUriMap, SERVICEKEY));
 					System.out.println("--------------------------------- 이미지 정보 시작---------------------------------");
 					if(!eachImageUrl.isEmpty()) {
 						for(Map.Entry<String,String> entry : eachImageUrl.entrySet()) {
@@ -264,7 +295,7 @@ public class TourAPITests {
 							if(nodeName.equals("originimgurl")) { //이미지정보가 존재한다면
 								tourImageDTO.setContentid(resultContentId);
 								tourImageDTO.setImageurl(value);
-//								tourImageDao.insertSingleTourImageRecord(tourImageDTO); //이미지 정보 db에저장
+								tourImageDao.insertSingleTourImageRecord(tourImageDTO); //이미지 정보 db에저장
 								System.out.println("키값:" + nodeName + ", value값: " + value);
 							}
 						}
