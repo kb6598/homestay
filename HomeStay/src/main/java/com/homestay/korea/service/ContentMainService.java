@@ -56,8 +56,10 @@ public class ContentMainService implements IContentMainService{
 			logger.info(dto.toString());
 			placeDetailDataDTO.setContentid(dto.getContentid());
 			placeDetailDataDTO.setContent_category("제목");
+			logger.info(placeDetailDataDTO.toString());
+
 			try {
-				resultList.add(placeDetailDataDAO.readWithPlaceDetailDataContent_value(placeDetailDataDTO).getContentid());
+				resultList.add(placeDetailDataDAO.readWithPlaceDetailDataContent_value(placeDetailDataDTO).getContent());
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				resultList.add("제목없음");

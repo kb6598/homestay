@@ -21,7 +21,7 @@
 		WHERE
 			contentid=#{contentid}
 		AND
-			content_category = #{contentid}
+			content_category = #{content_category}
 	</select>
 	
 	<insert id="insert">
