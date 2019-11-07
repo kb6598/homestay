@@ -189,7 +189,12 @@ private IPlaceDetailDataReadService placeDetailDataReadService;
 		//----------- get 으로 location값이 없으면 전체로 설정
 		String location ="";
 		if(httpServletRequest.getParameter("location") != null) {
-			location = httpServletRequest.getParameter("location").toString();
+			if(httpServletRequest.getParameter("location") != "") {
+				location = httpServletRequest.getParameter("location").toString();
+			}else {
+				location = URLEncoder.encode("전체", "UTF-8");
+			}
+			
 		}else {
 			location = URLEncoder.encode("전체", "UTF-8");
 		}
