@@ -88,7 +88,7 @@
 				<a href="/detailContent?contentid=${item.contentid}"><img src="${item.imageurl}" class="d-block w-100" alt="..."></a>
 				<div class="carousel-text">
 					<div class="category">${item.theme}</div>
-					<div class="place">${titleList2[idx.index]}</div>
+					<div class="place">${titleList3[idx.index]}</div>
 				</div>
 		</div>
 		</c:forEach>

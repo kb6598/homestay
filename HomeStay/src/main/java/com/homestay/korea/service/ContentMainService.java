@@ -39,12 +39,14 @@ public class ContentMainService implements IContentMainService{
 			resultList = joinPlaceTourImageDAO.readWithThemeLocationStartEndOrderByParm(theme, location, start, count, "count");
 		}
 
-		if(resultList.size() == 0) {
+		if(resultList.size() < count) {
 			JoinPlaceTourImageDTO tmpDTO;
-			for(int i = 0;i<count;i++) {
+			for(int  i = resultList.size();i<count;i++) {
 				tmpDTO = new JoinPlaceTourImageDTO();
 				tmpDTO.setTheme(theme);
+				//logger.info(tmpDTO.toString());
 				resultList.add(tmpDTO);
+				
 			}
 
 		}
