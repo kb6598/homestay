@@ -41,16 +41,14 @@
 		<div class="col-lg"><jsp:include page="/mainpage/subview?theme=${theme6}&theme_kor=${theme_kor6}&location=${location}" flush="false" /></div>
 	</div>
 
-
-	<script>
-	
+<script>
 
     var imgs = document.getElementsByTagName("img");
 
     for(i = 0;i < imgs.length; i++)
     {
     	imgs[i].setAttribute("onError","http://toeic.ybmclass.com/toeic/img/noimage.gif");
-        if(imgs[i].getAttribute("src") == null || imgs[i].getAttribute("src") == ""||imgs[i].getAttribute("src") == "null"||imgs[i].getAttribute("src") == "noImage	"){
+        if(imgs[i].getAttribute("src") == null || imgs[i].getAttribute("src") == ""||imgs[i].getAttribute("src") == "null"||imgs[i].getAttribute("src") == "noImage"){
             imgs[i].setAttribute("src","http://toeic.ybmclass.com/toeic/img/noimage.gif");
             
         }
@@ -63,10 +61,11 @@
         if(as[i].getAttribute("href") == null || as[i].getAttribute("href") == ""||as[i].getAttribute("href") == "null"||as[i].getAttribute("href") == "/detailContent?contentid="){
             as[i].removeAttribute("href");
             
+
         }
     }
-   </script>
 
+    </script>	
 	
 </body>
 </html>

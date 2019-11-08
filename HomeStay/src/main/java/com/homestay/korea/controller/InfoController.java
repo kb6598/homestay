@@ -81,8 +81,6 @@ public class InfoController {
 			model.addAttribute("readWithPlaceDetailDataImage", tourImageReadService.readWithPlaceDetailDataImage(tourImageDTO));
 			//contentId
 			model.addAttribute("contentid", contentid);
-			//x y
-			model.addAttribute("mapx", contentid);
 		}catch(Exception e) {
 			e.printStackTrace();
 		}

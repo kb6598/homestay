@@ -139,7 +139,7 @@ XTqju5%2BKJ1B65Rcv%2FDQzBbher7JEH6YCJYshlzqThmSU97RsoM2tSIn2WotU8jsAOc3LWr9APLD9
 		
 		Map<String,String> basedAreaUriMap = new HashMap<String,String>();
 //		basedAreaUriMap.put("pageNo",String.valueOf(pageNo)); //반복처리할것
-		basedAreaUriMap.put("pageNo","7");
+		basedAreaUriMap.put("pageNo","7"); 
 		basedAreaUriMap.put("numOfRows","200"); 
 		basedAreaUriMap.put("listYN","Y");
 		

@@ -18,7 +18,7 @@
             AND place.location = #{location}
 		Group By place.contentid
         Order BY #{param}
-        LIMIT #{start},#{end}
+        LIMIT #{start},#{count}
 	</select>
 
 	 <!-- 이미지가 여러개일경우 1개만 가져옴 -->
@@ -30,7 +30,7 @@
             AND place.theme = #{theme}
 		Group By place.contentid
         Order BY #{param}
-        LIMIT #{start},#{end}
+        LIMIT #{start},#{count}
 	</select>
 
 	

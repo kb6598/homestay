@@ -220,7 +220,7 @@ private IPlaceDetailDataReadService placeDetailDataReadService;
 			//전체  관광지  문화시설  축제공연행사  여행코스  레포츠  숙박  쇼핑  음식점
 			map.put("문화시설",themePreferDTO.getCult_facil());			
 			map.put("음식점",themePreferDTO.getDining());
-			map.put("축제공연행사",themePreferDTO.getEvent());
+			map.put("행사/공연/축제",themePreferDTO.getEvent());
 			map.put("레포츠",themePreferDTO.getLeports());
 			map.put("쇼핑",themePreferDTO.getShopping());
 			map.put("관광지",themePreferDTO.getTour_attr());
@@ -264,14 +264,14 @@ private IPlaceDetailDataReadService placeDetailDataReadService;
 			//----------로그인 아닐때 페이지
 			// 파라미터 전달
 			model.addAttribute("theme1", "문화시설");
-			model.addAttribute("theme2", "축제공연행사");
+			model.addAttribute("theme2", "행사/공연/축제");
 			model.addAttribute("theme3", "관광지");
 			model.addAttribute("theme4", "레포츠");
 			model.addAttribute("theme5", "음식점");
 			model.addAttribute("theme6", "쇼핑");
 			//URLEncoder.encode("문화시설", "UTF-8")) -> 한글을 utf-8 url 값으로 변환
 			model.addAttribute("theme_kor1", URLEncoder.encode("문화시설", "UTF-8"));
-			model.addAttribute("theme_kor2", URLEncoder.encode("축제공연행사", "UTF-8"));
+			model.addAttribute("theme_kor2", URLEncoder.encode("행사/공연/축제", "UTF-8"));
 			model.addAttribute("theme_kor3", URLEncoder.encode("관광지", "UTF-8"));
 			model.addAttribute("theme_kor4", URLEncoder.encode("레포츠", "UTF-8"));
 			model.addAttribute("theme_kor5", URLEncoder.encode("음식점", "UTF-8"));
