@@ -6,6 +6,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+<!-- Top CSS -->
+<link rel="stylesheet" href="/resources/mainContent/top.css">
+<!-- End Top CSS -->
 <!-- API CSS -->
 <link rel="stylesheet" href="/resources/detailContent/swiper.min.css">
 <!-- End API CSS -->
@@ -39,16 +42,16 @@
 	
 	#wrapper {
 		width: 600px;
-		margin-left: 20%;
-		height: 400px;
+		margin-left: 10%;
+		height: 600px;
 		position: relative;
 		color: #fff;
 		text-shadow: rgba(0, 0, 0, 0.1) 2px 2px 0px;
 	}
 	
 	#slider-wrap {
-		width: 400px;
-		height: 400px;
+		width: 530px;
+		height: 500px;
 		position: relative;
 		overflow: hidden;
 	}
@@ -64,8 +67,8 @@
 	#slider-wrap ul#slider li {
 		float: left;
 		position: relative;
-		width: 400px;
-		height: 400px;
+		width: 530px;
+		height: 500px;
 	}
 	
 	#slider-wrap ul#slider li>div {
@@ -86,8 +89,8 @@
 	
 	#slider-wrap ul#slider li img {
 		display: block;
-		width: 400px;
-		height: 400px;
+		width: 530px;
+		height: 500px;
 	}
 	
 	/*btns*/
@@ -210,16 +213,28 @@
 		width: 200px;
 		height: 250px;
 	}
+	.ContentImage {
+		width: 530px;
+		heigh: 500px;
+	}
 </style>
 <body>
-	<div id="wrapper">
-	
+
+	<!-- Top -->
+	<div class="col-lg">
+		<jsp:include page="/mainpage/top" flush="false" />
+	</div>
+	<!-- End Top -->
+
+	<div>
 		<!-- Content Image Slider -->
-		<div style="width: 2000px;">
-			<div id="slider-wrap" style="float: left;">
+		<div id="wrapper">
+			<div id="slider-wrap">
 				<ul id="slider">
-					<c:forEach items="${readWithPlaceDetailDateImage}" var="placeDetailDataImage">
-						<li><img src="${placeDetailDataImage.imageurl}"></li>
+					<c:forEach items="${readWithPlaceDetailDataImage}"
+						var="placeDetailDataImage">
+						<li><img src="${placeDetailDataImage.imageurl}"
+							class="ContentImage"></li>
 					</c:forEach>
 				</ul>
 				<!--controls-->
@@ -229,27 +244,59 @@
 				<div class="btns" id="previous">
 					<i class="swiper-button-prev"></i>
 				</div>
+				<!-- 
 				<div id="counter"></div>
 
 				<div id="pagination-wrap">
 					<ul>
 					</ul>
 				</div>
-				<!--controls-->
-			</div>
-			<!-- End Image Slider -->
-
-			<div style="float: left; height: 400px; margin-left: 3%">
-				<div style="margin-left:; height: 400px; margin-top: 20%;">
-					<font style="font-size: 20px; color: black;"> 
-						<c:forEach items="${readWithPlaceDetailDate}" var="placeDetailData">
-							${placeDetailData.content}
-						</c:forEach>
-					</font>
-				</div>
+				 -->
+				<!--End Content Image Slider-->
 			</div>
 		</div>
+		<!-- End Image Slider -->
+		
+		<!-- 개요 -->
+		<div id="content" style="float: left;">
+			<div style="width: 600px;">
+				<!-- Tab -->
+				<ul class="nav nav-tabs">
+					<li class="nav-item">
+						<a class="nav-link active" data-toggle="tab" href="#introduction">개요</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" data-toggle="tab" href="#asd">공통정보</a>
+					</li>
+				</ul>
+				<!-- End Tab -->
+				<!-- Tab Content -->
+				<div class="tab-content">
+					<div class="tab-pane fade show active" id="introduction">
+					<c:forEach items="${readWithPlaceDetailData}" var="placeDetailData" begin="0" step="1" end="1">
+						<span style="font-size: 10px; color: black;">
+							${placeDetailData.content}
+							<br>
+						</span>
+					</c:forEach>
+				</div>
+				
+				<div class="tab-pane fade" id="asd">
+					<c:forEach items="${readWithPlaceDetailData}" var="placeDetailData" begin="2" step="1">
+						<span style="font-size: 10px; color: black;">
+							${placeDetailData.content_category} : ${placeDetailData.content}
+							<br>
+						</span>
+					</c:forEach>
+				</div>
+				</div>
+				<!-- End Tab Content -->
+			</div>
+		</div>
+		<!-- End 개요 -->
 	</div>
+	
+
 	<!-- End Content Image Slider -->
 	<br>
 	<br>
@@ -273,6 +320,9 @@
 		<jsp:include page="recommendation.jsp" />
 	</c:if>
 	<!-- End 피어슨 상관계수 -->
+	<c:forEach items="${readWithPlaceDetailData}" var="placeDetailData" begin="0" step="1" end="1">
+		${placeDetailData.content_category} : ${placeDetailData.content} <br>
+	</c:forEach>
 
 
 	<!-- Swiper JS -->

@@ -4,6 +4,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -34,16 +35,28 @@ public class InfoController {
 	
 	//상세 페이지로 이동
 	@RequestMapping(value="/detailContent", method = RequestMethod.GET)
-	public String detailContent(PlaceDetailDataDTO placeDetailDataDTO, TourImageDTO tourImageDTO, Model model, HttpServletRequest request) {
+	public String detailContent(PlaceDetailDataDTO placeDetailDataDTO, TourImageDTO tourImageDTO, Model model, HttpServletRequest request, HttpSession session) {
 		
 		//메인 페이지에서 관광지의 contentId받아오기
 		String contentid = request.getParameter("contentid");
+		//return url;
+		String url = "homestay/detailContent";
+		
+		if(session.getAttribute("memberInfo") != null) 
+		{
+			model.addAttribute("memberinfo",session.getAttribute("memberInfo"));
+			url = "homestay/common/top_login";
+		}
+		else 
+		{
+			url = "homestay/common/top_no_login";
+		}	
 		
 		try {
 			
 			//관광지 공통정보 + 관광지 이미지
-			placeDetailDataDTO.setContentid(contentId);
-			tourImageDTO.setContentid(contentId);
+			placeDetailDataDTO.setContentid(contentid);
+			tourImageDTO.setContentid(contentid);
 			
 			//메인에서 값 넘겨주기 전까지는 해당 소스 사용
 			//placeDetailDataDTO.setContentid("1");
@@ -63,9 +76,9 @@ public class InfoController {
 			}
 			
 			//관광지 공통정보 불러오기
-			model.addAttribute("readWithPlaceDetailDate", placeDetailDataReadService.readWithPlaceDetailDate(placeDetailDataDTO));
+			model.addAttribute("readWithPlaceDetailData", placeDetailDataReadService.readWithPlaceDetailData(placeDetailDataDTO));
 			//관광지 이미지정보 불러오기
-			model.addAttribute("readWithPlaceDetailDateImage", tourImageReadService.readWithPlaceDetailDateImage(tourImageDTO));
+			model.addAttribute("readWithPlaceDetailDataImage", tourImageReadService.readWithPlaceDetailDataImage(tourImageDTO));
 			//contentId
 			model.addAttribute("contentid", contentid);
 			//x y
