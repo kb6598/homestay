@@ -61,6 +61,7 @@
         if(as[i].getAttribute("href") == null || as[i].getAttribute("href") == ""||as[i].getAttribute("href") == "null"||as[i].getAttribute("href") == "/detailContent?contentid="){
             as[i].removeAttribute("href");
             
+
         }
     }
 
