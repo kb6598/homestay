@@ -1,6 +1,5 @@
 package com.homestay.korea.controller;
 
-import java.sql.SQLException;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -13,13 +12,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.homestay.korea.DTO.PlaceDetailDataDTO;
-import com.homestay.korea.DTO.ThemePreferDTO;
 import com.homestay.korea.DTO.TourImageDTO;
-
 import com.homestay.korea.service.IPlaceDetailDataReadService;
 import com.homestay.korea.service.IThemePreferReadService;
 import com.homestay.korea.service.ITourImageReadService;
-import com.homestay.korea.util.RelationAnalyze;
 
 @Controller
 public class InfoController {
@@ -58,7 +54,8 @@ public class InfoController {
 			//User-Based Collaborative Filtering
 			//HttpSession httpSession = httpServletRequest.getSession();
 			//MemberDTO member = (MemberDTO)httpSession.getAttribute("memberInfo");
-			/*
+			
+			/* 에러 발생하길래 주석걸어 둠
 			ThemePreferDTO themePreferDTO =  themePreferReadService.getThemePrefer("billp");
 			RelationAnalyze relationAnalyze = new RelationAnalyze(themePreferDTO);
 			

@@ -2,6 +2,10 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<% 
+	pageContext.setAttribute("CR", "&lt;br"); pageContext.setAttribute("LF", "&gt;");
+	pageContext.setAttribute("TF", "/");	pageContext.setAttribute("RF", "*");
+%>
 <% request.setCharacterEncoding("UTF-8"); %>
 <%@page session="true"%>
 <!DOCTYPE html>
@@ -278,7 +282,8 @@
 				<div class="tab-pane fade show active" id="introduction">
 					<c:forEach items="${readWithPlaceDetailData}" var="placeDetailData" begin="0" step="1" end="1">
 						<span style="font-size: 15px; color: black;">
-							${placeDetailData.content}
+							<!-- <br> <br /> 개행문자 제거 -->
+							<c:out value="${fn:replace(fn:replace(fn:replace(fn:replace(placeDetailData.content, LF, ''), CR, ''), TF, ''), RF, '')}" escapeXml="true"/>  
 						</span>
 					</c:forEach>
 				</div>
