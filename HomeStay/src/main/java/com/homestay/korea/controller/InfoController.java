@@ -39,18 +39,11 @@ public class InfoController {
 		
 		//메인 페이지에서 관광지의 contentId받아오기
 		String contentid = request.getParameter("contentid");
-		//return url;
-		String url = "homestay/detailContent";
 		
-		if(session.getAttribute("memberInfo") != null) 
+		if(session.getAttribute("memberInfo") == null) 
 		{
 			model.addAttribute("memberinfo",session.getAttribute("memberInfo"));
-			url = "homestay/common/top_login";
 		}
-		else 
-		{
-			url = "homestay/common/top_no_login";
-		}	
 		
 		try {
 			
@@ -65,6 +58,7 @@ public class InfoController {
 			//User-Based Collaborative Filtering
 			//HttpSession httpSession = httpServletRequest.getSession();
 			//MemberDTO member = (MemberDTO)httpSession.getAttribute("memberInfo");
+			/*
 			ThemePreferDTO themePreferDTO =  themePreferReadService.getThemePrefer("billp");
 			RelationAnalyze relationAnalyze = new RelationAnalyze(themePreferDTO);
 			
@@ -74,6 +68,7 @@ public class InfoController {
 			{
 				System.out.println(idArr[i]);
 			}
+			*/
 			
 			//관광지 공통정보 불러오기
 			model.addAttribute("readWithPlaceDetailData", placeDetailDataReadService.readWithPlaceDetailData(placeDetailDataDTO));

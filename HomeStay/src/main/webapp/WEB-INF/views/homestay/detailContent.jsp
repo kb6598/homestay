@@ -17,8 +17,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
 <!-- Image Slider -->
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-<link href='https://fonts.googleapis.com/css?family=Anton' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Neucha' rel='stylesheet' type='text/css'>
 <!-- End Image Slider -->
 <meta charset="UTF-8">
 <title>HomeStay</title>
@@ -40,6 +38,10 @@
 	
 	a:hover {
 		color: #1bc1a3;
+	}
+	
+	html {
+		background: #E2E2E2;
 	}
 	
 	#wrapper {
@@ -170,7 +172,8 @@
 		width: 5px;
 		height: 5px;
 		border-radius: 50%;
-		background: #fff;
+		/* background: #fff; */
+		background: #E2E2E2;
 		opacity: 0.5;
 		position: relative;
 		top: 0;
@@ -217,19 +220,23 @@
 		width: 200px;
 		height: 250px;
 	}
+	
+	.background {
+		background: #E2E2E2;
+	}
 </style>
 <body>
 
 	<!-- Top -->
-	<div class="col-lg">
+	<div class="col-lg background">
 		<jsp:include page="/mainpage/top" flush="false" />
 	</div>
 	<!-- End Top -->
 
 	<!-- Content & Image Slider -->
-	<div id="wrapper">
-		<div id="slider-wrap">
-			<ul id="slider">
+	<div id="wrapper" class="background">
+		<div id="slider-wrap" class="background">
+			<ul id="slider" class="background">
 				<c:forEach items="${readWithPlaceDetailDataImage}" var="placeDetailDataImage">
 					<li>
 						<img src="${placeDetailDataImage.imageurl}" class="ContentImage">
