@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <% request.setCharacterEncoding("UTF-8"); %>
 <%@page session="true"%>
 <!DOCTYPE html>
@@ -41,7 +41,7 @@
 	}
 	
 	html {
-		background: #E2E2E2;
+		background-color: #E2E2E2;
 	}
 	
 	#wrapper {
@@ -172,8 +172,7 @@
 		width: 5px;
 		height: 5px;
 		border-radius: 50%;
-		/* background: #fff; */
-		background: #E2E2E2;
+		background: #fff;
 		opacity: 0.5;
 		position: relative;
 		top: 0;
@@ -221,22 +220,20 @@
 		height: 250px;
 	}
 	
-	.background {
-		background: #E2E2E2;
-	}
 </style>
-<body>
+<body style="background-color: #E2E2E2;">
 
 	<!-- Top -->
-	<div class="col-lg background">
+	<div class="col-lg" style="background: #E2E2E2;">
 		<jsp:include page="/mainpage/top" flush="false" />
 	</div>
 	<!-- End Top -->
+	<hr>
 
 	<!-- Content & Image Slider -->
-	<div id="wrapper" class="background">
-		<div id="slider-wrap" class="background">
-			<ul id="slider" class="background">
+	<div id="wrapper">
+		<div id="slider-wrap">
+			<ul id="slider">
 				<c:forEach items="${readWithPlaceDetailDataImage}" var="placeDetailDataImage">
 					<li>
 						<img src="${placeDetailDataImage.imageurl}" class="ContentImage">
@@ -267,13 +264,15 @@
 		<div style="width: 600px; padding-left: 30px;">
 			<!-- Tab -->
 			<ul class="nav nav-tabs">
-				<li class="nav-item"><a class="nav-link active"
-					data-toggle="tab" href="#introduction">개요</a></li>
-				<li class="nav-item"><a class="nav-link" data-toggle="tab"
-					href="#asd">공통정보</a></li>
+				<li class="nav-item">
+					<a class="nav-link active" data-toggle="tab" href="#introduction">개요</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" data-toggle="tab" href="#asd">공통정보</a>
+				</li>
 			</ul>
 			<!-- End Tab -->
-			
+
 			<!-- Tab Content -->
 			<div class="tab-content">
 				<div class="tab-pane fade show active" id="introduction">
@@ -424,6 +423,23 @@
 		    $('#pagination-wrap ul li').removeClass('active');
 		    $('#pagination-wrap ul li:eq('+pos+')').addClass('active');
 		}
+		//End Image Slide
+		
+		//NO IMAGE Script
+		var imgs = document.getElementsByTagName("img");
+		
+		for(i = 0;i < imgs.length; i++)
+	    {
+	    	imgs[i].setAttribute("onError","http://toeic.ybmclass.com/toeic/img/noimage.gif");
+	        if(imgs[i].getAttribute("src") == null ||
+	        		imgs[i].getAttribute("src") == ""||
+	        		imgs[i].getAttribute("src") == "null"||
+	        		imgs[i].getAttribute("src") == "noImage")
+	        {
+	            imgs[i].setAttribute("src","http://toeic.ybmclass.com/toeic/img/noimage.gif");   
+	        }
+	    }
+		//End NO IMAGE Script
 	</script>
 	
 	<script>  
