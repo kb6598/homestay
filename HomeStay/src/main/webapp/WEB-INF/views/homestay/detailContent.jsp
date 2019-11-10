@@ -463,6 +463,7 @@
 				prevEl : '.swiper-button-prev',
 			},
 		});
+	}
 		
 		//주변관광지
 		$(document).ready(function(){
