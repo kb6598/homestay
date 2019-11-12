@@ -21,7 +21,6 @@ public class ApiExplorerLocationBased{
 		try {
 			api = new ApiExplorer("locationBasedList", hm);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
