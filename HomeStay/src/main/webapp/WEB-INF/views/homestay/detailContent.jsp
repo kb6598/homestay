@@ -453,7 +453,7 @@
 		var swiper = new Swiper('.swiper-container', {
 			slidesPerView : 5,
 			spaceBetween : 30,
-			loop : true,
+			loop : false,
 			pagination : {
 				el : '.swiper-pagination',
 				clickable : true,
