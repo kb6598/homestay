@@ -452,8 +452,8 @@
 	
 		var swiper = new Swiper('.swiper-container', {
 			slidesPerView : 5,
-			spaceBetween : 30,
-			loop : true,
+			spaceBetween : 0,
+			loop : false,
 			pagination : {
 				el : '.swiper-pagination',
 				clickable : true,
@@ -473,17 +473,29 @@
 		        data: {contentid:"${contentid}"},
 		        dataType: "text",
 		        error : function(data,xhr,status,error){
-		            alert(xhr+", "+status+", "+error);
+	            	imgDiv.innerHTML += '<div class="swiper-slide">'
+			            +'<h1 style="text-algin:center; margin-top:150px;">정보가 없습니다.</h1></div>';	            
 		        },
 		        success : function(data){
-		        	alert(data);
 		        	var obj = JSON.parse(data);
 		        	obj.forEach(function (item, index, array) {
-		        		if(item.hasOwnProperty('firstimage')){
-			        		imgDiv.innerHTML += '<div class="swiper-slide" style="width: 200px; height: 250px;">'+
-			        		'<a href="/detailContent?contentid='+item.contentid+'">'+
-			        		'<img src="'+item.firstimage+'" class="ApiImage"></a></div>';
-			        	}
+		        		if(item.contentid!="${contentid}"){
+			        		if(item.hasOwnProperty('firstimage')){
+				        		imgDiv.innerHTML += '<div class="swiper-slide" style="width:200px; height:250px;">'+
+				        		'<a href="/detailContent?contentid='+item.contentid+'">'+
+				        		'<img src="'+item.firstimage+'" style="border-radius:.25rem .25rem 0rem 0rem;" class="ApiImage"></a>'+
+				        		'<div style="background-color:#fff; width:200px; height:80px; padding:1.25rem; border-radius:0rem 0rem .25rem .25rem;">'+
+				        		'<h5><a href="/detailContent?contentid='+item.contentid+'" style="color:#007bff; text-decoration:none;">'+
+				        		item.title+'</a></h5></div></div>';
+				        	}else{
+				        		imgDiv.innerHTML += '<div class="swiper-slide" style="width:200px; height:250px;">'+
+				        		'<a href="/detailContent?contentid='+item.contentid+'">'+
+				        		'<img src="http://toeic.ybmclass.com/toeic/img/noimage.gif" style="border-radius:.25rem .25rem 0rem 0rem;" class="ApiImage"></a>'+
+				        		'<div style="background-color:#fff; width:200px; height:80px; padding:1.25rem; border-radius:0rem 0rem .25rem .25rem;">'+
+				        		'<h5><a href="/detailContent?contentid='+item.contentid+'" style="color:#007bff; text-decoration:none;">'+
+				        		item.title+'</a></h5></div></div>';
+				        	}
+		        		}
 		        	})
 		        	bind();
 		        }  
