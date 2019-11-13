@@ -21,9 +21,11 @@ import com.google.protobuf.Internal.ListAdapter;
 import com.homestay.korea.HomeController;
 import com.homestay.korea.DTO.CountryDTO;
 import com.homestay.korea.DTO.MemberDTO;
+import com.homestay.korea.DTO.MemberLogDTO;
 import com.homestay.korea.DTO.ThemePreferDTO;
 import com.homestay.korea.service.ICountryReadService;
 import com.homestay.korea.service.IJoinMemberService;
+import com.homestay.korea.service.IMemberLogService;
 
 @Controller
 public class JoinGuestController {
@@ -32,8 +34,12 @@ public class JoinGuestController {
 	
 	@Autowired
 	public IJoinMemberService memberservice;
+	
 	@Autowired
 	public ICountryReadService countryreadservice;
+	
+	@Autowired
+	public IMemberLogService memberLogService;
 	
 	@GetMapping("/member/joinGuest")	
 	public String CountryList(Model model) {
@@ -45,9 +51,11 @@ public class JoinGuestController {
 
 	
 	@RequestMapping(value="/join",method= RequestMethod.POST)
-	public String joinGeust(MemberDTO memberdto, ThemePreferDTO themepreferdto) throws SQLException {
+	public String joinGeust(MemberDTO memberdto, ThemePreferDTO themepreferdto, MemberLogDTO memberLogDTO) throws SQLException {
 		memberservice.insertMember(memberdto);
 		memberservice.insertPrefer(themepreferdto);
+		memberLogDTO.setContentId("초기값");
+		memberLogService.insertMemberLog(memberLogDTO);
 		return "redirect:main";
 		
 	}

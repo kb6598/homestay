@@ -1,6 +1,6 @@
 package com.homestay.korea.controller;
 
-import java.util.List;
+import java.sql.SQLException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -11,8 +11,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.homestay.korea.DTO.MemberDTO;
+import com.homestay.korea.DTO.MemberLogDTO;
 import com.homestay.korea.DTO.PlaceDetailDataDTO;
 import com.homestay.korea.DTO.TourImageDTO;
+import com.homestay.korea.service.IMemberLogService;
 import com.homestay.korea.service.IPlaceDetailDataReadService;
 import com.homestay.korea.service.IThemePreferReadService;
 import com.homestay.korea.service.ITourImageReadService;
@@ -29,9 +32,12 @@ public class InfoController {
 	@Autowired
 	private ITourImageReadService tourImageReadService;
 	
+	@Autowired
+	public IMemberLogService memberLogService;
+	
 	//상세 페이지로 이동
 	@RequestMapping(value="/detailContent", method = RequestMethod.GET)
-	public String detailContent(PlaceDetailDataDTO placeDetailDataDTO, TourImageDTO tourImageDTO, Model model, HttpServletRequest request, HttpSession session) {
+	public String detailContent(PlaceDetailDataDTO placeDetailDataDTO, TourImageDTO tourImageDTO, Model model, HttpServletRequest request, HttpSession session, MemberLogDTO memberLogDTO) throws SQLException {
 		
 		//메인 페이지에서 관광지의 contentId받아오기
 		String contentid = request.getParameter("contentid");
@@ -39,6 +45,11 @@ public class InfoController {
 		if(session.getAttribute("memberInfo") == null) 
 		{
 			model.addAttribute("memberinfo",session.getAttribute("memberInfo"));
+		}else {
+			MemberDTO memberInfo = (MemberDTO) session.getAttribute("memberInfo");
+			memberLogDTO.setId(memberInfo.getId());
+			memberLogDTO.setContentId(contentid);
+			memberLogService.insertMemberLog(memberLogDTO);
 		}
 		
 		try {

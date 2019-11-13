@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.homestay.korea.DAO.IMemberLogDAO">
+	
+	<select id="readWithId" resultType="com.homestay.korea.DTO.MemberLogDTO">
+		select * from member_log where id=#{id}
+	</select>
+	
+	<insert id="insertMemberLog">
+	insert into member_log(id, contentId, log_time)
+		VALUES(#{id}, #{contentId}, now())			
+	</insert>
+	
+</mapper>
