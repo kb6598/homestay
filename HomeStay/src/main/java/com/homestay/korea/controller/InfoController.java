@@ -66,17 +66,40 @@ public class InfoController {
 			//HttpSession httpSession = httpServletRequest.getSession();
 			//MemberDTO member = (MemberDTO)httpSession.getAttribute("memberInfo");
 			
-			/* 에러 발생하길래 주석걸어 둠
-			ThemePreferDTO themePreferDTO =  themePreferReadService.getThemePrefer("billp");
-			RelationAnalyze relationAnalyze = new RelationAnalyze(themePreferDTO);
-			
-			List<ThemePreferDTO> themePreferDTOList = themePreferReadService.getThemePreferList();
-			String idArr[] =  relationAnalyze.getMatchIds(themePreferDTOList);
-			for(int i=0; i<idArr.length; i++) 
-			{
-				System.out.println(idArr[i]);
+
+
+			if(session.getAttribute("memberInfo").toString() != null) {
+				
+				/*
+				1. 로그인한 아이디의 성별,연령대,동반인을 가져옴
+
+				2. Select memberID from member_log where contentID = "클릭한 컨텐츠아이디"
+					and memberID IN (Select memberID
+							from member
+							where gender = "세션성별"
+							and age = "세션연령대" and "세션동반인")  해서 memberID리스트 가져옴
+
+				3. Select * from Theme_prefer where id In memberID;    Theme_prefer DTO 리스트를 가져옴
+				 */
+				
+				MemberDTO memberInfo = (MemberDTO)session.getAttribute("memberInfo");
+//				String gender = memberInfo.getGender();
+//				String age = memberInfo.getAge();
+//				String companion = memberInfo.getCompanion();
+//				
+//				List<String> relationIds =  memberReaderService.getRelationId(contentId, gender, age, companion);
+//				List<ThemePreferDTO> themeRelationPreferDTOList = themePreferReadService.getRelationThemePreferList(relationIds);
+				
+				ThemePreferDTO themePreferDTO =  themePreferReadService.getThemePrefer(memberInfo.getId());
+				RelationAnalyze relationAnalyze = new RelationAnalyze(themePreferDTO);
+				
+				List<ThemePreferDTO> themePreferDTOList = themePreferReadService.getThemePreferList();
+				String idArr[] =  relationAnalyze.getMatchIds(themePreferDTOList);
+				for(int i=0; i<idArr.length; i++) 
+				{
+					System.out.println(idArr[i]);
+				}
 			}
-			*/
 			
 			//관광지 공통정보 불러오기
 			model.addAttribute("readWithPlaceDetailData", placeDetailDataReadService.readWithPlaceDetailData(placeDetailDataDTO));
