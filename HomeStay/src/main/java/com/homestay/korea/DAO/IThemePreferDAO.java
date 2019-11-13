@@ -6,6 +6,7 @@ import com.homestay.korea.DTO.ThemePreferDTO;
 
 public interface IThemePreferDAO {
 	public ThemePreferDTO readWithId(String id);
-	public List<ThemePreferDTO> readListWithId(); //연령대, 동반인 등 매개변수 추가해야함 xml도 같이바꿔주세요~
+	public List<ThemePreferDTO> readListWithIds(List<String> id);
+	public List<ThemePreferDTO> readList();
 	public void PreferInsert(ThemePreferDTO dto);
 }

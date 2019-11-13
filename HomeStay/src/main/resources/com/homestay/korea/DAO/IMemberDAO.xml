@@ -13,4 +13,11 @@
 		VALUES(#{id}, #{pw}, #{name}, #{gender}, #{age}, #{phone}, #{companion}, #{regional}, #{nation})			
 	</insert>
 	
+	<select id="readRelationId"  parameterType="map" resultType ="String">
+		Select memberID from member_log where contentID = #{contentId}
+		and memberID IN (Select memberID
+				from member
+				where gender = #{gender}
+				and age = #{age} and companion = #{companion})
+	</select>
 </mapper>

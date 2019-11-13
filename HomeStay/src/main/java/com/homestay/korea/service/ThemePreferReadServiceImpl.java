@@ -25,7 +25,14 @@ public class ThemePreferReadServiceImpl implements IThemePreferReadService {
 	@Override
 	public List<ThemePreferDTO> getThemePreferList() {
 		// TODO Auto-generated method stub
-		List<ThemePreferDTO> themePreferDTOList = themePreferDAO.readListWithId();
+		List<ThemePreferDTO> themePreferDTOList = themePreferDAO.readList();
+		return themePreferDTOList;
+	}
+
+	@Override
+	public List<ThemePreferDTO> getRelationThemePreferList(List<String> ids) {
+		// TODO Auto-generated method stub
+		List<ThemePreferDTO> themePreferDTOList = themePreferDAO.readListWithIds(ids);
 		return themePreferDTOList;
 	}
 	
