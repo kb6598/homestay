@@ -1,6 +1,7 @@
 package com.homestay.korea.controller;
 
 import java.sql.SQLException;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -14,11 +15,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.homestay.korea.DTO.MemberDTO;
 import com.homestay.korea.DTO.MemberLogDTO;
 import com.homestay.korea.DTO.PlaceDetailDataDTO;
+import com.homestay.korea.DTO.ThemePreferDTO;
 import com.homestay.korea.DTO.TourImageDTO;
 import com.homestay.korea.service.IMemberLogService;
 import com.homestay.korea.service.IPlaceDetailDataReadService;
 import com.homestay.korea.service.IThemePreferReadService;
 import com.homestay.korea.service.ITourImageReadService;
+import com.homestay.korea.util.RelationAnalyze;
 
 @Controller
 public class InfoController {

@@ -39,4 +39,11 @@ public class TourImageDAO implements ITourImageDAO {
 		
 	}
 
+	@Override
+	public int deleteImageWithContentid(String contentid) {
+		return 0;
+	}
+	
+	
+
 }
