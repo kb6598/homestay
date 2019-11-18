@@ -1,10 +1,7 @@
 package com.homestay.korea.controller;
 
 import java.sql.SQLException;
-<<<<<<< HEAD
-=======
 import java.util.Iterator;
->>>>>>> a9a0d21c4362c8723d513a6d42eceb316cf687ff
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -21,7 +18,6 @@ import com.homestay.korea.DTO.MemberLogDTO;
 import com.homestay.korea.DTO.PlaceDetailDataDTO;
 import com.homestay.korea.DTO.ThemePreferDTO;
 import com.homestay.korea.DTO.TourImageDTO;
-import com.homestay.korea.service.IContentMainService;
 import com.homestay.korea.service.IMemberLogService;
 import com.homestay.korea.service.IMemberReadService;
 import com.homestay.korea.service.IPlaceDetailDataReadService;
