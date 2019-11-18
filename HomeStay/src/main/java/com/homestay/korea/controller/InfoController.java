@@ -116,28 +116,31 @@ public class InfoController {
 						System.out.println(contentId);
 					}
 					
-					//이미지 가져오기
+					//이미지 및 제목 가져오기
+					List<String> titles = placeDetailDataReadService.readTitles(contentIds);
 					List<TourImageDTO> tourImageDTOs = tourImageReadService.readWithContentIds(contentIds);
 					
-					//현재보고있는 관광지의 이미지는 삭제
+					//현재보고있는 관광지의 정보는 삭제
+					Iterator<String> iterTitle = titles.iterator();
 					Iterator<TourImageDTO> iter = tourImageDTOs.iterator();
 					while (iter.hasNext()) {
+						iterTitle.hasNext();
 						TourImageDTO t = iter.next();
+						String s = iterTitle.next();
 						if (t.getContentid().equals(contentid)) {
 							iter.remove();
+							iterTitle.remove();
 						}
 					}
-					
 					//콘솔로 test
 					for(TourImageDTO tourImageDTO2 : tourImageDTOs) {
 						System.out.println(tourImageDTO2.getImageurl());
 						System.out.println(tourImageDTO2.getContentid());
 					}
-					
-					List<String> titles = placeDetailDataReadService.readTitles(contentIds);
 					for(String title : titles) {
 						System.out.println(title);
 					}
+				
 					model.addAttribute("titles", titles);
 					model.addAttribute("tourImageDTOs", tourImageDTOs);
 				}
