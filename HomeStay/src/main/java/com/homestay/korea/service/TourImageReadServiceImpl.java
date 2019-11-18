@@ -35,6 +35,12 @@ public class TourImageReadServiceImpl implements ITourImageReadService {
 		
 		return tourImageDAO.readWithPlaceDetailDataImage(vo);
 	}
+
+
+	@Override
+	public List<TourImageDTO> readWithContentIds(List<String> contentIds) {
+		return tourImageDAO.readWithContentIds(contentIds);
+	}
 }
 
 

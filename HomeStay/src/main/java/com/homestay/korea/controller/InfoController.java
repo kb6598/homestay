@@ -1,6 +1,7 @@
 package com.homestay.korea.controller;
 
 import java.sql.SQLException;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -60,7 +61,6 @@ public class InfoController {
 		}
 		
 		try {
-			
 			//관광지 공통정보 + 관광지 이미지
 			placeDetailDataDTO.setContentid(contentid);
 			tourImageDTO.setContentid(contentid);
@@ -100,11 +100,40 @@ public class InfoController {
 				ThemePreferDTO themePreferDTO =  themePreferReadService.getThemePrefer(memberInfo.getId());
 				RelationAnalyze relationAnalyze = new RelationAnalyze(themePreferDTO);
 				
-//				List<ThemePreferDTO> themePreferDTOList = themePreferReadService.getThemePreferList();
-				String idArr[] =  relationAnalyze.getMatchIds(themeRelationPreferDTOList);
-				for(int i=0; i<idArr.length; i++) 
+				List<String> ids =  relationAnalyze.getMatchIds(themeRelationPreferDTOList);
+				for(int i=0; i<ids.size(); i++) 
 				{
-					System.out.println(idArr[i]);
+					System.out.println(ids.get(i));
+				}
+				
+				if(ids.size() > 0) {
+					ids.add(memberInfo.getId());
+				//컨텐츠 아이디 가져오기
+					List<String> contentIds = memberLogService.readContentIdWithIds(ids);
+					for(String contentId : contentIds) {
+						System.out.println(contentId);
+					}
+					
+					//이미지 가져오기
+					List<TourImageDTO> tourImageDTOs = tourImageReadService.readWithContentIds(contentIds);
+					
+					//현재보고있는 관광지의 이미지는 삭제
+					Iterator<TourImageDTO> iter = tourImageDTOs.iterator();
+					while (iter.hasNext()) {
+						TourImageDTO t = iter.next();
+						if (t.getContentid().equals(contentid)) {
+							iter.remove();
+						}
+					}
+
+					for(TourImageDTO tourImageDTO2 : tourImageDTOs) {
+						if(tourImageDTO2.getContentid().equals(contentid)) {
+							tourImageDTOs.remove(tourImageDTO2);
+						}
+						System.out.println(tourImageDTO2.getImageurl());
+						System.out.println(tourImageDTO2.getContentid());
+					}
+					model.addAttribute("tourImageDTOs", tourImageDTOs);
 				}
 			}
 			

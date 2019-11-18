@@ -302,6 +302,9 @@
 	</div>
 	<!-- End Content & Image Slider -->
 	
+	
+	
+	
 	<!-- Tour API -->
 	<div class="swiper-container" style="width: 1200px; height: 500px; margin-top: 50px;">
 		<h2>주변 관광지</h2>
@@ -317,9 +320,24 @@
 	<br>
 	
 	<!-- Recommendation -->
-	
+	<c:if test="${tourImageDTOs ne null}">
+	<div class="swiper-container" style="width: 1200px; height: 500px; margin-top: -130px;">
+		<h2>다른 사용자의 추천 관광지</h2>
+		<div class="swiper-wrapper">	
+			<c:forEach items="${tourImageDTOs}" var="item" varStatus="i">
+				<div class="swiper-slide" style="width: 200px; height: 250px;">
+					<a href="/detailContent?contentid=${item.contentid}"><img src="${item.imageurl}" class="ApiImage"></a>
+				</div>
+			</c:forEach>		
+		</div>
+		<!-- Add Pagination -->
+		<!-- Add Arrows -->
+		<div class="swiper-button-next"></div>
+		<div class="swiper-button-prev"></div>
+	</div>
+	</c:if>
 	<!-- End Recommendation -->
-
+	
 
 
 	<!-- Swiper JS -->

@@ -14,5 +14,5 @@ public interface ITourImageReadService {
 	
 	//메인화면에서 관광지 클릭 시, 상세페이지로 넘어가며 보여질 관광지 사진
 	public List<TourImageDTO> readWithPlaceDetailDataImage(TourImageDTO vo) throws Exception;
-	
+	public List<TourImageDTO> readWithContentIds(List<String> contentIds);
 }

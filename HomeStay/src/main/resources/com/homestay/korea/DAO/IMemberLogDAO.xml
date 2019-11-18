@@ -8,6 +8,13 @@
 		select * from member_log where id=#{id}
 	</select>
 	
+	<select id="readContentIdWithIds" resultType="java.lang.String">
+		select Distinct ContentId from member_log where id IN
+		<foreach  collection="ids"  item="item" index="index" separator="," open="(" close=")">
+      	  #{item,jdbcType=VARCHAR}
+    	</foreach>
+	</select>
+	
 	<insert id="insertMemberLog">
 	insert into member_log(id, contentId, log_time)
 		VALUES(#{id}, #{contentId}, now())			

@@ -20,7 +20,7 @@ public class RelationAnalyze {
 		this.loginData = loginData;
 	}
 	
-	public String[] getMatchIds(List<ThemePreferDTO> ThemePreferDTOList){
+	public List<String> getMatchIds(List<ThemePreferDTO> ThemePreferDTOList){
 		int listSize = ThemePreferDTOList.size()-1;
 		if (listSize>3) {
 			listSize = 3;
@@ -51,7 +51,12 @@ public class RelationAnalyze {
 				}
 			}
 		}
-		return idArr;
+		List<String> ids = new ArrayList<String>();
+		for(String id : idArr) {
+			ids.add(id);
+		}
+
+		return ids;
 	}
 
 	
