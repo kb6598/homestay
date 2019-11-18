@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.homestay.korea.DAO.ITempContentidDAO">
+	
+	<insert id="insertTempContentid">
+		insert into temp_contentid values(#{contentId})
+	</insert>
+	
+	<delete id="deleteAllTempContentid">
+		truncate temp_contentid
+	</delete>
+	
+	<select id="getDeletedContentid" resultType="String">
+		<!-- temp_place테이블이 아닌 place 2개있음-->
+		select p.contentid 
+		from temp_place p 
+		left join temp_contentid t on p.contentid=t.contentid
+	 	where t.contentid is null
+	</select>
+	
+</mapper>

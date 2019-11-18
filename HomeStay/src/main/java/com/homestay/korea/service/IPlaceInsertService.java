@@ -6,4 +6,5 @@ public interface IPlaceInsertService {
 	
 	public void insertPlaceData(PlaceDTO dto);
 	
+	
 }

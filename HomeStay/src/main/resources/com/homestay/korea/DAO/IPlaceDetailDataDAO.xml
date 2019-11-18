@@ -25,21 +25,24 @@
 	</select>
 	
 	<insert id="insert">
-		insert into place_detailData(cotent_no, content_category, content, contentid)
+		<!-- temp_place테이블이 아닌 place 2개있음-->
+		insert into temp_place_detailData(cotent_no, content_category, content, contentid)
 		values(
-			(SELECT IFNULL(MAX(cotent_no)+1,1) FROM place_detailData pd),
+			(SELECT IFNULL(MAX(cotent_no)+1,1) FROM temp_place_detailData pd),
 			#{content_category},#{content},#{contentid}
 		)
 	</insert>
 	
 	<select id="readDetailData" resultType="com.homestay.korea.DTO.PlaceDetailDataDTO">
+		<!-- temp_place_detailData테이블이 아닌 place_detailData -->
 		select *
-		from place_detailData
+		from temp_place_detailData
 		where contentid=#{contentId}
 	</select>
 
 	<delete id="deleteDetailData">
-		delete from place_detailData where contentid=#{contentId}
+		<!-- temp_place_detailData테이블이 아닌 temp_place_detailData -->
+		delete from temp_place_detailData where contentid=#{contentId}
 	</delete>
 </mapper>
 

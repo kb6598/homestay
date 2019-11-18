@@ -4,7 +4,7 @@ package com.homestay.korea.util;
  * 관광지호출로 전달받은 날짜와 관련된 클래스입니다.
  */
 public class CalendarUtil {
-
+	
 	// 전달받은 날짜를 xxxx/xx/xx xx:xx:xx 형식으로 변환
 	public static String transforCalendar(String date) {
 		String year = date.substring(0, 4);

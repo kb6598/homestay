@@ -3,6 +3,9 @@ package com.homestay.korea.util;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import com.homestay.korea.DAO.IPlaceDetailDataDAO;
 import com.homestay.korea.DTO.PlaceDetailDataDTO;
 import com.homestay.korea.common.ServiceKey;
@@ -13,14 +16,17 @@ import com.homestay.korea.exception.NotOkResponseException;
 /*
  * 세부정보 관련한 클래스입니다.
  */
+@Component
 public class DetailData {
 	
-	private PlaceDetailDataDTO placeDetailDataDTO; 
+	private PlaceDetailDataDTO placeDetailDataDTO;
+	@Autowired
 	private IPlaceDetailDataDAO placeDetailDao;
 	private Map<String,String>  introDataUriMap;
 	
 	public DetailData() {
 		this.introDataUriMap = new HashMap<>();
+		this.placeDetailDataDTO = new PlaceDetailDataDTO();
 	}
 	
 	public PlaceDetailDataDTO getPlaceDetailDataDTO() {
@@ -55,7 +61,8 @@ public class DetailData {
 		
 		introDataUriMap.put("contentTypeId", contentTypeId); //갱신해야함
 		introDataUriMap.put("contentId", contentId); //갱신해야함
-		Map<String,String> eachNodeNames=xmlStr.extractXmlNodeAndValue(ApiUrl.makeAPIUri("detailIntro", introDataUriMap,ServiceKey.TOTAL_SERVICEKEY[0]), "detailInfo");
+		Map<String,String> eachNodeNames=xmlStr.extractXmlNodeAndValue(ApiUrl.makeAPIUri("detailIntro", 
+				introDataUriMap,ServiceKey.TOTAL_SERVICEKEY[7]), "detailInfo");
 		Map<String,String> resultDetailMap = new HashMap<>(); //DB에 저장해야하는 파싱된정보
 		System.out.println("--------------------------------- 상세 정보 시작 ---------------------------------");
 		for(Map.Entry<String,String> entry : eachNodeNames.entrySet()){

@@ -15,7 +15,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
 @ComponentScan(basePackages = { "com.homestay.korea.service" })
-@ComponentScan(basePackages = "com.homestay.korea.util")
+@ComponentScan(basePackages = {"com.homestay.korea.util"})
 @MapperScan(basePackages = { "com.homestay.korea.DAO" })
 
 @EnableScheduling

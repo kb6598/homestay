@@ -23,16 +23,17 @@
 	</select>
 	
 	<insert id="insertSingleTourImageRecord">
-		insert into tour_image(imageno, imageurl, contentid)
+		<!-- temp_tour_image테이블이 아닌 temp_tour_image 2개있음-->
+		insert into temp_tour_image(imageno, imageurl, contentid)
 		values(
-			(SELECT IFNULL(MAX(imageno)+1,1) FROM tour_image ti),
+			(SELECT IFNULL(MAX(imageno)+1,1) FROM temp_tour_image ti),
 			#{imageurl},#{contentid}
 		)
 	</insert>
 	
 	<delete id="deleteImageWithContentid">
 		<!-- temp_tour_image테이블이 아닌 tour_image테이블에서 delete처리(temp_tour_image테이블은 테스트용) -->
-		delete from tour_image where contentid=#{contentid}
+		delete from temp_tour_image where contentid=#{contentid}
 	</delete>
 	
 </mapper>

@@ -1,28 +1,35 @@
 package com.homestay.korea.util;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import com.homestay.korea.DAO.IPlaceDAO;
 import com.homestay.korea.DAO.ITourImageDAO;
 import com.homestay.korea.DTO.PlaceDTO;
 import com.homestay.korea.DTO.TourImageDTO;
 import com.homestay.korea.common.TagInfo;
-import com.homestay.korea.service.IPlaceReadService;
 
 /*
  * 지역정보 관련한 클래스입니다.
  */
+@Component
 public class AreaBasedData {
 	
 	private PlaceDTO placeDTO;
+	
+	@Autowired
 	private IPlaceDAO placeDao;
-	private TourImageDTO tourImageDTO; 
+	
+	private TourImageDTO tourImageDTO;
+	
+	@Autowired
 	private ITourImageDAO tourImageDao;
 	
 	
 	
 	public AreaBasedData() {
-		this.placeDTO = null;
+		this.placeDTO = new PlaceDTO();
+		this.tourImageDTO = new TourImageDTO();
 	}
 
 	public PlaceDTO getPlaceDTO() {
@@ -64,28 +71,33 @@ public class AreaBasedData {
 		
 		//공통정보에서 가져오는 태그들
 		//<areacode>,<contentid>,<createdtime>,<modifiedtime>,<contenttypeid>,<firstimage>,<mapx>,<mapy>
-		String resultAreaCode = XmlString.extractXmlValue(totalXmlStr, "<areacode>"); 
+		String resultAreaCode = XmlString.extractXmlValue("<areacode>",totalXmlStr); 
 		String korAreaName = tagInfo.areaCodeTag.get(resultAreaCode); //db에 넣어야함
-		String resultContentId = XmlString.extractXmlValue(totalXmlStr, "<contentid>"); //파싱 필요없음
-		String resultCTime = XmlString.extractXmlValue(totalXmlStr, "<createdtime>"); //파싱처리해야함
-		String resultMTime = XmlString.extractXmlValue(totalXmlStr, "<modifiedtime>"); //파싱처리해야함
-		String resultTypeId = XmlString.extractXmlValue(totalXmlStr, "<contenttypeid>"); //파싱처리해야함
+		String resultContentId = XmlString.extractXmlValue("<contentid>",totalXmlStr); //파싱 필요없음
+		String resultCTime = XmlString.extractXmlValue("<createdtime>",totalXmlStr); //파싱처리해야함
+		String resultMTime = XmlString.extractXmlValue("<modifiedtime>",totalXmlStr); //파싱처리해야함
+		String resultTypeId = XmlString.extractXmlValue("<contenttypeid>",totalXmlStr); //파싱처리해야함
 		String korTheme = tagInfo.themeTag.get(resultTypeId); //db에 넣어야함
-		String resultFirstImage = XmlString.extractXmlValue(totalXmlStr, "<firstimage>"); //원본이미지(없을 수도 있음)
-		String resultXLocation = XmlString.extractXmlValue(totalXmlStr, "<mapx>");
-		String resultYLocation = XmlString.extractXmlValue(totalXmlStr, "<mapy>");
+		String resultFirstImage = XmlString.extractXmlValue("<firstimage>",totalXmlStr); //원본이미지(없을 수도 있음)
+		String resultXLocation = XmlString.extractXmlValue("<mapx>",totalXmlStr);
+		String resultYLocation = XmlString.extractXmlValue("<mapy>",totalXmlStr);
 		
 		System.out.println("--------------------------------- 지역 정보 시작 ---------------------------------");
-		placeDTO.setContentid(resultContentId);
+		placeDTO.setContentid(resultContentId);		
 		placeDTO.setCreatedtime(CalendarUtil.transforCalendar(resultCTime));
 		placeDTO.setModifiedtime(CalendarUtil.transforCalendar(resultMTime));
 		placeDTO.setLocation(korAreaName);
 		placeDTO.setTheme(korTheme);
 		placeDTO.setMapx(Double.parseDouble(resultXLocation));
-		placeDTO.setMapy(Double.parseDouble(resultYLocation));
+		placeDTO.setMapy(Double.parseDouble(resultYLocation)); 
+		placeDao.insertWithDTO(placeDTO);
 		
 		if(resultFirstImage.equals("noTag")) {
 			tourImageDTO.setImageurl("noImage");
+			tourImageDTO.setContentid(resultContentId);
+			tourImageDao.insertSingleTourImageRecord(tourImageDTO);
+		}else {
+			tourImageDTO.setImageurl(resultFirstImage);
 			tourImageDTO.setContentid(resultContentId);
 			tourImageDao.insertSingleTourImageRecord(tourImageDTO);
 		}

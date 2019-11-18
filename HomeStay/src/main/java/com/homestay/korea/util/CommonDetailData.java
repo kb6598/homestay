@@ -4,6 +4,9 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import com.homestay.korea.DAO.IPlaceDetailDataDAO;
 import com.homestay.korea.DTO.PlaceDetailDataDTO;
 import com.homestay.korea.common.ServiceKey;
@@ -14,10 +17,12 @@ import com.homestay.korea.exception.NotOkResponseException;
 /*
  * 공통정보 데이터 클래스입니다.
  */
+@Component
 public class CommonDetailData {
 
 	private Api commonData; //공통정보
 	private String[] commonTempStrArr = {"<overview>","<addr1>","<tel>","<telname>","<title>"};
+	@Autowired
 	private IPlaceDetailDataDAO placeDetailDao;
 	private PlaceDetailDataDTO placeDetailDataDTO; 
 	private Map<String,String> commonDataUriMap;
@@ -27,6 +32,7 @@ public class CommonDetailData {
 		commonDataUriMap.put("overviewYN", "Y");
 		commonDataUriMap.put("defaultYN", "Y");
 		commonDataUriMap.put("addrinfoYN", "Y");
+		this.placeDetailDataDTO = new PlaceDetailDataDTO();
 	}
 	
 	public Api getCommonData() {
@@ -72,29 +78,29 @@ public class CommonDetailData {
 			commonDataUriMap.put("contentId", contentId);
 		}
 		try {
-			commonData = new Api("detailCommon", commonDataUriMap, ServiceKey.TOTAL_SERVICEKEY[0]);
+			commonData = new Api("detailCommon", commonDataUriMap, ServiceKey.TOTAL_SERVICEKEY[7]);
 		}catch(IOException e) {
 			e.printStackTrace();
 		}
 		String resultCommonDataXmlStr = commonData.getResultXmlStr();
-		String resultCodeStr = XmlString.extractXmlValue(resultCommonDataXmlStr, "<resultCode>");
+		String resultCodeStr = XmlString.extractXmlValue("<resultCode>",resultCommonDataXmlStr);
 		if(!resultCodeStr.equals("0000")) {
 			if(resultCodeStr.equals("0022"))
 					throw new LimitedRequestException();
 			throw new NotOkResponseException();
 		}
 		if(resultCommonDataXmlStr.contains("<item>")) {
-			String overviewData = XmlString.extractXmlValue(resultCommonDataXmlStr, "<overview>");
-			String addrData = XmlString.extractXmlValue(resultCommonDataXmlStr, "<addr1>");
-			String telData = XmlString.extractXmlValue(resultCommonDataXmlStr, "<tel>");
-			String telnameData = XmlString.extractXmlValue(resultCommonDataXmlStr, "<telname>");
-			String title = XmlString.extractXmlValue(resultCommonDataXmlStr, "<title>");
+			String overviewData = XmlString.extractXmlValue("<overview>",resultCommonDataXmlStr);
+			String addrData = XmlString.extractXmlValue("<addr1>",resultCommonDataXmlStr);
+			String telData = XmlString.extractXmlValue("<tel>",resultCommonDataXmlStr);
+			String telnameData = XmlString.extractXmlValue("<telname>",resultCommonDataXmlStr);
+			String title = XmlString.extractXmlValue("<title>",resultCommonDataXmlStr);
 			System.out.println("--------------------------------- 공통 정보 시작 ---------------------------------");
 			
 			for(int idx=0; idx<commonTempStrArr.length; idx++) {
-				if(!XmlString.extractXmlValue(resultCommonDataXmlStr,commonTempStrArr[idx]).equals("noTag")) {
+				if(!XmlString.extractXmlValue(commonTempStrArr[idx],resultCommonDataXmlStr).equals("noTag")) {
 					placeDetailDataDTO.setContent_category(tagInfo.commonTag.get(commonTempStrArr[idx]));
-					placeDetailDataDTO.setContent(XmlString.extractXmlValue(resultCommonDataXmlStr,commonTempStrArr[idx]));
+					placeDetailDataDTO.setContent(XmlString.extractXmlValue(commonTempStrArr[idx],resultCommonDataXmlStr));
 					placeDetailDataDTO.setContentid(contentId);
 					placeDetailDao.insert(placeDetailDataDTO); //공통정보db에 저장
 				}

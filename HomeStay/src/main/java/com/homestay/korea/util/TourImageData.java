@@ -3,6 +3,9 @@ package com.homestay.korea.util;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import com.homestay.korea.DAO.ITourImageDAO;
 import com.homestay.korea.DTO.TourImageDTO;
 import com.homestay.korea.common.ServiceKey;
@@ -12,8 +15,10 @@ import com.homestay.korea.exception.NotOkResponseException;
 /*
  * 관광지 이미지 클래스입니다.
  */
+@Component
 public class TourImageData {
 	
+	@Autowired
 	private ITourImageDAO tourImageDao;
 	private TourImageDTO tourImageDTO; 
 	private Map<String,String> detailImageUriMap;
@@ -21,6 +26,7 @@ public class TourImageData {
 	public TourImageData() {
 		this.detailImageUriMap = new HashMap<>();
 		detailImageUriMap.put("ImageYN","Y");
+		this.tourImageDTO = new TourImageDTO();
 	}
 	
 	public ITourImageDAO getTourImageDao() {
@@ -53,7 +59,7 @@ public class TourImageData {
 		XmlString xmlStr = new XmlString();
 		detailImageUriMap.put("contentId", contentId);
 		Map<String,String> eachImageUrl=xmlStr.extractXmlNodeAndValue(ApiUrl.makeAPIUri("detailImage", 
-				detailImageUriMap, ServiceKey.TOTAL_SERVICEKEY[0]),"imageInfo");
+				detailImageUriMap, ServiceKey.TOTAL_SERVICEKEY[7]),"imageInfo");
 		System.out.println("--------------------------------- 추가이미지 정보 시작 ---------------------------------");
 		if(!eachImageUrl.isEmpty()) {
 			for(Map.Entry<String,String> entry : eachImageUrl.entrySet()) {
