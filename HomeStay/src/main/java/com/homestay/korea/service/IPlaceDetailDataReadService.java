@@ -11,4 +11,6 @@ public interface IPlaceDetailDataReadService {
 	
 	//특정 관광지 세부 정보 조회
 	public List<PlaceDetailDataDTO> readWithContentId(String contentId) throws Exception;
+	
+	public List<String> readTitles(List<String> contentIds);
 }

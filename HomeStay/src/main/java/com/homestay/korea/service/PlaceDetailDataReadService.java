@@ -24,6 +24,12 @@ public class PlaceDetailDataReadService implements IPlaceDetailDataReadService {
 	public List<PlaceDetailDataDTO> readWithContentId(String contentId) throws Exception {
 		return placeDetailDataDAO.readDetailData(contentId);
 	}
+
+	@Override
+	public List<String> readTitles(List<String> contentIds) {
+		// TODO Auto-generated method stub
+		return placeDetailDataDAO.readTitles(contentIds);
+	}
 	
 	
 }

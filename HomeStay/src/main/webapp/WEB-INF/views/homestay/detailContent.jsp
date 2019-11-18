@@ -325,9 +325,15 @@
 		<h2>다른 사용자의 추천 관광지</h2>
 		<div class="swiper-wrapper">	
 			<c:forEach items="${tourImageDTOs}" var="item" varStatus="i">
-				<div class="swiper-slide" style="width: 200px; height: 250px;">
-					<a href="/detailContent?contentid=${item.contentid}"><img src="${item.imageurl}" class="ApiImage"></a>
-				</div>
+				<div class="swiper-slide" style="width: 200px; height: 250px border-radius:.25rem .25rem 0rem 0rem;">
+					<a href="/detailContent?contentid=${item.contentid}"><img src="${item.imageurl}" class="ApiImage" style="border-radius:.25rem .25rem 0rem 0rem;"></a>
+				
+				
+				<div style="background-color:#fff; width:200px; height:80px; padding:1.25rem; border-radius:0rem 0rem .25rem .25rem;">
+					<h5><a href="/detailContent?contentid=${item.contentid}" style="color:#007bff; text-decoration:none;">
+				     ${titles[i.index]}</a>
+				     </h5>
+				 </div></div>
 			</c:forEach>		
 		</div>
 		<!-- Add Pagination -->

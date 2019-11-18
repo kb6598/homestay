@@ -18,6 +18,7 @@ import com.homestay.korea.DTO.MemberLogDTO;
 import com.homestay.korea.DTO.PlaceDetailDataDTO;
 import com.homestay.korea.DTO.ThemePreferDTO;
 import com.homestay.korea.DTO.TourImageDTO;
+import com.homestay.korea.service.IContentMainService;
 import com.homestay.korea.service.IMemberLogService;
 import com.homestay.korea.service.IMemberReadService;
 import com.homestay.korea.service.IPlaceDetailDataReadService;
@@ -42,6 +43,7 @@ public class InfoController {
 	
 	@Autowired
 	private IMemberReadService memberReadService;
+	
 	
 	//상세 페이지로 이동
 	@RequestMapping(value="/detailContent", method = RequestMethod.GET)
@@ -125,14 +127,18 @@ public class InfoController {
 							iter.remove();
 						}
 					}
-
+					
+					//콘솔로 test
 					for(TourImageDTO tourImageDTO2 : tourImageDTOs) {
-						if(tourImageDTO2.getContentid().equals(contentid)) {
-							tourImageDTOs.remove(tourImageDTO2);
-						}
 						System.out.println(tourImageDTO2.getImageurl());
 						System.out.println(tourImageDTO2.getContentid());
 					}
+					
+					List<String> titles = placeDetailDataReadService.readTitles(contentIds);
+					for(String title : titles) {
+						System.out.println(title);
+					}
+					model.addAttribute("titles", titles);
 					model.addAttribute("tourImageDTOs", tourImageDTOs);
 				}
 			}
