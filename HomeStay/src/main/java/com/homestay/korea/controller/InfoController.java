@@ -1,6 +1,7 @@
 package com.homestay.korea.controller;
 
 import java.sql.SQLException;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -14,11 +15,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.homestay.korea.DTO.MemberDTO;
 import com.homestay.korea.DTO.MemberLogDTO;
 import com.homestay.korea.DTO.PlaceDetailDataDTO;
+import com.homestay.korea.DTO.ThemePreferDTO;
 import com.homestay.korea.DTO.TourImageDTO;
 import com.homestay.korea.service.IMemberLogService;
+import com.homestay.korea.service.IMemberReadService;
 import com.homestay.korea.service.IPlaceDetailDataReadService;
 import com.homestay.korea.service.IThemePreferReadService;
 import com.homestay.korea.service.ITourImageReadService;
+import com.homestay.korea.util.RelationAnalyze;
 
 @Controller
 public class InfoController {
@@ -34,6 +38,9 @@ public class InfoController {
 	
 	@Autowired
 	public IMemberLogService memberLogService;
+	
+	@Autowired
+	private IMemberReadService memberReadService;
 	
 	//상세 페이지로 이동
 	@RequestMapping(value="/detailContent", method = RequestMethod.GET)
@@ -68,7 +75,7 @@ public class InfoController {
 			
 
 
-			if(session.getAttribute("memberInfo").toString() != null) {
+			if(session.getAttribute("memberInfo") != null) {
 				
 				/*
 				1. 로그인한 아이디의 성별,연령대,동반인을 가져옴
@@ -83,18 +90,18 @@ public class InfoController {
 				 */
 				
 				MemberDTO memberInfo = (MemberDTO)session.getAttribute("memberInfo");
-//				String gender = memberInfo.getGender();
-//				String age = memberInfo.getAge();
-//				String companion = memberInfo.getCompanion();
-//				
-//				List<String> relationIds =  memberReaderService.getRelationId(contentId, gender, age, companion);
-//				List<ThemePreferDTO> themeRelationPreferDTOList = themePreferReadService.getRelationThemePreferList(relationIds);
+				String gender = memberInfo.getGender();
+				String age = memberInfo.getAge();
+				String companion = memberInfo.getCompanion();
+				
+				List<String> relationIds =  memberReadService.getRelationId(contentid, gender, age, companion);
+				List<ThemePreferDTO> themeRelationPreferDTOList = themePreferReadService.getRelationThemePreferList(relationIds);
 				
 				ThemePreferDTO themePreferDTO =  themePreferReadService.getThemePrefer(memberInfo.getId());
 				RelationAnalyze relationAnalyze = new RelationAnalyze(themePreferDTO);
 				
-				List<ThemePreferDTO> themePreferDTOList = themePreferReadService.getThemePreferList();
-				String idArr[] =  relationAnalyze.getMatchIds(themePreferDTOList);
+//				List<ThemePreferDTO> themePreferDTOList = themePreferReadService.getThemePreferList();
+				String idArr[] =  relationAnalyze.getMatchIds(themeRelationPreferDTOList);
 				for(int i=0; i<idArr.length; i++) 
 				{
 					System.out.println(idArr[i]);

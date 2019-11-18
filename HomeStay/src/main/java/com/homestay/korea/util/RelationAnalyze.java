@@ -21,9 +21,13 @@ public class RelationAnalyze {
 	}
 	
 	public String[] getMatchIds(List<ThemePreferDTO> ThemePreferDTOList){
-		String idArr[] = new String[3];
-		pearsonArr = new double[3];
-		int count = 3;
+		int listSize = ThemePreferDTOList.size()-1;
+		if (listSize>3) {
+			listSize = 3;
+		}
+		String idArr[] = new String[listSize];
+		pearsonArr = new double[listSize];
+		int count = listSize;
 		
 		for(ThemePreferDTO themePrefer : ThemePreferDTOList) {
 			if (loginData.getId().equals(themePrefer.getId())) {
