@@ -7,9 +7,13 @@
 	<select id="readWithId" resultType="com.homestay.korea.DTO.ThemePreferDTO">
 		select * from theme_prefer where id=#{id}
 	</select>
-	<select id="readListWithIds" parameterType="map" resultType="com.homestay.korea.DTO.ThemePreferDTO">
-		select * from theme_prefer where id IN #{id}
+	<select id="readListWithIds" resultType="com.homestay.korea.DTO.ThemePreferDTO">
+		select * from theme_prefer where id IN
+		<foreach  collection="id"  item="item" index="index" separator="," open="(" close=")">
+      	  #{item,jdbcType=VARCHAR}
+    	</foreach>
 	</select>
+	
 	<select id="readList" resultType="com.homestay.korea.DTO.ThemePreferDTO">
 		select * from theme_prefer
 	</select>

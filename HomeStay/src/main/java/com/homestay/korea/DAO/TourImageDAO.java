@@ -43,7 +43,12 @@ public class TourImageDAO implements ITourImageDAO {
 	public int deleteImageWithContentid(String contentid) {
 		return 0;
 	}
-	
-	
+
+	@Override
+	public List<TourImageDTO> readWithContentIds(List<String> contentIds) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 
 }
