@@ -19,4 +19,6 @@ public interface ITourImageDAO {
 	public List<TourImageDTO> readWithPlaceDetailDataImage(TourImageDTO vo) throws Exception;
 	
 	public void insertSingleTourImageRecord(TourImageDTO tourImageDTO);
+	
+	public int deleteImageWithContentid(String contentid);
 }

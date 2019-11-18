@@ -69,7 +69,7 @@ XTqju5%2BKJ1B65Rcv%2FDQzBbher7JEH6YCJYshlzqThmSU97RsoM2tSIn2WotU8jsAOc3LWr9APLD9
 	 * 
 	 */
 	
-	private final String SERVICEKEY = "KaI%2FcewqprPhkm8XnSeaZV5lfBAZAiQSe0RCCjYJG7UDgj5a5ChYmXLG5GObAWG%2BxoBQC0HESNXkd88FtcAR1A%3D%3D";
+	private final String SERVICEKEY = "";
 	private final int CALL_API_PAGE_COUNT = 100;
 	
 	@Autowired
@@ -134,14 +134,16 @@ XTqju5%2BKJ1B65Rcv%2FDQzBbher7JEH6YCJYshlzqThmSU97RsoM2tSIn2WotU8jsAOc3LWr9APLD9
 	 * 8. 이미지 url을 tour_image테이블의 imageUrl에 저장
 	 */
 	
+	//데이터삽입 흐름부분
 	@Test
 	public void callTourAPIToStoreDB() throws Exception {
 		
 		Map<String,String> basedAreaUriMap = new HashMap<String,String>();
 //		basedAreaUriMap.put("pageNo",String.valueOf(pageNo)); //반복처리할것
-		basedAreaUriMap.put("pageNo","7"); 
-		basedAreaUriMap.put("numOfRows","200"); 
+		basedAreaUriMap.put("pageNo","5"); //나:1, 빌립:2, 우중:3, 평근:4, 민혁:5
+		basedAreaUriMap.put("numOfRows","300"); 
 		basedAreaUriMap.put("listYN","Y");
+//		basedAreaUriMap.put("arrange","A"); //A는 제목순
 		
 		Map<String,String> commonDataUriMap = new HashMap<String,String>();
 		commonDataUriMap.put("overviewYN", "Y");
@@ -183,7 +185,9 @@ XTqju5%2BKJ1B65Rcv%2FDQzBbher7JEH6YCJYshlzqThmSU97RsoM2tSIn2WotU8jsAOc3LWr9APLD9
 					lastIdx = targetStr.indexOf("</item>");
 					criteriaIdx += lastIdx+"</item>".length();
 					String tempStr = targetStr.substring(startIdx, lastIdx);
-					//<areacode>,<contentid>,<createdtime>,<modifiedtime>,<contenttypeid>
+					
+					//공통정보에서 가져오는 태그들
+					//<areacode>,<contentid>,<createdtime>,<modifiedtime>,<contenttypeid>,<firstimage>,<mapx>,<mapy>
 					String resultAreaCode = extractXmlValue(tempStr, "<areacode>"); 
 					String korAreaName = tagInfo.areaCodeTag.get(resultAreaCode); //db에 넣어야함
 					String resultContentId = extractXmlValue(tempStr, "<contentid>"); //파싱 필요없음
@@ -192,8 +196,6 @@ XTqju5%2BKJ1B65Rcv%2FDQzBbher7JEH6YCJYshlzqThmSU97RsoM2tSIn2WotU8jsAOc3LWr9APLD9
 					String resultTypeId = extractXmlValue(tempStr, "<contenttypeid>"); //파싱처리해야함
 					String korTheme = tagInfo.themeTag.get(resultTypeId); //db에 넣어야함
 					String resultFirstImage = extractXmlValue(tempStr, "<firstimage>"); //원본이미지(없을 수도 있음)
-					String resultThumnailImage = extractXmlValue(tempStr, "<firstimage2>"); //썸네일이미지(없을 수도 있음)
-					
 					String resultXLocation = extractXmlValue(tempStr,"<mapx>");
 					String resultYLocation = extractXmlValue(tempStr,"<mapy>");
 					
@@ -218,8 +220,7 @@ XTqju5%2BKJ1B65Rcv%2FDQzBbher7JEH6YCJYshlzqThmSU97RsoM2tSIn2WotU8jsAOc3LWr9APLD9
 					System.out.println("테마:"+korTheme);
 					System.out.println("관광지고유번호:"+resultContentId);
 					System.out.println("지역:"+korAreaName);
-//					System.out.println("원본이미지 url:"+resultFirstImage);
-//					System.out.println("썸네일이미지 url:"+resultThumnailImage);
+					System.out.println("원본이미지 url:"+resultFirstImage);
 					System.out.println("--------------------------------- 지역 정보 끝---------------------------------");
 					
 					//--------------------------------------------------------------------------------------
@@ -266,7 +267,7 @@ XTqju5%2BKJ1B65Rcv%2FDQzBbher7JEH6YCJYshlzqThmSU97RsoM2tSIn2WotU8jsAOc3LWr9APLD9
 					//세부정보 조회 호출() 
 					introDataUriMap.put("contentTypeId", resultTypeId); //갱신해야함
 					introDataUriMap.put("contentId", resultContentId); //갱신해야함
-					Map<String,String> eachNodeNames=extractXmlNodeAndValue(makeAPIUri("detailIntro", introDataUriMap, SERVICEKEY));
+					Map<String,String> eachNodeNames=extractXmlNodeAndValue(makeAPIUri("detailIntro", introDataUriMap, SERVICEKEY), "detailInfo");
 					Map<String,String> resultDetailMap = new HashMap<>(); //DB에 저장해야하는 파싱된정보
 					System.out.println("--------------------------------- 상세 정보 시작---------------------------------");
 					for(Map.Entry<String,String> entry : eachNodeNames.entrySet()){
@@ -286,13 +287,13 @@ XTqju5%2BKJ1B65Rcv%2FDQzBbher7JEH6YCJYshlzqThmSU97RsoM2tSIn2WotU8jsAOc3LWr9APLD9
 					//--------------------------------------------------------------------------------------
 					//이미지정보 조회 호출()
 					detailImageUriMap.put("contentId", resultContentId);
-					Map<String,String> eachImageUrl=extractXmlNodeAndValue(makeAPIUri("detailImage", detailImageUriMap, SERVICEKEY));
-					System.out.println("--------------------------------- 이미지 정보 시작---------------------------------");
+					Map<String,String> eachImageUrl=extractXmlNodeAndValue(makeAPIUri("detailImage", detailImageUriMap, SERVICEKEY),"imageInfo");
+					System.out.println("--------------------------------- 추가이미지 정보 시작---------------------------------");
 					if(!eachImageUrl.isEmpty()) {
 						for(Map.Entry<String,String> entry : eachImageUrl.entrySet()) {
 							String nodeName = entry.getKey();
 							String value = entry.getValue();
-							if(nodeName.equals("originimgurl")) { //이미지정보가 존재한다면
+							if(nodeName.startsWith("originimgurl")) { //이미지정보가 존재한다면
 								tourImageDTO.setContentid(resultContentId);
 								tourImageDTO.setImageurl(value);
 								tourImageDao.insertSingleTourImageRecord(tourImageDTO); //이미지 정보 db에저장
@@ -300,7 +301,7 @@ XTqju5%2BKJ1B65Rcv%2FDQzBbher7JEH6YCJYshlzqThmSU97RsoM2tSIn2WotU8jsAOc3LWr9APLD9
 							}
 						}
 					}
-					System.out.println("--------------------------------- 이미지 정보 끝---------------------------------");
+					System.out.println("--------------------------------- 추가이미지 정보 끝---------------------------------");
 					System.out.println();
 					System.out.println();
 				}
@@ -345,8 +346,9 @@ XTqju5%2BKJ1B65Rcv%2FDQzBbher7JEH6YCJYshlzqThmSU97RsoM2tSIn2WotU8jsAOc3LWr9APLD9
 		return year + "/" + month + "/" + day + " " + hour + ":" + minute + ":" + sec;
 	}
 	
-	
-	private Map<String,String> extractXmlNodeAndValue(String callApiStr) throws LimitedRequestException,NotOkResponseException{
+	//api호출을 위한 url 문자열을 받아 api호출을하고 각 xml에서 node값과 그 node값에 해당하는 value값을 map형식으로 담아 반환하는 메서드
+	//(divisionStr인자는 map에 저장하는 과정이 달라 "imageInfo"혹은 "detailInfo"를 전달받아 구분하기위함) 
+	private Map<String,String> extractXmlNodeAndValue(String callApiStr, String divisionStr) throws LimitedRequestException,NotOkResponseException{
 		
 		Map<String,String> extractedXmlNodeAndValue = new HashMap<>();
 		BufferedReader br = null;
@@ -368,7 +370,7 @@ XTqju5%2BKJ1B65Rcv%2FDQzBbher7JEH6YCJYshlzqThmSU97RsoM2tSIn2WotU8jsAOc3LWr9APLD9
             
             //exception날릴지 확인하는 부분
             String resultCode=extractXmlValue(result,"<resultCode>");
-			if(!resultCode.equals("0000")) { //중복코드
+			if(!resultCode.equals("0000")) {
 				if(resultCode.equals("0022"))
 						throw new LimitedRequestException();
 				throw new NotOkResponseException();
@@ -385,8 +387,13 @@ XTqju5%2BKJ1B65Rcv%2FDQzBbher7JEH6YCJYshlzqThmSU97RsoM2tSIn2WotU8jsAOc3LWr9APLD9
                 NodeList child = nodeList.item(i).getChildNodes();
                 for (int j = 0; j < child.getLength(); j++) {
                     Node node = child.item(j);
-                    if(!node.getTextContent().isEmpty() && !node.getTextContent().equals(""))
-                    	extractedXmlNodeAndValue.put(node.getNodeName(),node.getTextContent());
+                    if(!node.getTextContent().isEmpty() && !node.getTextContent().equals("")) {
+                    	if(divisionStr.equals("imageInfo")) {
+                    		extractedXmlNodeAndValue.put(node.getNodeName()+"_"+i+"_"+j,node.getTextContent());
+                    	}else if(divisionStr.equals("detailInfo")){
+                    		extractedXmlNodeAndValue.put(node.getNodeName(),node.getTextContent());
+                    	}
+                    }
                 }
             }
         } catch (Exception e) {
@@ -395,7 +402,7 @@ XTqju5%2BKJ1B65Rcv%2FDQzBbher7JEH6YCJYshlzqThmSU97RsoM2tSIn2WotU8jsAOc3LWr9APLD9
         return extractedXmlNodeAndValue;
 	}
 	
-	
+	//API호출을 하기위한 url을 생성하고 반환하는 메서드
 	private String makeAPIUri(String urlAddr, Map<String, String> urlMap, String serviceKey) {
 		StringBuilder urlBuilder = null;
 		try {
@@ -415,7 +422,7 @@ XTqju5%2BKJ1B65Rcv%2FDQzBbher7JEH6YCJYshlzqThmSU97RsoM2tSIn2WotU8jsAOc3LWr9APLD9
 	
 }
 
-
+//API를 호출하고 서버로 부터 전달받은 xml값을 반환하는 메서드
 class Api{
 	public String resultXmlStr ="";
 	
@@ -423,7 +430,6 @@ class Api{
 		return this.resultXmlStr;
 	}
 	
-	//수향이가 작업한 ApiExplorer 조금 변경
 	public Api(String urlAddr, Map<String, String> urlMap, String serviceKey) throws IOException {
 		StringBuilder urlBuilder = new StringBuilder("http://api.visitkorea.or.kr/openapi/service/rest/KorService/"+urlAddr); /*URL*/
         urlBuilder.append("?" + URLEncoder.encode("ServiceKey","UTF-8") + "=" + serviceKey); /*Service Key*/

@@ -1,5 +1,7 @@
 package com.homestay.korea.dao;
 
+import java.util.List;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,4 +31,29 @@ public class PlaceDetailDataDAOTests {
 //		dao.insert(dto);
 //	}
 	
+//	@Test
+//	public void testRead() {	
+//		List<PlaceDetailDataDTO> dto = dao.readDetailData("990539");
+//		System.out.println(dto);
+//	}
+	
+	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

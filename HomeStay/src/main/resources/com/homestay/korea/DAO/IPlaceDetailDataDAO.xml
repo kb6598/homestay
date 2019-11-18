@@ -31,4 +31,17 @@
 			#{content_category},#{content},#{contentid}
 		)
 	</insert>
+	
+	<select id="readDetailData" resultType="com.homestay.korea.DTO.PlaceDetailDataDTO">
+		select *
+		from place_detailData
+		where contentid=#{contentId}
+	</select>
+
+	<delete id="deleteDetailData">
+		delete from place_detailData where contentid=#{contentId}
+	</delete>
 </mapper>
+
+
+

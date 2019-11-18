@@ -18,4 +18,7 @@ public interface IPlaceDAO {
 	
 	//insert 문 count는 지정하더라고 기본 0으로 삽입
 	public int insertWithDTO(PlaceDTO placeDTO);
+	
+	//contentid로 관광지 정보 delete
+	public int deletePlaceData(String contentId);
 }

@@ -30,6 +30,11 @@
 		)
 	</insert>
 	
+	<delete id="deleteImageWithContentid">
+		<!-- temp_tour_image테이블이 아닌 tour_image테이블에서 delete처리(temp_tour_image테이블은 테스트용) -->
+		delete from tour_image where contentid=#{contentid}
+	</delete>
+	
 </mapper>
 
 
