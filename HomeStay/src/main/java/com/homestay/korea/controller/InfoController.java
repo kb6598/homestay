@@ -1,6 +1,10 @@
 package com.homestay.korea.controller;
 
 import java.sql.SQLException;
+<<<<<<< HEAD
+=======
+import java.util.Iterator;
+>>>>>>> a9a0d21c4362c8723d513a6d42eceb316cf687ff
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -17,7 +21,9 @@ import com.homestay.korea.DTO.MemberLogDTO;
 import com.homestay.korea.DTO.PlaceDetailDataDTO;
 import com.homestay.korea.DTO.ThemePreferDTO;
 import com.homestay.korea.DTO.TourImageDTO;
+import com.homestay.korea.service.IContentMainService;
 import com.homestay.korea.service.IMemberLogService;
+import com.homestay.korea.service.IMemberReadService;
 import com.homestay.korea.service.IPlaceDetailDataReadService;
 import com.homestay.korea.service.IThemePreferReadService;
 import com.homestay.korea.service.ITourImageReadService;
@@ -38,6 +44,10 @@ public class InfoController {
 	@Autowired
 	public IMemberLogService memberLogService;
 	
+	@Autowired
+	private IMemberReadService memberReadService;
+	
+	
 	//상세 페이지로 이동
 	@RequestMapping(value="/detailContent", method = RequestMethod.GET)
 	public String detailContent(PlaceDetailDataDTO placeDetailDataDTO, TourImageDTO tourImageDTO, Model model, HttpServletRequest request, HttpSession session, MemberLogDTO memberLogDTO) throws SQLException {
@@ -56,7 +66,6 @@ public class InfoController {
 		}
 		
 		try {
-			
 			//관광지 공통정보 + 관광지 이미지
 			placeDetailDataDTO.setContentid(contentid);
 			tourImageDTO.setContentid(contentid);
@@ -71,7 +80,7 @@ public class InfoController {
 			
 
 
-			if(session.getAttribute("memberInfo").toString() != null) {
+			if(session.getAttribute("memberInfo") != null) {
 				
 				/*
 				1. 로그인한 아이디의 성별,연령대,동반인을 가져옴
@@ -86,21 +95,57 @@ public class InfoController {
 				 */
 				
 				MemberDTO memberInfo = (MemberDTO)session.getAttribute("memberInfo");
-//				String gender = memberInfo.getGender();
-//				String age = memberInfo.getAge();
-//				String companion = memberInfo.getCompanion();
-//				
-//				List<String> relationIds =  memberReaderService.getRelationId(contentId, gender, age, companion);
-//				List<ThemePreferDTO> themeRelationPreferDTOList = themePreferReadService.getRelationThemePreferList(relationIds);
+				String gender = memberInfo.getGender();
+				String age = memberInfo.getAge();
+				String companion = memberInfo.getCompanion();
+				
+				List<String> relationIds =  memberReadService.getRelationId(contentid, gender, age, companion);
+				List<ThemePreferDTO> themeRelationPreferDTOList = themePreferReadService.getRelationThemePreferList(relationIds);
 				
 				ThemePreferDTO themePreferDTO =  themePreferReadService.getThemePrefer(memberInfo.getId());
 				RelationAnalyze relationAnalyze = new RelationAnalyze(themePreferDTO);
 				
-				List<ThemePreferDTO> themePreferDTOList = themePreferReadService.getThemePreferList();
-				String idArr[] =  relationAnalyze.getMatchIds(themePreferDTOList);
-				for(int i=0; i<idArr.length; i++) 
+				List<String> ids =  relationAnalyze.getMatchIds(themeRelationPreferDTOList);
+				for(int i=0; i<ids.size(); i++) 
 				{
-					System.out.println(idArr[i]);
+					System.out.println(ids.get(i));
+				}
+				
+				if(ids.size() > 0) {
+					ids.add(memberInfo.getId());
+				//컨텐츠 아이디 가져오기
+					List<String> contentIds = memberLogService.readContentIdWithIds(ids);
+					for(String contentId : contentIds) {
+						System.out.println(contentId);
+					}
+					
+					//이미지 및 제목 가져오기
+					List<String> titles = placeDetailDataReadService.readTitles(contentIds);
+					List<TourImageDTO> tourImageDTOs = tourImageReadService.readWithContentIds(contentIds);
+					
+					//현재보고있는 관광지의 정보는 삭제
+					Iterator<String> iterTitle = titles.iterator();
+					Iterator<TourImageDTO> iter = tourImageDTOs.iterator();
+					while (iter.hasNext()) {
+						iterTitle.hasNext();
+						TourImageDTO t = iter.next();
+						String s = iterTitle.next();
+						if (t.getContentid().equals(contentid)) {
+							iter.remove();
+							iterTitle.remove();
+						}
+					}
+					//콘솔로 test
+					for(TourImageDTO tourImageDTO2 : tourImageDTOs) {
+						System.out.println(tourImageDTO2.getImageurl());
+						System.out.println(tourImageDTO2.getContentid());
+					}
+					for(String title : titles) {
+						System.out.println(title);
+					}
+				
+					model.addAttribute("titles", titles);
+					model.addAttribute("tourImageDTOs", tourImageDTOs);
 				}
 			}
 			

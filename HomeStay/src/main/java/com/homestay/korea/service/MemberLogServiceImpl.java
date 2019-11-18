@@ -26,4 +26,10 @@ public class MemberLogServiceImpl implements IMemberLogService {
 		memberLogDAO.insertMemberLog(dto);
 	}
 
+	@Override
+	public List<String> readContentIdWithIds(List<String> ids) {
+		List<String> contentIds =memberLogDAO.readContentIdWithIds(ids);
+		return contentIds;
+	}
+
 }

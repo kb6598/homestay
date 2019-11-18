@@ -18,10 +18,14 @@ public class RelationAnalyze {
 		this.loginData = loginData;
 	}
 	
-	public String[] getMatchIds(List<ThemePreferDTO> ThemePreferDTOList){
-		String idArr[] = new String[3];
-		pearsonArr = new double[3];
-		int count = 3;
+	public List<String> getMatchIds(List<ThemePreferDTO> ThemePreferDTOList){
+		int listSize = ThemePreferDTOList.size()-1;
+		if (listSize>3) {
+			listSize = 3;
+		}
+		String idArr[] = new String[listSize];
+		pearsonArr = new double[listSize];
+		int count = listSize;
 		
 		for(ThemePreferDTO themePrefer : ThemePreferDTOList) {
 			if (loginData.getId().equals(themePrefer.getId())) {
@@ -45,7 +49,12 @@ public class RelationAnalyze {
 				}
 			}
 		}
-		return idArr;
+		List<String> ids = new ArrayList<String>();
+		for(String id : idArr) {
+			ids.add(id);
+		}
+
+		return ids;
 	}
 
 	

@@ -13,4 +13,8 @@ public interface IPlaceDetailDataDAO {
 	
 	public void insert(PlaceDetailDataDTO placeDetailDataDTO);
 	public PlaceDetailDataDTO readWithPlaceDetailDataContent_value(PlaceDetailDataDTO vo) throws Exception;
+	
+	public List<PlaceDetailDataDTO> readDetailData(String contentId);
+	public List<String> readTitles(@Param("contentIds")List<String> contentIds);
+	public int deleteDetailData(String contentId);
 }
