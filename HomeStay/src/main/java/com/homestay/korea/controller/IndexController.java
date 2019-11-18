@@ -196,7 +196,17 @@ private IPlaceDetailDataReadService placeDetailDataReadService;
 			}
 			
 		}else {
-			location = URLEncoder.encode("전체", "UTF-8");
+			//로그인중일 경우 회원가입시 입력한 권역으로 설정
+			if(session.getAttribute("memberInfo") != null) {
+				MemberDTO curMember = (MemberDTO)session.getAttribute("memberInfo");
+				//logger.info(curMember.toString());
+				location = URLEncoder.encode(curMember.getRegional(), "UTF-8");
+				
+			}else {
+				location = URLEncoder.encode("전체", "UTF-8");
+			}
+			
+			
 		}
 		model.addAttribute("location", location);
 		//--------------
@@ -250,17 +260,8 @@ private IPlaceDetailDataReadService placeDetailDataReadService;
 				model.addAttribute(themeHeader[index], key);
 				model.addAttribute(theme_korHeader[index], URLEncoder.encode(key, "UTF-8"));
 				index++;
-			}
-			
-			
-
-
-			
+			}			
 		}else {
-			
-
-
-
 			//----------로그인 아닐때 페이지
 			// 파라미터 전달
 			model.addAttribute("theme1", "문화시설");
@@ -275,8 +276,7 @@ private IPlaceDetailDataReadService placeDetailDataReadService;
 			model.addAttribute("theme_kor3", URLEncoder.encode("관광지", "UTF-8"));
 			model.addAttribute("theme_kor4", URLEncoder.encode("레포츠", "UTF-8"));
 			model.addAttribute("theme_kor5", URLEncoder.encode("음식점", "UTF-8"));
-			model.addAttribute("theme_kor6", URLEncoder.encode("쇼핑", "UTF-8"));
-			
+			model.addAttribute("theme_kor6", URLEncoder.encode("쇼핑", "UTF-8"));		
 
 		}
 			
