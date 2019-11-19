@@ -18,6 +18,6 @@
 		and id IN (Select id
 				from member
 				where gender = #{gender}
-				and age = #{age} and companion = #{companion})
+				and age LIKE CONCAT('%', #{age}, '%')  and companion LIKE CONCAT('%', #{companion}, '%'))
 	</select>
 </mapper>

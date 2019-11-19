@@ -44,7 +44,7 @@ public class PlaceDetailDataDAO implements IPlaceDetailDataDAO {
 	}
 
 	@Override
-	public List<String> readTitles(List<String> contentIds) {
+	public String readTitles(String contentIds) {
 		// TODO Auto-generated method stub
 		return null;
 	}

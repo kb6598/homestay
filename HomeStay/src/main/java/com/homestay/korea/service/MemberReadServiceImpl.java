@@ -22,7 +22,26 @@ public class MemberReadServiceImpl implements IMemberReadService {
 
 	@Override
 	public List<String> getRelationId(String contentId, String gender, String age, String companion) {
-		List<String> relationIds= memberDAO.readRelationId(contentId, gender, age, companion);
+		List<String> relationIds = null;
+		while(true) {
+			relationIds =  memberDAO.readRelationId(contentId, gender, age, companion);
+			if(relationIds.size() == 0) {
+				if(!companion.equals("")) {
+					companion = "";
+					continue;
+				}else if(!age.equals("")) {
+					age = "";
+					continue;
+				}else if(!gender.equals("")) {
+					gender = "";
+					continue;
+				}else {
+					break;
+				}
+			}else {
+				break;
+			}
+		}
 		return relationIds;
 	}
 	

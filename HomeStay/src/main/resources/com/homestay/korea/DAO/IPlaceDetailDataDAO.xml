@@ -46,11 +46,10 @@
 	</delete>
 	
 	<select id="readTitles" resultType="java.lang.String">
-		select content from place_detailData where content_category = '제목' and contentid IN
-		<foreach  collection="contentIds"  item="item" index="index" separator="," open="(" close=")">
+		select content  from place_detailData where content_category = '제목' and contentid = #{contentIds}
+<!-- 		<foreach  collection="contentIds"  item="item" index="index" separator="," open="(" close=")">
       	  #{item,jdbcType=VARCHAR}
-    	</foreach>
-    	order by contentid asc limit 0,10
+    	</foreach> -->
 	</select>
 </mapper>
 

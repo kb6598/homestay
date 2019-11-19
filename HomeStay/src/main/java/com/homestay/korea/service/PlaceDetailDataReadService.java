@@ -1,5 +1,6 @@
 package com.homestay.korea.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +29,11 @@ public class PlaceDetailDataReadService implements IPlaceDetailDataReadService {
 	@Override
 	public List<String> readTitles(List<String> contentIds) {
 		// TODO Auto-generated method stub
-		return placeDetailDataDAO.readTitles(contentIds);
+		List<String> Titles = new ArrayList<String>();
+		for(String contentId : contentIds) {
+			Titles.add(placeDetailDataDAO.readTitles(contentId));
+		}
+		return Titles;
 	}
 	
 	

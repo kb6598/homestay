@@ -1,6 +1,7 @@
 package com.homestay.korea.controller;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -101,14 +102,17 @@ public class InfoController {
 				String gender = memberInfo.getGender();
 				String age = memberInfo.getAge();
 				String companion = memberInfo.getCompanion();
+				List<String> ids = null;
+				
 				
 				List<String> relationIds =  memberReadService.getRelationId(contentid, gender, age, companion);
+				
 				List<ThemePreferDTO> themeRelationPreferDTOList = themePreferReadService.getRelationThemePreferList(relationIds);
 				
 				ThemePreferDTO themePreferDTO =  themePreferReadService.getThemePrefer(memberInfo.getId());
 				RelationAnalyze relationAnalyze = new RelationAnalyze(themePreferDTO);
 				
-				List<String> ids =  relationAnalyze.getMatchIds(themeRelationPreferDTOList);
+				ids =  relationAnalyze.getMatchIds(themeRelationPreferDTOList);
 				for(int i=0; i<ids.size(); i++) 
 				{
 					System.out.println(ids.get(i));
@@ -123,21 +127,23 @@ public class InfoController {
 					}
 					
 					//이미지 및 제목 가져오기
-					List<String> titles = placeDetailDataReadService.readTitles(contentIds);
+					
 					List<TourImageDTO> tourImageDTOs = tourImageReadService.readWithContentIds(contentIds);
+					List<String> imageContentIds = new ArrayList<String>();
 					
 					//현재보고있는 관광지의 정보는 삭제
-					Iterator<String> iterTitle = titles.iterator();
 					Iterator<TourImageDTO> iter = tourImageDTOs.iterator();
 					while (iter.hasNext()) {
-						iterTitle.hasNext();
 						TourImageDTO t = iter.next();
-						String s = iterTitle.next();
 						if (t.getContentid().equals(contentid)) {
 							iter.remove();
-							iterTitle.remove();
+							continue;
 						}
+						imageContentIds.add(t.getContentid());
 					}
+					
+					List<String> titles = placeDetailDataReadService.readTitles(imageContentIds);
+					
 					//콘솔로 test
 					for(TourImageDTO tourImageDTO2 : tourImageDTOs) {
 						System.out.println(tourImageDTO2.getImageurl());
