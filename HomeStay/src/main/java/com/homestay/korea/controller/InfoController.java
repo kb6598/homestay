@@ -15,12 +15,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.homestay.korea.DTO.MemberDTO;
 import com.homestay.korea.DTO.MemberLogDTO;
+import com.homestay.korea.DTO.PlaceDTO;
 import com.homestay.korea.DTO.PlaceDetailDataDTO;
 import com.homestay.korea.DTO.ThemePreferDTO;
 import com.homestay.korea.DTO.TourImageDTO;
 import com.homestay.korea.service.IMemberLogService;
 import com.homestay.korea.service.IMemberReadService;
 import com.homestay.korea.service.IPlaceDetailDataReadService;
+import com.homestay.korea.service.IPlaceReadService;
 import com.homestay.korea.service.IThemePreferReadService;
 import com.homestay.korea.service.ITourImageReadService;
 import com.homestay.korea.util.RelationAnalyze;
@@ -43,6 +45,9 @@ public class InfoController {
 	@Autowired
 	private IMemberReadService memberReadService;
 	
+	@Autowired
+	private IPlaceReadService placeReadService;
+	
 	
 	//상세 페이지로 이동
 	@RequestMapping(value="/detailContent", method = RequestMethod.GET)
@@ -54,11 +59,13 @@ public class InfoController {
 		if(session.getAttribute("memberInfo") == null) 
 		{
 			model.addAttribute("memberinfo",session.getAttribute("memberInfo"));
-		}else {
+		}else { //로그인 했을때 이미지 클릭마다
 			MemberDTO memberInfo = (MemberDTO) session.getAttribute("memberInfo");
 			memberLogDTO.setId(memberInfo.getId());
 			memberLogDTO.setContentId(contentid);
-			memberLogService.insertMemberLog(memberLogDTO);
+			memberLogService.insertMemberLog(memberLogDTO); //로그 저장
+			PlaceDTO placeDTO=placeReadService.getPlace(contentid); //테마 가져오기
+			memberLogService.updatePrefer(placeDTO.getTheme(), memberInfo.getId()); //테마 선호도 올리기
 		}
 		
 		try {

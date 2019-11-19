@@ -11,4 +11,5 @@ public interface IThemePreferDAO {
 	public List<ThemePreferDTO> readListWithIds(@Param("id")List<String> id);
 	public List<ThemePreferDTO> readList();
 	public void PreferInsert(ThemePreferDTO dto);
+	public void updatePrefer(@Param("theme")String theme, @Param("id")String id);
 }

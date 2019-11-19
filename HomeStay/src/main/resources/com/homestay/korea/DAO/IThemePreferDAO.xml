@@ -17,8 +17,13 @@
 	<select id="readList" resultType="com.homestay.korea.DTO.ThemePreferDTO">
 		select * from theme_prefer
 	</select>
+	
 	<insert id="PreferInsert">
 	insert into theme_prefer(id, tour_attr, cult_facil, event, shopping, leports, dining)
 		VALUES(#{id}, #{tour_attr}, #{cult_facil}, #{event}, #{shopping}, #{leports}, #{dining})		
 	</insert>
+	
+	<update id="updatePrefer" parameterType="String">
+		update theme_prefer set ${theme}=${theme}+1 where id=#{id}
+	</update>
 </mapper>

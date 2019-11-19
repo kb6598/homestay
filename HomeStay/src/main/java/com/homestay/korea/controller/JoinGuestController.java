@@ -54,8 +54,8 @@ public class JoinGuestController {
 	public String joinGeust(MemberDTO memberdto, ThemePreferDTO themepreferdto, MemberLogDTO memberLogDTO) throws SQLException {
 		memberservice.insertMember(memberdto);
 		memberservice.insertPrefer(themepreferdto);
-		memberLogDTO.setContentId("초기값");
-		memberLogService.insertMemberLog(memberLogDTO);
+//		memberLogDTO.setContentId("초기값");
+//		memberLogService.insertMemberLog(memberLogDTO);
 		return "redirect:main";
 		
 	}
