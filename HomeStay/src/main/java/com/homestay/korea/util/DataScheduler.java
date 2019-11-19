@@ -50,7 +50,7 @@ public class DataScheduler {
 
 	/*
 	 * ------------------------ 하루에 한번 갱신 --------------------------
-	 * 						매일 새벽 3시에 작동(Windows환경입니다..)
+	 * 						      매일 새벽 3시에 작동
 	 */
 	@Scheduled(cron = "0 0 3 * * *") 
 	public void renewTourDataInDB() throws Exception {
@@ -104,14 +104,16 @@ public class DataScheduler {
 		}
 	}
 
-	// 오늘 기준 날짜기준 beforeDay을 반환한다.
+	// 오늘 기준 날짜기준 beforeDay을 반환한다.(년/월/일 형식으로 반환)
 	private String getBeforeday(int beforeDay) {
 		Calendar cal = Calendar.getInstance();
+		int year = cal.get(Calendar.YEAR);
+		int month = cal.get(Calendar.MONTH);
 		int day = cal.get(Calendar.DATE) - beforeDay;
 		String strDay = String.valueOf(day);
 		if (strDay.length() == 1)
-			return "0" + strDay;
-		return strDay;
+			strDay = "0" + strDay;
+		return year+"/"+month+"/"+strDay;
 	}
 
 	/*
@@ -161,11 +163,12 @@ public class DataScheduler {
 			}
 		}
 	}
-
+	
+	
 	// modifiedday를 비교해 boolean반환(수정날짜에서 day(=일자)가 같다면 true 반환)
 	public boolean compareModifiedTime(String contentId, String modifiedDay) {
 		PlaceDTO placeDTO = placeReadService.getPlace(contentId);
-		String compareToModifiedDay = CalendarUtil.extractDay(placeDTO.getModifiedtime());
+		String compareToModifiedDay = CalendarUtil.extractTransformedDay(placeDTO.getModifiedtime());
 		return compareToModifiedDay.equals(modifiedDay);
 	}
 

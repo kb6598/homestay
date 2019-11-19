@@ -34,15 +34,6 @@ import com.homestay.korea.util.XmlString;
 public class InsertRoutineTest {
 	
 	@Autowired
-	private IPlaceReadService placeReadService;
-
-	@Autowired
-	private TourDataSchedulingService tourDataSchedulingService;
-
-	@Autowired
-	private TempContentidService tempContentidService;
-	
-	@Autowired
 	private AreaBasedData areaBasedData; // 지역기반 정보 호출
 	
 	@Autowired
@@ -77,7 +68,7 @@ public class InsertRoutineTest {
 					String contentId = XmlString.extractXmlValue("<contentid>", itemXmlStr);
 					String contentTypeId = XmlString.extractXmlValue("<contenttypeid>", itemXmlStr);
 					String createdDay = CalendarUtil.extractDay(XmlString.extractXmlValue("<createdtime>", itemXmlStr));
-					if (!createdDay.equals(getYesterday(3))) { 
+					if (!createdDay.equals(getYesterday(1))) { 
 						System.out.println("-----------------------어제 날짜가 아니라 삽입 return합니다. createdDay:"+createdDay+"-----------------------");
 						return;
 					}

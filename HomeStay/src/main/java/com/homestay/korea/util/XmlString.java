@@ -50,15 +50,28 @@ public class XmlString {
 		this.xmlStr = xmlStr;
 	}
 
-	// <numOfRows>태그를 참조해서 api호출결과값의 갯수를 추출
+	// <item>태그 갯수를 세어 api호출결과값의 갯수를 추출
 	public int extractNumOfRows() {
-		int startIdx = xmlStr.indexOf("<numOfRows>");
-		int lastIdx = xmlStr.indexOf("</numOfRows>");
-		startIdx += "<numOfRows>".length();
-		String resultRows = xmlStr.substring(startIdx, lastIdx);
-		// 출력 확인용 코드
-		// System.out.println("numOfRows: " + xmlStr.substring(startIdx,lastIdx)); //중간
-		return Integer.parseInt(resultRows);
+//		int startIdx = xmlStr.indexOf("<numOfRows>");
+//		int lastIdx = xmlStr.indexOf("</numOfRows>");
+//		startIdx += "<numOfRows>".length();
+//		String resultRows = xmlStr.substring(startIdx, lastIdx);
+//		
+//		return Integer.parseInt(resultRows);
+		String str = this.xmlStr;
+		int resultRows = 0;
+
+		while(true) {
+			int startIdx = str.indexOf("<item>");
+			if(startIdx == -1)
+				break;
+			int lastIdx = str.indexOf("</item>");
+			int criteriaIdx = lastIdx+"</item>".length();
+			str = str.substring(criteriaIdx);
+			resultRows++;
+		}
+		return resultRows;
+		
 	}
 
 	// 전달한 태그(태그포함)에 해당하는 값을 반환한다.(태그값이 존재하지 않을 시 noTag라는 문자열을 반환)
@@ -166,6 +179,8 @@ public class XmlString {
 				criteriaIdx += lastIdx + "</".length() + tagName.length() + ">".length();
 				String tempStr = targetStr.substring(startIdx, lastIdx);
 				xmlList.add(tempStr);
+			}else {
+				return null;
 			}
 		}
 		return xmlList;

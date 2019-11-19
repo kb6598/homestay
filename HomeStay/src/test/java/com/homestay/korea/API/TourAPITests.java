@@ -84,8 +84,6 @@ XTqju5%2BKJ1B65Rcv%2FDQzBbher7JEH6YCJYshlzqThmSU97RsoM2tSIn2WotU8jsAOc3LWr9APLD9
 	
 	private Api basedArea; //지역기반 호출
 	private Api commonData; //공통정보
-//	private Api introData; //소개정보(특정 메서드로 호출함)
-//	private Api imageData; //이미지정보(특정 메서드로 호출함)
 	
 	public TagInfo tagInfo;
 	

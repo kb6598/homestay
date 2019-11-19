@@ -16,14 +16,25 @@ public class CalendarUtil {
 
 		return year + "/" + month + "/" + day + " " + hour + ":" + minute + ":" + sec;
 	}
-
-	//전달받은 문자열 타입의 날짜에서 day의 문자열을 추출해내는 메서드
+	
+	//api호출로 전달받은 문자열 타입의 날짜에서 year/month/day의 문자열을 추출해내는 메서드
 	public static String extractDay(String date) {
-		if(date != null && !date.isEmpty())
-			return date.substring(6, 8);
+		if(date != null && !date.isEmpty()) {
+			String year = date.substring(0, 4);
+			String month = date.substring(4, 6);
+			String day = date.substring(6, 8);
+			return year + "/" + month + "/" + day;
+		}
 		return null;
 	}
 	
+	//xxxx/xx/xx xx:xx:xx 형식의 문자열에서 year/monty/day를 추출해내는 메서드
+	public static String extractTransformedDay(String date) {
+		if(date != null && !date.isEmpty()) {
+			return date.substring(0, 10);
+		}
+		return null;
+	}
 }
 
 
