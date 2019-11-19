@@ -64,6 +64,15 @@
 
         }
     }
+    // 슬라이드 pause
+    window.addEventListener('load', function(){
+    	$('.carousel').carousel('pause');
+    	});
+
+   
+    
+    
+  
 
     </script>	
 	
