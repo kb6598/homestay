@@ -25,7 +25,8 @@ public class MemberReadServiceImpl implements IMemberReadService {
 		List<String> relationIds = null;
 		while(true) {
 			relationIds =  memberDAO.readRelationId(contentId, gender, age, companion);
-			if(relationIds.size() == 0) {
+			System.out.println(relationIds.size());
+			if(relationIds.size() <= 1) {
 				if(!companion.equals("")) {
 					companion = "";
 					continue;

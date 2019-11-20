@@ -14,7 +14,7 @@
 	</insert>
 	
 	<select id="readRelationId" resultType ="java.lang.String">
-		Select id from member_log where contentId = #{contentId}
+		Select distinct id from member_log where contentId = #{contentId}
 		and id IN (Select id
 				from member
 				where gender = #{gender}
