@@ -66,7 +66,8 @@ public class InfoController {
 			memberLogDTO.setContentId(contentid);
 			memberLogService.insertMemberLog(memberLogDTO); //로그 저장
 			PlaceDTO placeDTO=placeReadService.getPlace(contentid); //테마 가져오기
-			memberLogService.updatePrefer(placeDTO.getTheme(), memberInfo.getId()); //테마 선호도 올리기
+			if(placeDTO!=null)
+				memberLogService.updatePrefer(placeDTO.getTheme(), memberInfo.getId()); //테마 선호도 올리기
 		}
 		
 		try {
