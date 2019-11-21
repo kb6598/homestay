@@ -10,26 +10,28 @@
 	
  <!-- 이미지가 여러개일경우 1개만 가져옴 -->
 	<select id="readWithThemeLocationStartEndOrderByParm" parameterType="map" resultType="com.homestay.korea.DTO.JoinPlaceTourImageDTO">
-		SELECT DISTINCT(place.contentid) as contentid, createdtime, modifiedtime, theme, count, location, imageurl, imageno 
-		FROM place
-		INNER JOIN tour_image ON place.contentid = tour_image.contentid 
-		WHERE place.contentid = tour_image.contentid 
-            AND place.theme = #{theme}
+		SELECT  DISTINCT(place.contentid) as contentid, place.createdtime, place.modifiedtime, place.theme, place.count, place.location, tour_image.imageurl, tour_image.imageno 
+		FROM place 
+        	LEFT JOIN tour_image on place.contentid = tour_image.contentid 
+        	LEFT JOIN member_log on place.contentid = member_log.contentid
+        WHERE
+            place.theme = #{theme}
             AND place.location = #{location}
 		Group By place.contentid
-        Order BY #{param}
+        Order BY count(DISTINCT(member_log.log_no)) DESC
         LIMIT #{start},#{count}
 	</select>
 
 	 <!-- 이미지가 여러개일경우 1개만 가져옴 -->
 	<select id="readWithThemeStartEndOrderByParm" parameterType="map" resultType="com.homestay.korea.DTO.JoinPlaceTourImageDTO">
-		SELECT DISTINCT(place.contentid) as contentid, createdtime, modifiedtime, theme, count, location, imageurl, imageno
-		FROM place
-		INNER JOIN tour_image ON place.contentid = tour_image.contentid 
-		WHERE place.contentid = tour_image.contentid 
-            AND place.theme = #{theme}
+		SELECT  DISTINCT(place.contentid) as contentid, place.createdtime, place.modifiedtime, place.theme, place.count, place.location, tour_image.imageurl, tour_image.imageno 
+		FROM place 
+        	LEFT JOIN tour_image on place.contentid = tour_image.contentid 
+        	LEFT JOIN member_log on place.contentid = member_log.contentid
+        WHERE
+        	place.theme = #{theme}
 		Group By place.contentid
-        Order BY #{param}
+        Order BY count(DISTINCT(member_log.log_no)) DESC
         LIMIT #{start},#{count}
 	</select>
 
