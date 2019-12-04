@@ -4,6 +4,9 @@
 <head>
 	<title>Home</title>
 </head>
+<script>
+window.location.href='main';
+</script>
 <body>
 <h1>
 	Hello world!  
