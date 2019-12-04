@@ -29,11 +29,16 @@ public class RootConfig {
 		ds.setUrl("jdbc:mysql://itbuddy.iptime.org:8233/capstone?autoReconnect=true"); 
 		ds.setUsername("capstone"); 
 		ds.setPassword("capstone1234"); 
-//		ds.setInitialSize(2);
-//		ds.setMaxActive(10);
+		ds.setInitialSize(2);
+		ds.setMaxActive(10);
 //		ds.setTestWhileIdle(true);
 //		ds.setMinEvictableIdleTimeMillis(60000*3);
 //		ds.setTimeBetweenEvictionRunsMillis(10*1000);
+		
+		ds.setValidationQuery("select 1");
+		ds.setTestWhileIdle(true);
+		ds.setTimeBetweenEvictionRunsMillis(7200000);
+		
 		return ds;
 	}
 
